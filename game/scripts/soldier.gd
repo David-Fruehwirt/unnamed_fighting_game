@@ -35,7 +35,7 @@ func _setup_input() -> void:
 		InputMap.add_action(action)
 		for key: int in bindings[action]:
 			var event := InputEventKey.new()
-			event.physical_keycode = key
+			event.physical_keycode = key as Key
 			InputMap.action_add_event(action, event)
 
 func _physics_process(delta: float) -> void:
