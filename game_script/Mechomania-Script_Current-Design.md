@@ -1,4 +1,4 @@
-# Mech Fighting Game — Full Current Design
+# Unnamed Fighting Game — Full Current Design
 
 > **Important:** The skillset below is specifically for the **Soldier class**. Other classes will have their own weapons, skills and attack sets later.
 
@@ -15,7 +15,7 @@
 | Win Condition | Knock opponents off the stage |
 | Future Modes | 2v2, Free-for-All |
 | Initial Prototype | Soldier |
-| Main Focus | Mech customization + platform fighting + EM Frenzy system |
+| Main Focus | Mech customization + platform fighting + EM Frenzy + elemental status effects |
 
 ---
 
@@ -118,11 +118,21 @@ Progression can unlock:
 
 ---
 
-# 6. EM Frenzy System
+# 6. Element Loadout, Status Effects and EM Frenzy
 
-**EM Frenzy replaces the previous Element Module system.** There are no EM
-pickups, selected EM loadouts, active elements, EM switching or elemental
-weapons.
+Players choose **one element** in their loadout before a match. The element
+does not come from a pickup and cannot be switched during the match.
+
+### Elements
+
+Planned elements include Light, Fire, Electro, Dark, Water, Time and Space.
+Each element changes the player's attack properties and can create temporary
+status effects. Status effects are short-lived and must be tuned individually;
+examples include a brief burn, slow, stun, damage-over-time effect or altered
+knockback.
+
+The selected element remains available throughout the match, while EM Frenzy is
+earned separately through successful combat.
 
 EM Frenzy is earned through combat:
 
@@ -132,8 +142,9 @@ EM Frenzy is earned through combat:
   Frenzy sooner.
 - Missing, being interrupted or allowing the combo to end slows or resets the
   combo bonus.
-- When the meter is full, the player enters **EM Frenzy** and can use the
-  character's stronger Frenzy attacks for its duration.
+- When the meter is full, the player enters **EM Frenzy** and can use stronger
+  Frenzy attacks for its duration. Frenzy attacks use the player's selected
+  element and can apply its temporary status effect.
 - The exact meter amount, duration and decay values remain subject to tuning.
 
 ---
@@ -262,6 +273,8 @@ These are **normal attacks**, available before and during EM Frenzy.
 | Class Weapons | Each class has its own weapon pool |
 | Shared Equipment | Boots, armor, cores can be used across classes |
 | Parts | Change stats and gameplay |
+| Element Loadout | Choose one element before each match |
+| Status Effects | Elemental attacks can create temporary effects |
 | EM Frenzy | Builds from landed hits and accelerates during combos |
 | Progression | Research system inspired by Armored Core 6 |
 | Unlocks | Stronger/new parts, Frenzy techniques, cosmetics |
@@ -276,17 +289,17 @@ These are **normal attacks**, available before and during EM Frenzy.
 
 ## Soldier
 
-**Soldier + Armor + Boots + Core + EM Frenzy**
+**Soldier + Armor + Boots + Core + One Element + EM Frenzy**
 
 ### During Battle
 
-**Before Frenzy → Fists, Pistol and Laser Sword**
+**Before Frenzy → Fists, Pistol and Laser Sword using the selected element**
 
 **Landed hits → EM Frenzy meter builds**
 
 **Combo → Frenzy gain accelerates**
 
-**Full meter → Empowered EM Frenzy attacks**
+**Full meter → Empowered elemental EM Frenzy attacks and temporary status effects**
 
 ### Core Gameplay Loop
 
