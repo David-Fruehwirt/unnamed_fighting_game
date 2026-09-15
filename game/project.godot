@@ -1,0 +1,21 @@
+; Open this project with Godot 4.3 or later.
+config_version=5
+
+[application]
+config/name="Unnamed Fighting Game"
+run/main_scene="res://scenes/arena.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[display]
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/size/window_width_override=1440
+window/size/window_height_override=810
+window/stretch/mode="viewport"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.045, 0.065, 0.105, 1)
