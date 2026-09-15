@@ -29,6 +29,8 @@
 
 ## Source conventions
 
+All sixteen parts, eighteen animation frames, Pixelloid processing and C# integration are complete. Each body part was committed separately. See [verification results](REWORK_VERIFICATION.md) and the root README for editing and run commands.
+
 - `.pixel.json` documents are the editable pixel source of truth.
 - Semantic palette entries define armor, shadow, cobalt, joints, visor and highlights.
 - Draw definitions/C# tools record the initial construction. Rebuilding from those definitions is explicit so manual pixel-source edits are never silently overwritten.

@@ -1,4 +1,6 @@
-# Soldier parts atlas prompt
+# Historical Soldier parts atlas prompt
+
+This describes the retired prototype only. Current production sprites use code-authored pixel grids and Pixelloid. Do not use this prompt for new assets; see [the current workflow](REWORK_WORKFLOW.md).
 
 Generator: built-in image generation tool. Inputs: both PNGs in `reference_pics`.
 

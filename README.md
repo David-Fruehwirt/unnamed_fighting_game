@@ -1,57 +1,66 @@
-# Unnamed Fighting Game
+﻿# Unnamed Fighting Game
 
-A Godot 4.3+ 2D movement prototype: one white-and-cobalt Soldier and a single line platform.
+A C# Godot 2D movement prototype with a white-and-cobalt Soldier and one line platform.
 
 ## Play
 
-Import `game/project.godot` in Godot, then press **F6** on `arena.tscn` or **F5** to run the project.
+Use **Godot 4.7.2 .NET** and the **.NET 8 SDK**. Import `game/project.godot`, build, then press **F5**.
 
 - **A / D** or **Left / Right**: move.
-- **Space / W / Up**: jump. Release early for a shorter jump.
+- **Space / W / Up**: jump; release early for a shorter jump.
 - **R**: reset. Falling below the arena also resets the character.
 
-## Character and animation
+## Art and animation
 
-The [character design guide](game_script/CHARACTER_DESIGN.md) was written before creating the scene. It records the supplied image references, Armored Core 6 and Gundam influences, palette, proportions and Brawlhalla-style gameplay scale.
+The [design guide](game_script/CHARACTER_DESIGN.md) and [workflow](game_script/REWORK_WORKFLOW.md) preserve the supplied references, Armored Core 6 and Gundam influences, and Brawlhalla-style gameplay scale.
 
-Open `game/scenes/soldier.tscn` to edit the character. It has **sixteen separate Sprite2D parts**, each referencing a named AtlasTexture resource under `game/assets/soldier/`. All parts use the generated transparent `parts_atlas.png`; the resources select individual regions without duplicating the image.
+All replacement art was drawn with code on integer pixel grids. Sixteen editable parts share a 12-color palette. The 128-by-128 animation canvas contains **18 discrete frames**: four idle, eight run, three jump and three fall. A C# clock advances all part layers together; weapon sockets follow per-frame hand coordinates. Raster pixels are never rotated or interpolated.
 
-The joint hierarchy supports animation and replacement of individual parts:
+| Location | Purpose |
+| --- | --- |
+| `art/parts/*.pixel.json` | Editable individual parts |
+| `art/soldier.pixel.json` | Editable assembled animation with separate layers |
+| `art/draw/`, `tools/PixelAuthor/` | Initial drawing definitions and C# tools |
+| `art/exports/` | Code as Pixel Art exports |
+| `art/previews/` | Enlarged previews and animated GIFs |
+| `art/pixelloid/` | Pixelloid-processed outputs |
+| `game/assets/soldier_frames/` | Verified sheets used by Godot |
 
-```text
-Soldier (CharacterBody2D)
-├── CollisionShape2D
-├── Visual                         ← flip the entire rig
-│   └── Pelvis
-│       ├── FarHip / NearHip
-│       │   └── Knee
-│       │       └── Ankle
-│       └── Torso
-│           ├── Head
-│           ├── Backpack
-│           └── FarShoulder / NearShoulder
-│               └── Elbow
-│                   └── Wrist
-│                       └── WeaponSocket
-└── AnimationPlayer
+![Soldier run animation](art/previews/run.gif)
+
+**Pixelloid 0.1.3 processed all 36 exported PNGs before Godot integration.** Pixel size 1 preserves the already-authored pixels. [The report](art/PIXELLOID_REPORT.json) records the engine revision, settings and before/after RGBA hashes. Godot uses lossless imports, nearest filtering and disabled alpha-border modification.
+
+## Authoring
+
+Install Code as Pixel Art using `npx code-as-pixel-art install`. Set `PIX_CLI` to its CLI `dist/bin.js` if outside `.codex/tools/code-as-pixel-art`. Pixelloid processing needs a source checkout with npm dependencies installed; set `PIXELLOID_SOURCE` if outside `.codex/tools/pixelloid`. The report records the validated revision.
+
+Run from the repository root:
+
+```sh
+dotnet build tools/PixelAuthor
+dotnet run --project tools/PixelAuthor -- part head
+dotnet run --project tools/PixelAuthor -- animate
+dotnet run --project tools/PixelAuthor -- pixelloid
 ```
 
-Each named body joint has its own Sprite child. AnimationPlayer contains editable **idle, run, jump, fall** and **RESET** clips. Animate the joint nodes; preserve Sprite offsets because these align the artwork to the joints. Add future attacks as new clips and attach weapons at the WeaponSocket markers. The capsule controls movement independently of the artwork.
-
-Artwork was created with the built-in image generation tool. Its exact [prompt](game_script/ART_PROMPT.md) and the two original [reference images](reference_pics/) are included for future consistency. These initial cutout animations can be refined or supplemented with hand-drawn frames later.
+Part construction refuses to overwrite an existing authored part. Regenerating animation from drawing definitions does not propagate later manual edits to part pixel documents. Preserve those edits and apply them explicitly to the assembled source before exporting. Keep `.pixel.json` as the editable source of truth. Revalidate through Pixelloid before copying updated layer sheets into Godot. Commit each body part and each medium milestone.
 
 ## Verification
 
-Run the movement checks with your Godot executable:
+With the .NET Godot executable available as `godot`:
 
 ```sh
-godot --headless --path game --script res://tests/movement_smoke.gd
+dotnet build "game/Unnamed Fighting Game.csproj"
+godot --headless --path game --editor --import
+godot --headless --path game res://tests/movement_smoke.tscn
 ```
 
-Capture the scene with a graphical Godot process:
+Latest result: **69 checks, zero failures**, covering movement, landing, jump buffering, coyote time, reset, bounds, frame synchronization and exact imported pixel hashes. See [verification notes](game_script/REWORK_VERIFICATION.md).
+
+Create `artifacts/` to capture a pose:
 
 ```sh
-godot --path game -- --capture ../artifacts/arena.png
+godot --path game -- --capture ../artifacts/run.png --pose run --frame 2
 ```
 
-Create `artifacts/` first. Add `--run-pose` to capture a mid-run pose.
+Combat remains design work: one loadout element, temporary status effects, and EM Frenzy built through hits and faster through combos.
