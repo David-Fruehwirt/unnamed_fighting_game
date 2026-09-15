@@ -26,12 +26,12 @@ Create sixteen independently reusable sprite parts: head, torso, pelvis, backpac
 
 Each limb is a hierarchy of joint pivots: shoulder → elbow → wrist and hip → knee → ankle. The head and backpack attach to the torso. The torso attaches above the pelvis. Sprites remain separate from the physics collision shape. Add weapon attachment points at the hands for future pistol and sword animation.
 
-Use one transparent 4×4 atlas, one isolated part per cell. No labels or drawn assembly guides. Save the exact generation prompt alongside the art. Each Sprite2D uses its own atlas region, sized and positioned at its joint. This makes the same artwork reusable for later animations and equipment replacement.
+Author all sixteen parts with code on an integer pixel grid. Keep named, editable `.pixel.json` sources, a shared semantic palette and explicit attachment anchors. Render discrete animation frames with the same body-part identities and no raster rotation or interpolated pixels. Run the exports through Pixelloid before Godot integration. See [the rework requirements and workflow](REWORK_WORKFLOW.md).
 
 ## First scene
 
 - One simple horizontal platform line and a dark, uncluttered background.
 - One Soldier, movable left and right, with jump, gravity, landing and reset after falling.
 - A/D or arrow keys to move; Space/W/Up to jump; R to reset.
-- Idle, run, jump and fall poses animate the individual joint pivots.
+- Idle, run, jump and fall use discrete authored frames with reusable body-part layers and attachment points.
 - This scene establishes movement and the character rig. Element attacks and EM Frenzy remain documented future combat work.
