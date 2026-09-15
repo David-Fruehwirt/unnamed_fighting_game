@@ -15,7 +15,7 @@
 | Win Condition | Knock opponents off the stage |
 | Future Modes | 2v2, Free-for-All |
 | Initial Prototype | Soldier |
-| Main Focus | Mech customization + platform fighting + EM system |
+| Main Focus | Mech customization + platform fighting + EM Frenzy system |
 
 ---
 
@@ -26,7 +26,7 @@
 - Each class has its own weapon pool.
 - Some equipment such as **boots, armor and cores** can be used across classes.
 - Defensive skills can differ between classes.
-- EM-Fusions are **not class-dependent**.
+- EM Frenzy is a universal combat system and is **not class-dependent**.
 
 ### Current Class — Soldier
 
@@ -118,61 +118,23 @@ Progression can unlock:
 
 ---
 
-# 6. EM — Element Modules
+# 6. EM Frenzy System
 
-**EM = Element Module**
+**EM Frenzy replaces the previous Element Module system.** There are no EM
+pickups, selected EM loadouts, active elements, EM switching or elemental
+weapons.
 
-Players choose **2 EMs** for their build before a match.
+EM Frenzy is earned through combat:
 
-### Current / Planned Elements
-
-- Light
-- Fire
-- Electro
-- Dark
-- Water
-- Time
-- Space
-- More later
-
-Each EM provides:
-
-- Elemental abilities.
-- Passive stat bonuses.
-- Different gameplay characteristics.
-
-Some EMs are unlocked later.
-
-Some mech parts only support specific elements.
-
----
-
-# 7. EM Pickup System
-
-Players **do not start with their EMs active**.
-
-### EM Bubble
-- A neutral **gray EM bubble** spawns in the arena.
-- Any player can pick it up.
-- Picking it up activates one of the player's selected EMs.
-
-### EM Order
-
-**EM 1 → EM 2 → EM 1 → EM 2**
-
-- Starting EM is random.
-- Once both are obtained, **R switches between them**.
-
----
-
-# 8. Losing an EM
-
-- Taking enough damage causes the **currently active EM to disappear**.
-- The EM is **not dropped**.
-- It simply disappears from the mech.
-- The player becomes **elementless**.
-- They return to their basic combat state.
-- They must pick up another EM bubble to regain an EM.
+- Hitting an enemy with an attack builds the EM Frenzy meter.
+- Successful attacks made in succession build it faster.
+- Maintaining a combo increases the Frenzy gain rate, so longer combos reach
+  Frenzy sooner.
+- Missing, being interrupted or allowing the combo to end slows or resets the
+  combo bonus.
+- When the meter is full, the player enters **EM Frenzy** and can use the
+  character's stronger Frenzy attacks for its duration.
+- The exact meter amount, duration and decay values remain subject to tuning.
 
 ---
 
@@ -187,10 +149,9 @@ Players **do not start with their EMs active**.
 
 ## Heavy Attacks
 
-- **EM-powered attacks.**
+- **EM Frenzy-powered attacks.**
 - Stronger and more specialized.
-- Depend on the active EM and weapon.
-- Use EM Energy.
+- Become available while EM Frenzy is active.
 
 ## Fists
 
@@ -199,18 +160,11 @@ Players **do not start with their EMs active**.
 - Can be used even when an EM is active.
 - For Soldier, fists are the **Normal Attack weapon**.
 
-## EM Weapons
-
-Each active Soldier EM provides:
+## Soldier Weapons
 
 - **Pistol** — mid-range.
 - **Laser Sword** — close-range.
-
-## EM Switching
-
-- **R** switches between EM 1 and EM 2.
-- Changes the active elemental versions of Soldier's Pistol and Laser Sword.
-- Fists remain available.
+- **Fists** — always available for normal attacks.
 
 ---
 
@@ -235,7 +189,7 @@ Each active Soldier EM provides:
 
 Other classes can have completely different defensive skills.
 
-EM-Fusions can also have special defensive skills.
+EM Frenzy can also unlock special defensive skills.
 
 **Exact defensive system is still undecided.**
 
@@ -268,122 +222,39 @@ Fists are always available.
 | **Up** | Uppercut / anti-air | — |
 | **Down** | Low sweep/kick; combo starter | Downward punch/kick; slight downward movement; can spike |
 
-These are **normal attacks**, not Light EM attacks.
+These are **normal attacks**, available before and during EM Frenzy.
 
 ---
 
-# 13. Soldier — Light EM Heavy Attacks
+# 13. Soldier — EM Frenzy Attacks
 
-### Light EM Identity
+### EM Frenzy Identity
 
-- Faster.
-- More precise.
-- Lower damage.
-- Better combo potential.
+- Attacks become stronger while Frenzy is active.
+- Frenzy attacks reward continued pressure and combo execution.
+- The exact attack effects are tuned independently for each weapon.
 
-## Light Pistol
+## Frenzy Pistol
 
 | Input | Attack | Properties |
 |---|---|---|
-| **Side Heavy** | Light Shot | 1 fast, thin projectile; low damage; precise mid-range poke |
-| **Up Heavy** | Light Burst | 4 small upward shots; low damage each; anti-air |
-| **Down Heavy** | Light Recoil | 1 downward shot; slight upward recoil; combo starter |
-| **Neutral Heavy** | Light Volley | 8 shots around Soldier; very low damage each; close-range protection |
+| **Side Heavy** | Frenzy Shot | Empowered mid-range projectile |
+| **Up Heavy** | Frenzy Burst | Upward anti-air burst |
+| **Down Heavy** | Frenzy Recoil | Downward shot with upward recoil; combo starter |
+| **Neutral Heavy** | Frenzy Volley | Multi-shot close-range protection |
 
-## Light Laser Sword
-
-| Input | Attack | Properties |
-|---|---|---|
-| **Side Heavy** | Light Slash | Fast extended light blade; low damage; combo starter |
-| **Up Heavy** | Light Rise | Fast upward energy slash; anti-air; slight launch |
-| **Down Heavy** | Light Crash | Downward slash + short light shockwave; combo starter |
-| **Neutral Heavy** | Light Spin | Fast spinning energy slash; multiple low-damage hits; combo extender |
-
----
-
-# 14. Soldier — Fire EM Heavy Attacks
-
-### Fire EM Identity
-
-- Slower.
-- Higher damage.
-- Higher knockback.
-- Small fire effects/explosions.
-- **Not huge explosions** — large explosives are intended for the future **Bombardier** class.
-
-## Fire Pistol
+## Frenzy Laser Sword
 
 | Input | Attack | Properties |
 |---|---|---|
-| **Side Heavy** | Fire Shot | 1 slower fire projectile; high damage; small impact burst |
-| **Up Heavy** | Fire Burst | 3 fire projectiles upward; small impact bursts; medium damage each |
-| **Down Heavy** | Fire Recoil | 1 downward fire shot; recoil launches Soldier upward; small fire burst; combo starter |
-| **Neutral Heavy** | Fire Volley | 8 small fire shots around Soldier; low damage each; small fire bursts |
-
-## Fire Laser Sword
-
-| Input | Attack | Properties |
-|---|---|---|
-| **Side Heavy** | Fire Slash | Slower flame slash; high damage/knockback; short range |
-| **Up Heavy** | Fire Rise | Powerful upward flame slash; strong launch; combo finisher |
-| **Down Heavy** | Fire Crash | Sword slam + small fire burst; strong stagger; combo starter |
-| **Neutral Heavy** | Fire Spin | Spinning flame sword; multiple hits; final hit has high knockback |
+| **Side Heavy** | Frenzy Slash | Empowered extended blade; combo starter |
+| **Up Heavy** | Frenzy Rise | Upward anti-air slash with strong launch |
+| **Down Heavy** | Frenzy Crash | Downward slash and shockwave; combo starter |
+| **Neutral Heavy** | Frenzy Spin | Multi-hit spinning slash; combo extender |
 
 ---
 
-# 15. Soldier — EM-Fusion
-
-## General Fusion Rules
-
-- **Once per battle.**
-- Requires a compatible EM combination.
-- Not class-dependent.
-- Creates a unique temporary weapon/ability.
-- Fusion combinations can have completely different effects.
-- During Fusion charging:
-  - Knockback percentage rapidly increases.
-  - Attacks additionally increase knockback by **+1% per attack**.
-- Fusion can also have its own defensive skill.
-
----
-
-## Current Fusion — Light + Fire
-
-### Firework Minigun
-
-- Temporary special weapon.
-- Fires fireworks.
-- High area damage.
-- **50 bullets**.
-- Each shot adds **+1% knockback**.
-- Ends after all 50 bullets are used.
-
-### Fusion Concept
-
-**Light = speed/precision**
-
-**Fire = damage/area pressure**
-
-**Light + Fire = sustained explosive area control**
-
----
-
-# 16. Future Fusion Example — Time + Space
-
-### Time + Space → Antimatter
-
-- Creates **Antimatter Gloves**.
-- Allows special fist shots.
-- Time-limited.
-- Not dependent on class.
-- Each fist shot:
-  - **+5% damage**
-  - **+1% knockback**
-- Gloves disappear when the Fusion ends.
-
----
-
-# 17. Customization & Progression
+# 15. Customization & Progression
 
 | System | Design |
 |---|---|
@@ -391,32 +262,32 @@ These are **normal attacks**, not Light EM attacks.
 | Class Weapons | Each class has its own weapon pool |
 | Shared Equipment | Boots, armor, cores can be used across classes |
 | Parts | Change stats and gameplay |
-| EM Compatibility | Some parts support specific EMs |
+| EM Frenzy | Builds from landed hits and accelerates during combos |
 | Progression | Research system inspired by Armored Core 6 |
-| Unlocks | Stronger/new parts, EMs, cosmetics |
+| Unlocks | Stronger/new parts, Frenzy techniques, cosmetics |
 
 ---
 
-# 18. Current Build Structure
+# 16. Current Build Structure
 
 ## General
 
-**Class + Parts + 2 EMs + Fusion**
+**Class + Parts + Frenzy combat style**
 
 ## Soldier
 
-**Soldier + Armor + Boots + Core + Light EM + Fire EM**
+**Soldier + Armor + Boots + Core + EM Frenzy**
 
 ### During Battle
 
-**No EM → Fists**
+**Before Frenzy → Fists, Pistol and Laser Sword**
 
-**Light EM → Light Pistol + Light Laser Sword + Fists**
+**Landed hits → EM Frenzy meter builds**
 
-**Fire EM → Fire Pistol + Fire Laser Sword + Fists**
+**Combo → Frenzy gain accelerates**
 
-**Light + Fire → Firework Minigun Fusion**
+**Full meter → Empowered EM Frenzy attacks**
 
 ### Core Gameplay Loop
 
-**Normal Attacks → EM Heavy Attacks → EM switching → Defensive Skill → EM loss/recovery → Fusion**
+**Normal Attacks → Landed hits → Combo acceleration → EM Frenzy → Empowered attacks → Defensive Skill**
