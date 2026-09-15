@@ -1,3 +1,6 @@
 **/.godot/
 artifacts/
 *.log
+**/bin/
+**/obj/
+art/work/

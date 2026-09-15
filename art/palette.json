@@ -1,0 +1,14 @@
+[
+  {"id":"outline","name":"Deep navy outline","color":"#0b1426"},
+  {"id":"joint","name":"Mechanical graphite","color":"#202e46"},
+  {"id":"steel","name":"Joint edge steel","color":"#415571"},
+  {"id":"shadow","name":"Armor lavender shadow","color":"#7186ad"},
+  {"id":"mid","name":"Cool armor midtone","color":"#acbeda"},
+  {"id":"white","name":"Ceramic white armor","color":"#e3edf5"},
+  {"id":"light","name":"Armor edge highlight","color":"#ffffff"},
+  {"id":"blue_dark","name":"Cobalt shadow","color":"#153582"},
+  {"id":"blue","name":"Cobalt armor","color":"#245adb"},
+  {"id":"blue_light","name":"Cobalt highlight","color":"#558bff"},
+  {"id":"cyan","name":"Sensor cyan","color":"#49daf2"},
+  {"id":"cyan_light","name":"Sensor core","color":"#bcffff"}
+]
