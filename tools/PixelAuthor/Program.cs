@@ -77,13 +77,25 @@ public static partial class Program
     static void BuildPart(string name)
     {
         string target = $"art/parts/{name}.pixel.json";
-        if (File.Exists(target)) throw new Exception($"Refusing to overwrite editable source: {target}");
+        if (File.Exists(target))
+        {
+            var existing = JsonNode.Parse(File.ReadAllText(target))!;
+            var existingCells = existing["characters"]![0]!["views"]![0]!["frames"]![0]!["cels"]![name]!["grid"]!["cells"]!.AsArray();
+            if (existingCells.Any(cell => cell is not null))
+                throw new Exception($"Refusing to overwrite editable source: {target}");
+        }
         var definition = JsonSerializer.Deserialize<PartDefinition>(File.ReadAllText($"art/draw/{name}.json"))!;
         var canvas = new Canvas(40, 40);
         Draw(canvas, definition, p => p);
         Save(target, Project(name, 40, 40, [name]));
         string inspection = RunPix("inspect", target, "--json");
-        var hash = JsonNode.Parse(inspection)!["projectHash"]!.GetValue<string>();
+        if (JsonNode.Parse(inspection)!["valid"]!.GetValue<bool>() != true)
+            throw new Exception("Source inspection failed");
+        var compact = JsonNode.Parse(File.ReadAllText(target))!.ToJsonString(new JsonSerializerOptions {
+            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+        });
+        var hash = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(
+            System.Text.Encoding.UTF8.GetBytes(compact))).ToLowerInvariant();
         var operations = new List<object>();
         for (int y = 0; y < 40; y++)
         for (int x = 0; x < 40; x++)
