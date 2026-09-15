@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "projectId": "soldier",
+  "characterId": "soldier",
+  "animationId": "fall",
+  "ticksPerSecond": 60,
+  "sheet": {
+    "width": 384,
+    "height": 128
+  },
+  "origin": {
+    "x": 64,
+    "y": 121
+  },
+  "pivot": {
+    "x": 64,
+    "y": 121
+  },
+  "anchors": {
+    "feet": {
+      "x": 64,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "fall_0",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "06cebe95"
+    },
+    {
+      "frameId": "fall_1",
+      "x": 128,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "2b439a29"
+    },
+    {
+      "frameId": "fall_2",
+      "x": 256,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "3d41699e"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "projectId": "soldier",
+  "characterId": "soldier",
+  "animationId": "idle",
+  "ticksPerSecond": 60,
+  "sheet": {
+    "width": 512,
+    "height": 128
+  },
+  "origin": {
+    "x": 64,
+    "y": 121
+  },
+  "pivot": {
+    "x": 64,
+    "y": 121
+  },
+  "anchors": {
+    "feet": {
+      "x": 64,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "idle_0",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "5b35f082"
+    },
+    {
+      "frameId": "idle_1",
+      "x": 128,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "1230be48"
+    },
+    {
+      "frameId": "idle_2",
+      "x": 256,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "5b35f082"
+    },
+    {
+      "frameId": "idle_3",
+      "x": 384,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "928b6481"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "projectId": "soldier",
+  "characterId": "soldier",
+  "animationId": "all",
+  "ticksPerSecond": 60,
+  "sheet": {
+    "width": 2304,
+    "height": 128
+  },
+  "origin": {
+    "x": 64,
+    "y": 121
+  },
+  "pivot": {
+    "x": 64,
+    "y": 121
+  },
+  "anchors": {
+    "feet": {
+      "x": 64,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "idle_0",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "e321d3f9"
+    },
+    {
+      "frameId": "idle_1",
+      "x": 128,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "e321d3f9"
+    },
+    {
+      "frameId": "idle_2",
+      "x": 256,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "e321d3f9"
+    },
+    {
+      "frameId": "idle_3",
+      "x": 384,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "e321d3f9"
+    },
+    {
+      "frameId": "run_0",
+      "x": 512,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "f696575d"
+    },
+    {
+      "frameId": "run_1",
+      "x": 640,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "f5f28e3f"
+    },
+    {
+      "frameId": "run_2",
+      "x": 768,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "2fe6290f"
+    },
+    {
+      "frameId": "run_3",
+      "x": 896,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "22a8c58f"
+    },
+    {
+      "frameId": "run_4",
+      "x": 1024,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "6e26f15f"
+    },
+    {
+      "frameId": "run_5",
+      "x": 1152,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "a00f0919"
+    },
+    {
+      "frameId": "run_6",
+      "x": 1280,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "a3a7e389"
+    },
+    {
+      "frameId": "run_7",
+      "x": 1408,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "6d47fd3f"
+    },
+    {
+      "frameId": "jump_0",
+      "x": 1536,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "f475b435"
+    },
+    {
+      "frameId": "jump_1",
+      "x": 1664,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "ed7710ff"
+    },
+    {
+      "frameId": "jump_2",
+      "x": 1792,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "48f40ba2"
+    },
+    {
+      "frameId": "fall_0",
+      "x": 1920,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "5a498842"
+    },
+    {
+      "frameId": "fall_1",
+      "x": 2048,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "fe536042"
+    },
+    {
+      "frameId": "fall_2",
+      "x": 2176,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 6,
+      "hash": "b59d3842"
+    }
+  ]
+}
