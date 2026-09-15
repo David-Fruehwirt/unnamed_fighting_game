@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/soldier.tscn" id="1"]
-[ext_resource type="Script" path="res://scripts/arena.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/Arena.cs" id="2"]
 
 [sub_resource type="RectangleShape2D" id="PlatformShape"]
 size = Vector2(752, 10)

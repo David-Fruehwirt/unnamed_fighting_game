@@ -1,0 +1,115 @@
+using Godot;
+using System;
+using System.Linq;
+using System.Text.Json;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
+using UnnamedFightingGame;
+
+public partial class MovementSmoke : Node
+{
+    private int _failures, _checks;
+    private Soldier _player = null!;
+    private void Check(bool condition, string message)
+    {
+        _checks++;
+        if (condition) GD.Print("PASS: " + message);
+        else { _failures++; GD.PushError(message); }
+    }
+    private async Task Frames(int count)
+    {
+        for (int i=0;i<count;i++)
+        {
+            await ToSignal(GetTree(),SceneTree.SignalName.PhysicsFrame);
+            await ToSignal(GetTree(),SceneTree.SignalName.ProcessFrame);
+        }
+    }
+    public override async void _Ready()
+    {
+        try
+        {
+            var arena=GD.Load<PackedScene>("res://scenes/arena.tscn").Instantiate();
+            AddChild(arena);
+            _player=arena.GetNode<Soldier>("Soldier");
+            await Frames(10);
+            Check(_player.IsOnFloor(),"Starts on line platform");
+            Check(Math.Abs(_player.Position.Y-412)<1,"Collision feet align with platform");
+            Check(_player.Visual.PartCount==16,"Sixteen independent pixel part sprites");
+            Check(_player.Visual.GetNodeOrNull<Marker2D>("NearWeaponSocket")!=null &&
+                _player.Visual.GetNodeOrNull<Marker2D>("FarWeaponSocket")!=null,"Both weapon sockets preserved");
+            VerifyArt();
+            float startX=_player.Position.X;
+            Input.ActionPress("move_right"); await Frames(25);
+            Check(_player.Position.X>startX+60,"Right movement");
+            Check(_player.MotionState=="run","Running selects run clip");
+            Input.ActionRelease("move_right"); await Frames(15);
+            Check(Math.Abs(_player.Velocity.X)<1,"Brakes to rest");
+            Input.ActionPress("move_left"); await Frames(20);
+            Check(_player.Visual.Scale.X==-1,"Left-facing whole-character flip");
+            Input.ActionRelease("move_left"); await Frames(15);
+            float floorY=_player.Position.Y;
+            Input.ActionPress("jump"); await Frames(12);
+            Check(_player.Position.Y<floorY-45,"Jump rises above platform");
+            Check(!_player.IsOnFloor()&&_player.MotionState=="jump","Ascending pose");
+            Input.ActionRelease("jump"); await Frames(14);
+            Check(_player.MotionState=="fall","Descending pose");
+            await Frames(40);
+            Check(_player.IsOnFloor(),"Gravity lands on line");
+            Check(Math.Abs(_player.Position.Y-floorY)<1,"No floor penetration");
+            _player.Position=new Vector2(881,_player.Position.Y); await Frames(2);
+            Input.ActionPress("jump"); await Frames(2);
+            Check(_player.Velocity.Y < -100,"Coyote-time edge jump");
+            Input.ActionRelease("jump");
+            _player.Reset(); await Frames(5);
+            _player.Position=new Vector2(900,_player.Position.Y); await Frames(55);
+            Check(_player.Position.DistanceTo(_player.SpawnPosition)<2,"Respawn after falling off");
+            _player.Position=new Vector2(600,250);
+            Input.ActionPress("reset"); await Frames(2); Input.ActionRelease("reset");
+            Check(_player.Position.DistanceTo(_player.SpawnPosition)<2,"R resets player");
+            _player.Position=new Vector2(935,240); Input.ActionPress("move_right"); await Frames(10);
+            Check(_player.Position.X<=938,"Horizontal bounds");
+            Input.ActionRelease("move_right");
+            _player.Reset(); await Frames(4);
+            _player.Position=new Vector2(_player.Position.X,390);
+            _player.Velocity=new Vector2(0,220); _player.CoyoteLeft=0; await Frames(2);
+            Input.ActionPress("jump"); await Frames(9);
+            Check(_player.Velocity.Y < -100,"Jump buffered across landing");
+            Input.ActionRelease("jump");
+            Check(_player.Visual.GlobalPosition.DistanceTo(_player.GlobalPosition.Round())<0.01,
+                "Visible sprite sits on integer pixels");
+            GD.Print($"RESULT: {_checks} checks; {_failures} failures");
+            GetTree().Quit(_failures==0?0:1);
+        }
+        catch(Exception ex) { GD.PushError(ex.ToString()); GetTree().Quit(1); }
+    }
+
+    private void VerifyArt()
+    {
+        string reportPath=System.IO.Path.Combine(ProjectSettings.GlobalizePath("res://"),"..","art","PIXELLOID_REPORT.json");
+        using var report=JsonDocument.Parse(System.IO.File.ReadAllText(reportPath));
+        var entries=report.RootElement.GetProperty("files").EnumerateArray()
+            .Where(e=>e.GetProperty("file").GetString()!.StartsWith("layers/"))
+            .ToDictionary(e=>System.IO.Path.GetFileNameWithoutExtension(e.GetProperty("file").GetString()!));
+        foreach(var node in _player.Visual.GetChildren())
+        {
+            if(node is not Sprite2D sprite)continue;
+            using var image=sprite.Texture.GetImage();
+            image.Convert(Image.Format.Rgba8);
+            string hash=Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant();
+            Check(hash==entries[sprite.Name.ToString()].GetProperty("processedRgbaSha256").GetString(),
+                $"{sprite.Name}: Godot pixels match Pixelloid output");
+            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==18,
+                $"{sprite.Name}: exact pixels, no raster rotation or scaling");
+        }
+        foreach(var (clip,info) in SoldierVisual.Clips)
+        {
+            for(int frame=0;frame<info.Count;frame++)
+            {
+                _player.Visual.SetPose(clip,frame);
+                Check(_player.Visual.GetChildren().OfType<Sprite2D>().All(s=>s.Frame==info.Start+frame),
+                    $"{clip}/{frame}: all layers share frame index");
+            }
+        }
+        _player.Visual.SetPose("idle",0);
+    }
+}

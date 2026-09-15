@@ -1,960 +1,27 @@
-[gd_scene load_steps=25 format=3]
+[gd_scene load_steps=20 format=3]
 
-[ext_resource type="Script" path="res://scripts/soldier.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/soldier/head.tres" id="2"]
-[ext_resource type="Texture2D" path="res://assets/soldier/torso.tres" id="3"]
-[ext_resource type="Texture2D" path="res://assets/soldier/pelvis.tres" id="4"]
-[ext_resource type="Texture2D" path="res://assets/soldier/backpack.tres" id="5"]
-[ext_resource type="Texture2D" path="res://assets/soldier/far_upper_arm.tres" id="6"]
-[ext_resource type="Texture2D" path="res://assets/soldier/near_upper_arm.tres" id="7"]
-[ext_resource type="Texture2D" path="res://assets/soldier/far_forearm.tres" id="8"]
-[ext_resource type="Texture2D" path="res://assets/soldier/near_forearm.tres" id="9"]
-[ext_resource type="Texture2D" path="res://assets/soldier/far_hand.tres" id="10"]
-[ext_resource type="Texture2D" path="res://assets/soldier/near_hand.tres" id="11"]
-[ext_resource type="Texture2D" path="res://assets/soldier/far_thigh.tres" id="12"]
-[ext_resource type="Texture2D" path="res://assets/soldier/near_thigh.tres" id="13"]
-[ext_resource type="Texture2D" path="res://assets/soldier/far_shin.tres" id="14"]
-[ext_resource type="Texture2D" path="res://assets/soldier/near_shin.tres" id="15"]
-[ext_resource type="Texture2D" path="res://assets/soldier/far_foot.tres" id="16"]
-[ext_resource type="Texture2D" path="res://assets/soldier/near_foot.tres" id="17"]
+[ext_resource type="Script" path="res://scripts/Soldier.cs" id="1"]
+[ext_resource type="Script" path="res://scripts/SoldierVisual.cs" id="2"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/backpack.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/far_upper_arm.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/far_forearm.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/far_hand.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/far_thigh.png" id="7"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/far_shin.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/far_foot.png" id="9"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/near_thigh.png" id="10"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/near_shin.png" id="11"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/near_foot.png" id="12"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/pelvis.png" id="13"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/torso.png" id="14"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/head.png" id="15"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/near_upper_arm.png" id="16"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/near_forearm.png" id="17"]
+[ext_resource type="Texture2D" path="res://assets/soldier_frames/near_hand.png" id="18"]
 
 [sub_resource type="CapsuleShape2D" id="BodyShape"]
 radius = 12.0
 height = 108.0
-
-[sub_resource type="Animation" id="Anim_RESET"]
-resource_name = "RESET"
-length = 0.01
-loop_mode = 0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Pelvis:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visual/Pelvis/Torso:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visual/Pelvis/Torso/Head:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Visual/Pelvis/FarHip:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.18]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Visual/Pelvis/FarHip/Knee:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.2]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Visual/Pelvis/FarHip/Knee/Ankle:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.02]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Visual/Pelvis/Torso/FarShoulder:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.18]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.22]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow/Wrist:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.1]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Visual/Pelvis/NearHip:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.16]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Visual/Pelvis/NearHip/Knee:rotation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.1]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Visual/Pelvis/NearHip/Knee/Ankle:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.06]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Visual/Pelvis/Torso/NearShoulder:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.1]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow:rotation")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.22]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow/Wrist:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.1]
-}
-
-[sub_resource type="Animation" id="Anim_idle"]
-resource_name = "idle"
-length = 1.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Pelvis:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -56), Vector2(0, -56.7), Vector2(0, -56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visual/Pelvis/Torso:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0, 0, 0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visual/Pelvis/Torso/Head:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0, 0, 0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Visual/Pelvis/FarHip:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.18, -0.18, -0.18]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Visual/Pelvis/FarHip/Knee:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.2, 0.2, 0.2]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Visual/Pelvis/FarHip/Knee/Ankle:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.02, -0.02, -0.02]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Visual/Pelvis/Torso/FarShoulder:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.18, -0.18, -0.18]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.22, -0.22, -0.22]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow/Wrist:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.1, 0.1, 0.1]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Visual/Pelvis/NearHip:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.16, 0.16, 0.16]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Visual/Pelvis/NearHip/Knee:rotation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.1, -0.1, -0.1]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Visual/Pelvis/NearHip/Knee/Ankle:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.06, -0.06, -0.06]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Visual/Pelvis/Torso/NearShoulder:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.1, 0.1, 0.1]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow:rotation")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.22, -0.22, -0.22]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow/Wrist:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.1, 0.1, 0.1]
-}
-
-[sub_resource type="Animation" id="Anim_run"]
-resource_name = "run"
-length = 0.56
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Pelvis:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -57), Vector2(0, -60), Vector2(0, -57), Vector2(0, -60), Vector2(0, -57)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visual/Pelvis/Torso:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.13, 0.18, 0.13, 0.18, 0.13]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visual/Pelvis/Torso/Head:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.13, -0.18, -0.13, -0.18, -0.13]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Visual/Pelvis/FarHip:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.6, -0.1, -0.65, -0.1, 0.6]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Visual/Pelvis/FarHip/Knee:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.35, 0.8, 0.15, 0.05, 0.35]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Visual/Pelvis/FarHip/Knee/Ankle:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.75, -0.55, 0.5, 0.05, -0.75]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Visual/Pelvis/Torso/FarShoulder:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.5, -0.1, 0.5, -0.1, -0.5]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.6, -0.9, -0.6, -0.9, -0.6]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow/Wrist:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.1, 0.1, 0.1, 0.1, 0.1]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Visual/Pelvis/NearHip:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.65, -0.1, 0.6, -0.1, -0.65]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Visual/Pelvis/NearHip/Knee:rotation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.15, 0.05, 0.35, 0.8, 0.15]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Visual/Pelvis/NearHip/Knee/Ankle:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.5, 0.05, -0.75, -0.55, 0.5]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Visual/Pelvis/Torso/NearShoulder:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.5, -0.1, -0.5, -0.1, 0.5]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow:rotation")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.6, -0.9, -0.6, -0.9, -0.6]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow/Wrist:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.1, 0.1, 0.1, 0.1, 0.1]
-}
-
-[sub_resource type="Animation" id="Anim_jump"]
-resource_name = "jump"
-length = 0.25
-loop_mode = 0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Pelvis:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -56), Vector2(0, -56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visual/Pelvis/Torso:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.1, 0.1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visual/Pelvis/Torso/Head:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Visual/Pelvis/FarHip:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.4, 0.4]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Visual/Pelvis/FarHip/Knee:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.65, 0.65]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Visual/Pelvis/FarHip/Knee/Ankle:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.25, -0.25]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Visual/Pelvis/Torso/FarShoulder:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.7, -0.7]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.8, -0.8]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow/Wrist:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.1, 0.1]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Visual/Pelvis/NearHip:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.85, -0.85]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Visual/Pelvis/NearHip/Knee:rotation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1, 1]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Visual/Pelvis/NearHip/Knee/Ankle:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.25, -0.25]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Visual/Pelvis/Torso/NearShoulder:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.65, 0.65]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow:rotation")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.8, -0.8]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow/Wrist:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.1, 0.1]
-}
-
-[sub_resource type="Animation" id="Anim_fall"]
-resource_name = "fall"
-length = 0.25
-loop_mode = 0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual/Pelvis:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -56), Vector2(0, -56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visual/Pelvis/Torso:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.06, -0.06]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visual/Pelvis/Torso/Head:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Visual/Pelvis/FarHip:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.23, 0.23]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Visual/Pelvis/FarHip/Knee:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.4, 0.4]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Visual/Pelvis/FarHip/Knee/Ankle:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.25, -0.25]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Visual/Pelvis/Torso/FarShoulder:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.7, -0.7]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.8, -0.8]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Visual/Pelvis/Torso/FarShoulder/Elbow/Wrist:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.1, 0.1]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Visual/Pelvis/NearHip:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.27, -0.27]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Visual/Pelvis/NearHip/Knee:rotation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.55, 0.55]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Visual/Pelvis/NearHip/Knee/Ankle:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.25, -0.25]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Visual/Pelvis/Torso/NearShoulder:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.65, 0.65]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow:rotation")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.8, -0.8]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Visual/Pelvis/Torso/NearShoulder/Elbow/Wrist:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.1, 0.1]
-}
-
-[sub_resource type="AnimationLibrary" id="Animations"]
-_data = {
-&"RESET": SubResource("Anim_RESET"),
-&"idle": SubResource("Anim_idle"),
-&"run": SubResource("Anim_run"),
-&"jump": SubResource("Anim_jump"),
-&"fall": SubResource("Anim_fall")
-}
 
 [node name="Soldier" type="CharacterBody2D"]
 texture_filter = 1
@@ -966,206 +33,106 @@ position = Vector2(0, -54)
 shape = SubResource("BodyShape")
 
 [node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2")
 
-[node name="Pelvis" type="Node2D" parent="Visual"]
-position = Vector2(0, -56)
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis"]
-rotation = 0
-scale = Vector2(0.08654, 0.08654)
-z_index = 1
-texture = ExtResource("4")
-centered = false
-offset = Vector2(-139, -66.56)
-
-[node name="Torso" type="Node2D" parent="Visual/Pelvis"]
-position = Vector2(0, -4)
-z_index = 0
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso"]
-rotation = 0
-scale = Vector2(0.13147, 0.13147)
-z_index = 0
+[node name="backpack" type="Sprite2D" parent="Visual"]
 texture = ExtResource("3")
 centered = false
-offset = Vector2(-124.95, -223.39)
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="Backpack" type="Node2D" parent="Visual/Pelvis/Torso"]
-position = Vector2(-11, -17)
-z_index = -4
+[node name="far_upper_arm" type="Sprite2D" parent="Visual"]
+texture = ExtResource("4")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso/Backpack"]
-rotation = 0
-scale = Vector2(0.09339, 0.09339)
-z_index = 0
+[node name="far_forearm" type="Sprite2D" parent="Visual"]
 texture = ExtResource("5")
 centered = false
-offset = Vector2(-117.7, -128.5)
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="Head" type="Node2D" parent="Visual/Pelvis/Torso"]
-position = Vector2(3, -27)
-z_index = 2
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso/Head"]
-rotation = 0
-scale = Vector2(0.09728, 0.09728)
-z_index = 0
-texture = ExtResource("2")
-centered = false
-offset = Vector2(-122, -233.87)
-
-[node name="FarHip" type="Node2D" parent="Visual/Pelvis"]
-position = Vector2(7, 3)
-z_index = -3
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/FarHip"]
-rotation = -0.02356
-scale = Vector2(0.11012, 0.11012)
-z_index = 0
-texture = ExtResource("12")
-centered = false
-offset = Vector2(-59.04, -43.5)
-
-[node name="Knee" type="Node2D" parent="Visual/Pelvis/FarHip"]
-position = Vector2(0, 23)
-z_index = 0
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/FarHip/Knee"]
-rotation = -0.03867
-scale = Vector2(0.11187, 0.11187)
-z_index = 0
-texture = ExtResource("14")
-centered = false
-offset = Vector2(-61.92, -40.6)
-
-[node name="Ankle" type="Node2D" parent="Visual/Pelvis/FarHip/Knee"]
-position = Vector2(0, 25)
-z_index = 0
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/FarHip/Knee/Ankle"]
-rotation = 0
-scale = Vector2(0.08667, 0.08667)
-z_index = 0
-texture = ExtResource("16")
-centered = false
-offset = Vector2(-59.04, -58.5)
-
-[node name="FarShoulder" type="Node2D" parent="Visual/Pelvis/Torso"]
-position = Vector2(9, -23)
-z_index = -3
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso/FarShoulder"]
-rotation = -0.33113
-scale = Vector2(0.09885, 0.09885)
-z_index = 0
+[node name="far_hand" type="Sprite2D" parent="Visual"]
 texture = ExtResource("6")
 centered = false
-offset = Vector2(-103.6, -77.49)
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="Elbow" type="Node2D" parent="Visual/Pelvis/Torso/FarShoulder"]
-position = Vector2(0, 18)
-z_index = 0
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso/FarShoulder/Elbow"]
-rotation = -0.16959
-scale = Vector2(0.08439, 0.08439)
-z_index = 0
-texture = ExtResource("8")
-centered = false
-offset = Vector2(-110.88, -43.2)
-
-[node name="Wrist" type="Node2D" parent="Visual/Pelvis/Torso/FarShoulder/Elbow"]
-position = Vector2(0, 18)
-z_index = 0
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso/FarShoulder/Elbow/Wrist"]
-rotation = 0
-scale = Vector2(0.06875, 0.06875)
-z_index = 0
-texture = ExtResource("10")
-centered = false
-offset = Vector2(-71.76, -32)
-
-[node name="WeaponSocket" type="Marker2D" parent="Visual/Pelvis/Torso/FarShoulder/Elbow/Wrist"]
-position = Vector2(5, 5)
-
-[node name="NearHip" type="Node2D" parent="Visual/Pelvis"]
-position = Vector2(-6, 3)
-z_index = -1
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/NearHip"]
-rotation = -0.03412
-scale = Vector2(0.10749, 0.10749)
-z_index = 0
-texture = ExtResource("13")
-centered = false
-offset = Vector2(-91.98, -44.55)
-
-[node name="Knee" type="Node2D" parent="Visual/Pelvis/NearHip"]
-position = Vector2(0, 23)
-z_index = 0
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/NearHip/Knee"]
-rotation = -0.05797
-scale = Vector2(0.11177, 0.11177)
-z_index = 0
-texture = ExtResource("15")
-centered = false
-offset = Vector2(-87.84, -40.6)
-
-[node name="Ankle" type="Node2D" parent="Visual/Pelvis/NearHip/Knee"]
-position = Vector2(0, 25)
-z_index = 0
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/NearHip/Knee/Ankle"]
-rotation = 0
-scale = Vector2(0.08553, 0.08553)
-z_index = 0
-texture = ExtResource("17")
-centered = false
-offset = Vector2(-60.72, -59.28)
-
-[node name="NearShoulder" type="Node2D" parent="Visual/Pelvis/Torso"]
-position = Vector2(-12, -23)
-z_index = 3
-
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso/NearShoulder"]
-rotation = 0.34586
-scale = Vector2(0.09732, 0.09732)
-z_index = 0
+[node name="far_thigh" type="Sprite2D" parent="Visual"]
 texture = ExtResource("7")
 centered = false
-offset = Vector2(-81.7, -78.3)
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="Elbow" type="Node2D" parent="Visual/Pelvis/Torso/NearShoulder"]
-position = Vector2(0, 18)
-z_index = 0
+[node name="far_shin" type="Sprite2D" parent="Visual"]
+texture = ExtResource("8")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso/NearShoulder/Elbow"]
-rotation = 0.04093
-scale = Vector2(0.08554, 0.08554)
-z_index = 0
+[node name="far_foot" type="Sprite2D" parent="Visual"]
 texture = ExtResource("9")
 centered = false
-offset = Vector2(-55.35, -43.2)
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="Wrist" type="Node2D" parent="Visual/Pelvis/Torso/NearShoulder/Elbow"]
-position = Vector2(0, 18)
-z_index = 0
+[node name="near_thigh" type="Sprite2D" parent="Visual"]
+texture = ExtResource("10")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="Sprite" type="Sprite2D" parent="Visual/Pelvis/Torso/NearShoulder/Elbow/Wrist"]
-rotation = 0
-scale = Vector2(0.06707, 0.06707)
-z_index = 0
+[node name="near_shin" type="Sprite2D" parent="Visual"]
 texture = ExtResource("11")
 centered = false
-offset = Vector2(-73.84, -32.8)
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="WeaponSocket" type="Marker2D" parent="Visual/Pelvis/Torso/NearShoulder/Elbow/Wrist"]
-position = Vector2(5, 5)
+[node name="near_foot" type="Sprite2D" parent="Visual"]
+texture = ExtResource("12")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("Animations")
-}
-autoplay = "idle"
+[node name="pelvis" type="Sprite2D" parent="Visual"]
+texture = ExtResource("13")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
+
+[node name="torso" type="Sprite2D" parent="Visual"]
+texture = ExtResource("14")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
+
+[node name="head" type="Sprite2D" parent="Visual"]
+texture = ExtResource("15")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
+
+[node name="near_upper_arm" type="Sprite2D" parent="Visual"]
+texture = ExtResource("16")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
+
+[node name="near_forearm" type="Sprite2D" parent="Visual"]
+texture = ExtResource("17")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
+
+[node name="near_hand" type="Sprite2D" parent="Visual"]
+texture = ExtResource("18")
+centered = false
+offset = Vector2(-64, -121)
+hframes = 18
+
+[node name="NearWeaponSocket" type="Marker2D" parent="Visual"]
+position = Vector2(-12, -45)
+
+[node name="FarWeaponSocket" type="Marker2D" parent="Visual"]
+position = Vector2(16, -46)
