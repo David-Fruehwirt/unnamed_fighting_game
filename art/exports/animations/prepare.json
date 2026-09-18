@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "projectId": "soldier",
+  "characterId": "soldier",
+  "animationId": "prepare",
+  "ticksPerSecond": 300,
+  "sheet": {
+    "width": 256,
+    "height": 128
+  },
+  "origin": {
+    "x": 64,
+    "y": 121
+  },
+  "pivot": {
+    "x": 64,
+    "y": 121
+  },
+  "anchors": {
+    "feet": {
+      "x": 64,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "jump_pose_00",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 10,
+      "hash": "d749e3f2"
+    },
+    {
+      "frameId": "jump_pose_01",
+      "x": 128,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 10,
+      "hash": "5e8b511d"
+    }
+  ]
+}

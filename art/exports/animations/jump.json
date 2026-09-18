@@ -3,9 +3,9 @@
   "projectId": "soldier",
   "characterId": "soldier",
   "animationId": "jump",
-  "ticksPerSecond": 60,
+  "ticksPerSecond": 300,
   "sheet": {
-    "width": 384,
+    "width": 512,
     "height": 128
   },
   "origin": {
@@ -24,31 +24,40 @@
   },
   "frames": [
     {
-      "frameId": "jump_0",
+      "frameId": "jump_pose_02",
       "x": 0,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
-      "hash": "5cb1024b"
+      "durationTicks": 20,
+      "hash": "d4607c72"
     },
     {
-      "frameId": "jump_1",
+      "frameId": "jump_pose_03",
       "x": 128,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
-      "hash": "79905d33"
+      "durationTicks": 20,
+      "hash": "4384231a"
     },
     {
-      "frameId": "jump_2",
+      "frameId": "jump_pose_04",
       "x": 256,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
-      "hash": "8c951b5e"
+      "durationTicks": 20,
+      "hash": "93d21d8f"
+    },
+    {
+      "frameId": "jump_pose_05",
+      "x": 384,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "3df993c3"
     }
   ]
 }

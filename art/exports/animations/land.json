@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "projectId": "soldier",
+  "characterId": "soldier",
+  "animationId": "land",
+  "ticksPerSecond": 300,
+  "sheet": {
+    "width": 512,
+    "height": 128
+  },
+  "origin": {
+    "x": 64,
+    "y": 121
+  },
+  "pivot": {
+    "x": 64,
+    "y": 121
+  },
+  "anchors": {
+    "feet": {
+      "x": 64,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "jump_pose_08",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "995d5586"
+    },
+    {
+      "frameId": "jump_pose_09",
+      "x": 128,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "78afa445"
+    },
+    {
+      "frameId": "jump_pose_10",
+      "x": 256,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "e01ea2ad"
+    },
+    {
+      "frameId": "jump_pose_11",
+      "x": 384,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "d749e3f2"
+    }
+  ]
+}

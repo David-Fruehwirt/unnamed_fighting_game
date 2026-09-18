@@ -3,9 +3,9 @@
   "projectId": "soldier",
   "characterId": "soldier",
   "animationId": "fall",
-  "ticksPerSecond": 60,
+  "ticksPerSecond": 300,
   "sheet": {
-    "width": 384,
+    "width": 256,
     "height": 128
   },
   "origin": {
@@ -24,31 +24,22 @@
   },
   "frames": [
     {
-      "frameId": "fall_0",
+      "frameId": "jump_pose_06",
       "x": 0,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
-      "hash": "06cebe95"
+      "durationTicks": 30,
+      "hash": "7345d878"
     },
     {
-      "frameId": "fall_1",
+      "frameId": "jump_pose_07",
       "x": 128,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
-      "hash": "2b439a29"
-    },
-    {
-      "frameId": "fall_2",
-      "x": 256,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 6,
-      "hash": "3d41699e"
+      "durationTicks": 30,
+      "hash": "1f278519"
     }
   ]
 }

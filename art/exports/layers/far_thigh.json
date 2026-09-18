@@ -5,7 +5,7 @@
   "animationId": "all",
   "ticksPerSecond": 300,
   "sheet": {
-    "width": 2816,
+    "width": 3584,
     "height": 128
   },
   "origin": {
@@ -168,58 +168,112 @@
       "hash": "a5386a93"
     },
     {
-      "frameId": "jump_0",
+      "frameId": "jump_pose_00",
       "x": 2048,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 30,
-      "hash": "1174a7a3"
+      "durationTicks": 10,
+      "hash": "04d8a1f7"
     },
     {
-      "frameId": "jump_1",
+      "frameId": "jump_pose_01",
       "x": 2176,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 30,
-      "hash": "183cf5aa"
+      "durationTicks": 10,
+      "hash": "65f42f67"
     },
     {
-      "frameId": "jump_2",
+      "frameId": "jump_pose_02",
       "x": 2304,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 30,
-      "hash": "1bae671e"
+      "durationTicks": 20,
+      "hash": "c5cc0f2f"
     },
     {
-      "frameId": "fall_0",
+      "frameId": "jump_pose_03",
       "x": 2432,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 30,
-      "hash": "73d6af32"
+      "durationTicks": 20,
+      "hash": "243ab7b0"
     },
     {
-      "frameId": "fall_1",
+      "frameId": "jump_pose_04",
       "x": 2560,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 30,
-      "hash": "e4aae49e"
+      "durationTicks": 20,
+      "hash": "6458d0cb"
     },
     {
-      "frameId": "fall_2",
+      "frameId": "jump_pose_05",
       "x": 2688,
       "y": 0,
       "width": 128,
       "height": 128,
+      "durationTicks": 20,
+      "hash": "e0e72a39"
+    },
+    {
+      "frameId": "jump_pose_06",
+      "x": 2816,
+      "y": 0,
+      "width": 128,
+      "height": 128,
       "durationTicks": 30,
-      "hash": "43f08153"
+      "hash": "ea58305c"
+    },
+    {
+      "frameId": "jump_pose_07",
+      "x": 2944,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "c9cb4b4c"
+    },
+    {
+      "frameId": "jump_pose_08",
+      "x": 3072,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "74790a39"
+    },
+    {
+      "frameId": "jump_pose_09",
+      "x": 3200,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "723a9fdb"
+    },
+    {
+      "frameId": "jump_pose_10",
+      "x": 3328,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "d20520cb"
+    },
+    {
+      "frameId": "jump_pose_11",
+      "x": 3456,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "04d8a1f7"
     }
   ]
 }
