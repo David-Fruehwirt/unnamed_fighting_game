@@ -19,8 +19,9 @@ public static partial class Program
         {
             if (args.Length == 2 && args[0] == "part") BuildPart(args[1]);
             else if (args.Length == 1 && args[0] == "animate") BuildAnimations();
+            else if (args.Length == 1 && args[0] == "idle") ReworkIdle();
             else if (args.Length == 1 && args[0] == "pixelloid") ProcessPixelloid();
-            else throw new Exception("Usage: PixelAuthor part <name> | animate | pixelloid");
+            else throw new Exception("Usage: PixelAuthor part <name> | animate | idle | pixelloid");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine(ex.Message); return 1; }

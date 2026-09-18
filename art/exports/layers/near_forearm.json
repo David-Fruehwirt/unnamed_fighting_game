@@ -5,7 +5,7 @@
   "animationId": "all",
   "ticksPerSecond": 60,
   "sheet": {
-    "width": 2304,
+    "width": 2816,
     "height": 128
   },
   "origin": {
@@ -29,8 +29,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 15,
-      "hash": "792960a2"
+      "durationTicks": 6,
+      "hash": "a0106851"
     },
     {
       "frameId": "idle_1",
@@ -38,8 +38,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 15,
-      "hash": "0cda88a2"
+      "durationTicks": 6,
+      "hash": "c77bc851"
     },
     {
       "frameId": "idle_2",
@@ -47,8 +47,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 15,
-      "hash": "792960a2"
+      "durationTicks": 6,
+      "hash": "3e56e899"
     },
     {
       "frameId": "idle_3",
@@ -56,12 +56,48 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 15,
-      "hash": "90b838a2"
+      "durationTicks": 6,
+      "hash": "c77bc851"
+    },
+    {
+      "frameId": "idle_4",
+      "x": 512,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 3,
+      "hash": "a0106851"
+    },
+    {
+      "frameId": "idle_5",
+      "x": 640,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 3,
+      "hash": "6b786899"
+    },
+    {
+      "frameId": "idle_6",
+      "x": 768,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 3,
+      "hash": "4340c899"
+    },
+    {
+      "frameId": "idle_7",
+      "x": 896,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 3,
+      "hash": "6b786899"
     },
     {
       "frameId": "run_0",
-      "x": 512,
+      "x": 1024,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -70,7 +106,7 @@
     },
     {
       "frameId": "run_1",
-      "x": 640,
+      "x": 1152,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -79,7 +115,7 @@
     },
     {
       "frameId": "run_2",
-      "x": 768,
+      "x": 1280,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -88,7 +124,7 @@
     },
     {
       "frameId": "run_3",
-      "x": 896,
+      "x": 1408,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -97,7 +133,7 @@
     },
     {
       "frameId": "run_4",
-      "x": 1024,
+      "x": 1536,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -106,7 +142,7 @@
     },
     {
       "frameId": "run_5",
-      "x": 1152,
+      "x": 1664,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -115,7 +151,7 @@
     },
     {
       "frameId": "run_6",
-      "x": 1280,
+      "x": 1792,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -124,7 +160,7 @@
     },
     {
       "frameId": "run_7",
-      "x": 1408,
+      "x": 1920,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -133,7 +169,7 @@
     },
     {
       "frameId": "jump_0",
-      "x": 1536,
+      "x": 2048,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -142,7 +178,7 @@
     },
     {
       "frameId": "jump_1",
-      "x": 1664,
+      "x": 2176,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -151,7 +187,7 @@
     },
     {
       "frameId": "jump_2",
-      "x": 1792,
+      "x": 2304,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -160,7 +196,7 @@
     },
     {
       "frameId": "fall_0",
-      "x": 1920,
+      "x": 2432,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -169,7 +205,7 @@
     },
     {
       "frameId": "fall_1",
-      "x": 2048,
+      "x": 2560,
       "y": 0,
       "width": 128,
       "height": 128,
@@ -178,7 +214,7 @@
     },
     {
       "frameId": "fall_2",
-      "x": 2176,
+      "x": 2688,
       "y": 0,
       "width": 128,
       "height": 128,

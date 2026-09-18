@@ -1,0 +1,2333 @@
+{
+  "reference": "reference_pics/soldier_class/soldier_stance.gif",
+  "skeletonFrame": 130,
+  "skeleton": {
+    "head": [
+      664,
+      375
+    ],
+    "neck": [
+      676,
+      391
+    ],
+    "pelvis": [
+      684,
+      500
+    ],
+    "shoulders": [
+      [
+        638,
+        406
+      ],
+      [
+        718,
+        398
+      ]
+    ],
+    "elbows": [
+      [
+        626,
+        458
+      ],
+      [
+        730,
+        454
+      ]
+    ],
+    "wrists": [
+      [
+        598,
+        410
+      ],
+      [
+        686,
+        426
+      ]
+    ],
+    "hips": [
+      [
+        668,
+        513
+      ],
+      [
+        698,
+        513
+      ]
+    ],
+    "knees": [
+      [
+        622,
+        586
+      ],
+      [
+        722,
+        590
+      ]
+    ],
+    "ankles": [
+      [
+        648,
+        681
+      ],
+      [
+        746,
+        685
+      ]
+    ]
+  },
+  "mapping": {
+    "scale": 0.3,
+    "mirrorX": true,
+    "sourceOrigin": [
+      680,
+      695
+    ],
+    "targetOrigin": [
+      64,
+      121
+    ]
+  },
+  "notes": "Skeleton construction establishes joint topology; live frames supply the fleshed-out joint positions. Coordinates are traced estimates, rounded to the game pixel grid. Original armor geometry and palette are retained.",
+  "frames": [
+    {
+      "gifFrame": 0,
+      "durationMs": 100,
+      "source": {
+        "head": {
+          "Start": {
+            "X": 674,
+            "Y": 398
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 678,
+            "Y": 496
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 678,
+            "Y": 508
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 711,
+            "Y": 434
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 638,
+            "Y": 406
+          },
+          "End": {
+            "X": 626,
+            "Y": 458
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 626,
+            "Y": 458
+          },
+          "End": {
+            "X": 598,
+            "Y": 410
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 598,
+            "Y": 410
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 718,
+            "Y": 398
+          },
+          "End": {
+            "X": 730,
+            "Y": 454
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 730,
+            "Y": 454
+          },
+          "End": {
+            "X": 686,
+            "Y": 426
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 686,
+            "Y": 426
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 658,
+            "Y": 514
+          },
+          "End": {
+            "X": 624,
+            "Y": 596
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 624,
+            "Y": 596
+          },
+          "End": {
+            "X": 648,
+            "Y": 680
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 648,
+            "Y": 680
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 698,
+            "Y": 514
+          },
+          "End": {
+            "X": 724,
+            "Y": 596
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 724,
+            "Y": 596
+          },
+          "End": {
+            "X": 748,
+            "Y": 684
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 748,
+            "Y": 684
+          },
+          "End": null
+        }
+      },
+      "mapped": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 32
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 61
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 34
+          },
+          "End": {
+            "X": 80,
+            "Y": 50
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 50
+          },
+          "End": {
+            "X": 89,
+            "Y": 36
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 36
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 32
+          },
+          "End": {
+            "X": 49,
+            "Y": 49
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 49
+          },
+          "End": {
+            "X": 62,
+            "Y": 40
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 40
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 67
+          },
+          "End": {
+            "X": 81,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 81,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 67
+          },
+          "End": {
+            "X": 51,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 51,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "gifFrame": 1,
+      "durationMs": 100,
+      "source": {
+        "head": {
+          "Start": {
+            "X": 674,
+            "Y": 394
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 678,
+            "Y": 492
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 678,
+            "Y": 504
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 711,
+            "Y": 430
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 638,
+            "Y": 402
+          },
+          "End": {
+            "X": 626,
+            "Y": 450
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 626,
+            "Y": 450
+          },
+          "End": {
+            "X": 598,
+            "Y": 402
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 598,
+            "Y": 402
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 718,
+            "Y": 394
+          },
+          "End": {
+            "X": 730,
+            "Y": 450
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 730,
+            "Y": 450
+          },
+          "End": {
+            "X": 686,
+            "Y": 422
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 686,
+            "Y": 422
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 658,
+            "Y": 510
+          },
+          "End": {
+            "X": 628,
+            "Y": 596
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 628,
+            "Y": 596
+          },
+          "End": {
+            "X": 648,
+            "Y": 680
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 648,
+            "Y": 680
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 698,
+            "Y": 510
+          },
+          "End": {
+            "X": 728,
+            "Y": 596
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 728,
+            "Y": 596
+          },
+          "End": {
+            "X": 748,
+            "Y": 684
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 748,
+            "Y": 684
+          },
+          "End": null
+        }
+      },
+      "mapped": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 31
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 60
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 64
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 33
+          },
+          "End": {
+            "X": 80,
+            "Y": 48
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 48
+          },
+          "End": {
+            "X": 89,
+            "Y": 33
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 33
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 31
+          },
+          "End": {
+            "X": 49,
+            "Y": 48
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 48
+          },
+          "End": {
+            "X": 62,
+            "Y": 39
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 39
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 66
+          },
+          "End": {
+            "X": 80,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 80,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 66
+          },
+          "End": {
+            "X": 50,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 50,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "gifFrame": 2,
+      "durationMs": 100,
+      "source": {
+        "head": {
+          "Start": {
+            "X": 674,
+            "Y": 390
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 678,
+            "Y": 488
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 678,
+            "Y": 500
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 711,
+            "Y": 426
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 638,
+            "Y": 398
+          },
+          "End": {
+            "X": 626,
+            "Y": 446
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 626,
+            "Y": 446
+          },
+          "End": {
+            "X": 598,
+            "Y": 398
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 598,
+            "Y": 398
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 718,
+            "Y": 390
+          },
+          "End": {
+            "X": 730,
+            "Y": 446
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 730,
+            "Y": 446
+          },
+          "End": {
+            "X": 686,
+            "Y": 418
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 686,
+            "Y": 418
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 658,
+            "Y": 506
+          },
+          "End": {
+            "X": 628,
+            "Y": 592
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 628,
+            "Y": 592
+          },
+          "End": {
+            "X": 648,
+            "Y": 676
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 648,
+            "Y": 676
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 698,
+            "Y": 506
+          },
+          "End": {
+            "X": 728,
+            "Y": 592
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 728,
+            "Y": 592
+          },
+          "End": {
+            "X": 748,
+            "Y": 684
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 748,
+            "Y": 684
+          },
+          "End": null
+        }
+      },
+      "mapped": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 30
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 59
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 62
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 40
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 32
+          },
+          "End": {
+            "X": 80,
+            "Y": 46
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 46
+          },
+          "End": {
+            "X": 89,
+            "Y": 32
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 32
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 30
+          },
+          "End": {
+            "X": 49,
+            "Y": 46
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 46
+          },
+          "End": {
+            "X": 62,
+            "Y": 38
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 38
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 64
+          },
+          "End": {
+            "X": 80,
+            "Y": 90
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 80,
+            "Y": 90
+          },
+          "End": {
+            "X": 74,
+            "Y": 115
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 115
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 64
+          },
+          "End": {
+            "X": 50,
+            "Y": 90
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 50,
+            "Y": 90
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "gifFrame": 3,
+      "durationMs": 100,
+      "source": {
+        "head": {
+          "Start": {
+            "X": 674,
+            "Y": 390
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 678,
+            "Y": 492
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 678,
+            "Y": 504
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 711,
+            "Y": 430
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 638,
+            "Y": 402
+          },
+          "End": {
+            "X": 626,
+            "Y": 450
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 626,
+            "Y": 450
+          },
+          "End": {
+            "X": 598,
+            "Y": 402
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 598,
+            "Y": 402
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 718,
+            "Y": 394
+          },
+          "End": {
+            "X": 730,
+            "Y": 450
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 730,
+            "Y": 450
+          },
+          "End": {
+            "X": 686,
+            "Y": 422
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 686,
+            "Y": 422
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 658,
+            "Y": 510
+          },
+          "End": {
+            "X": 628,
+            "Y": 596
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 628,
+            "Y": 596
+          },
+          "End": {
+            "X": 648,
+            "Y": 680
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 648,
+            "Y": 680
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 698,
+            "Y": 510
+          },
+          "End": {
+            "X": 728,
+            "Y": 596
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 728,
+            "Y": 596
+          },
+          "End": {
+            "X": 748,
+            "Y": 684
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 748,
+            "Y": 684
+          },
+          "End": null
+        }
+      },
+      "mapped": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 30
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 60
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 64
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 33
+          },
+          "End": {
+            "X": 80,
+            "Y": 48
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 48
+          },
+          "End": {
+            "X": 89,
+            "Y": 33
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 33
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 31
+          },
+          "End": {
+            "X": 49,
+            "Y": 48
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 48
+          },
+          "End": {
+            "X": 62,
+            "Y": 39
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 39
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 66
+          },
+          "End": {
+            "X": 80,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 80,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 66
+          },
+          "End": {
+            "X": 50,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 50,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "gifFrame": 4,
+      "durationMs": 50,
+      "source": {
+        "head": {
+          "Start": {
+            "X": 674,
+            "Y": 394
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 678,
+            "Y": 496
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 678,
+            "Y": 508
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 711,
+            "Y": 434
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 638,
+            "Y": 406
+          },
+          "End": {
+            "X": 626,
+            "Y": 458
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 626,
+            "Y": 458
+          },
+          "End": {
+            "X": 598,
+            "Y": 410
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 598,
+            "Y": 410
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 718,
+            "Y": 398
+          },
+          "End": {
+            "X": 730,
+            "Y": 454
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 730,
+            "Y": 454
+          },
+          "End": {
+            "X": 686,
+            "Y": 426
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 686,
+            "Y": 426
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 658,
+            "Y": 514
+          },
+          "End": {
+            "X": 624,
+            "Y": 596
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 624,
+            "Y": 596
+          },
+          "End": {
+            "X": 648,
+            "Y": 680
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 648,
+            "Y": 680
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 698,
+            "Y": 514
+          },
+          "End": {
+            "X": 724,
+            "Y": 596
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 724,
+            "Y": 596
+          },
+          "End": {
+            "X": 748,
+            "Y": 684
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 748,
+            "Y": 684
+          },
+          "End": null
+        }
+      },
+      "mapped": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 31
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 61
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 34
+          },
+          "End": {
+            "X": 80,
+            "Y": 50
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 50
+          },
+          "End": {
+            "X": 89,
+            "Y": 36
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 36
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 32
+          },
+          "End": {
+            "X": 49,
+            "Y": 49
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 49
+          },
+          "End": {
+            "X": 62,
+            "Y": 40
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 40
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 67
+          },
+          "End": {
+            "X": 81,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 81,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 67
+          },
+          "End": {
+            "X": 51,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 51,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "gifFrame": 5,
+      "durationMs": 50,
+      "source": {
+        "head": {
+          "Start": {
+            "X": 674,
+            "Y": 398
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 678,
+            "Y": 500
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 678,
+            "Y": 512
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 711,
+            "Y": 438
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 638,
+            "Y": 410
+          },
+          "End": {
+            "X": 626,
+            "Y": 462
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 626,
+            "Y": 462
+          },
+          "End": {
+            "X": 598,
+            "Y": 414
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 598,
+            "Y": 414
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 718,
+            "Y": 402
+          },
+          "End": {
+            "X": 730,
+            "Y": 458
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 730,
+            "Y": 458
+          },
+          "End": {
+            "X": 686,
+            "Y": 430
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 686,
+            "Y": 430
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 658,
+            "Y": 518
+          },
+          "End": {
+            "X": 620,
+            "Y": 600
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 620,
+            "Y": 600
+          },
+          "End": {
+            "X": 648,
+            "Y": 680
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 648,
+            "Y": 680
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 698,
+            "Y": 518
+          },
+          "End": {
+            "X": 720,
+            "Y": 600
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 720,
+            "Y": 600
+          },
+          "End": {
+            "X": 748,
+            "Y": 684
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 748,
+            "Y": 684
+          },
+          "End": null
+        }
+      },
+      "mapped": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 32
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 62
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 66
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 44
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 36
+          },
+          "End": {
+            "X": 80,
+            "Y": 51
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 51
+          },
+          "End": {
+            "X": 89,
+            "Y": 37
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 37
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 33
+          },
+          "End": {
+            "X": 49,
+            "Y": 50
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 50
+          },
+          "End": {
+            "X": 62,
+            "Y": 42
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 68
+          },
+          "End": {
+            "X": 82,
+            "Y": 92
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 82,
+            "Y": 92
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 68
+          },
+          "End": {
+            "X": 52,
+            "Y": 92
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 52,
+            "Y": 92
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "gifFrame": 6,
+      "durationMs": 50,
+      "source": {
+        "head": {
+          "Start": {
+            "X": 674,
+            "Y": 402
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 678,
+            "Y": 504
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 678,
+            "Y": 516
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 711,
+            "Y": 442
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 638,
+            "Y": 414
+          },
+          "End": {
+            "X": 626,
+            "Y": 470
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 626,
+            "Y": 470
+          },
+          "End": {
+            "X": 598,
+            "Y": 422
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 598,
+            "Y": 422
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 718,
+            "Y": 406
+          },
+          "End": {
+            "X": 730,
+            "Y": 462
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 730,
+            "Y": 462
+          },
+          "End": {
+            "X": 686,
+            "Y": 434
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 686,
+            "Y": 434
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 658,
+            "Y": 522
+          },
+          "End": {
+            "X": 620,
+            "Y": 604
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 620,
+            "Y": 604
+          },
+          "End": {
+            "X": 648,
+            "Y": 680
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 648,
+            "Y": 680
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 698,
+            "Y": 522
+          },
+          "End": {
+            "X": 720,
+            "Y": 604
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 720,
+            "Y": 604
+          },
+          "End": {
+            "X": 748,
+            "Y": 684
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 748,
+            "Y": 684
+          },
+          "End": null
+        }
+      },
+      "mapped": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 33
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 64
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 67
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 45
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 37
+          },
+          "End": {
+            "X": 80,
+            "Y": 54
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 54
+          },
+          "End": {
+            "X": 89,
+            "Y": 39
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 39
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 34
+          },
+          "End": {
+            "X": 49,
+            "Y": 51
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 51
+          },
+          "End": {
+            "X": 62,
+            "Y": 43
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 69
+          },
+          "End": {
+            "X": 82,
+            "Y": 94
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 82,
+            "Y": 94
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 69
+          },
+          "End": {
+            "X": 52,
+            "Y": 94
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 52,
+            "Y": 94
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "gifFrame": 7,
+      "durationMs": 50,
+      "source": {
+        "head": {
+          "Start": {
+            "X": 674,
+            "Y": 402
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 678,
+            "Y": 500
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 678,
+            "Y": 512
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 711,
+            "Y": 438
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 638,
+            "Y": 410
+          },
+          "End": {
+            "X": 626,
+            "Y": 466
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 626,
+            "Y": 466
+          },
+          "End": {
+            "X": 598,
+            "Y": 418
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 598,
+            "Y": 418
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 718,
+            "Y": 402
+          },
+          "End": {
+            "X": 730,
+            "Y": 458
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 730,
+            "Y": 458
+          },
+          "End": {
+            "X": 686,
+            "Y": 430
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 686,
+            "Y": 430
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 658,
+            "Y": 518
+          },
+          "End": {
+            "X": 620,
+            "Y": 600
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 620,
+            "Y": 600
+          },
+          "End": {
+            "X": 648,
+            "Y": 680
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 648,
+            "Y": 680
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 698,
+            "Y": 518
+          },
+          "End": {
+            "X": 720,
+            "Y": 600
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 720,
+            "Y": 600
+          },
+          "End": {
+            "X": 748,
+            "Y": 684
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 748,
+            "Y": 684
+          },
+          "End": null
+        }
+      },
+      "mapped": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 33
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 62
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 66
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 44
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 36
+          },
+          "End": {
+            "X": 80,
+            "Y": 52
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 52
+          },
+          "End": {
+            "X": 89,
+            "Y": 38
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 38
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 33
+          },
+          "End": {
+            "X": 49,
+            "Y": 50
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 50
+          },
+          "End": {
+            "X": 62,
+            "Y": 42
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 68
+          },
+          "End": {
+            "X": 82,
+            "Y": 92
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 82,
+            "Y": 92
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 68
+          },
+          "End": {
+            "X": 52,
+            "Y": 92
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 52,
+            "Y": 92
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    }
+  ]
+}
