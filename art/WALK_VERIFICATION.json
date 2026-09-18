@@ -1,0 +1,77 @@
+{
+  "baseline": "d681304",
+  "protectedClips": [
+    "idle",
+    "jump",
+    "fall"
+  ],
+  "protectedPartFrames": 224,
+  "walkFrames": 8,
+  "frameDurationMs": 140,
+  "parts": [
+    {
+      "part": "backpack.png",
+      "protectedRgbaSha256": "c43b3103cb708366a6e7975fe1180509319eeece48efa37ac42c26ed14dbed15"
+    },
+    {
+      "part": "far_foot.png",
+      "protectedRgbaSha256": "0928bec6d040b6f21a494258f15fc669c3ebeedfa4f542b68db879472db31958"
+    },
+    {
+      "part": "far_forearm.png",
+      "protectedRgbaSha256": "a9b7a590b3f82fb1786478e82f9df457e1ae39346df0c241cadd5b82db969102"
+    },
+    {
+      "part": "far_hand.png",
+      "protectedRgbaSha256": "8bd486cd1c04754466192070cee31ecebf9d5f33ff144b3a8c4d9cdbba447610"
+    },
+    {
+      "part": "far_shin.png",
+      "protectedRgbaSha256": "b1f01abd6d1a119e8095d80be2410d01feb7d6840913ee5c84c8e4125f5c4e33"
+    },
+    {
+      "part": "far_thigh.png",
+      "protectedRgbaSha256": "c02efaca7a002588810d1c701d6f7ff0e88dcebe9adced2ae7f5169581178686"
+    },
+    {
+      "part": "far_upper_arm.png",
+      "protectedRgbaSha256": "088513857dff83812a109a5227c968f9ce1dc08418a8201b0249a3095a9b9fd5"
+    },
+    {
+      "part": "head.png",
+      "protectedRgbaSha256": "cb883ab7d48f670bbc8a42a0d57cc74d2741fc0f809eec03259a5eacf15bc5e5"
+    },
+    {
+      "part": "near_foot.png",
+      "protectedRgbaSha256": "952a1bdad84b03d5e333f6269edaec0d50aac6c494bb2f8f72510e1c3d2e25f3"
+    },
+    {
+      "part": "near_forearm.png",
+      "protectedRgbaSha256": "544b06fc65cd2e0d70afb5368a6d0abc34dfbb0ff1241f83cef25933adf68a4d"
+    },
+    {
+      "part": "near_hand.png",
+      "protectedRgbaSha256": "71739ec7ceba40b0dc079a7d94194af3cfabedcc32206e58035dd213fac22119"
+    },
+    {
+      "part": "near_shin.png",
+      "protectedRgbaSha256": "aa93f9bf65837021e48bae95c118ae7efce7c7ff9b8b0649d1a14396fbb1e3ad"
+    },
+    {
+      "part": "near_thigh.png",
+      "protectedRgbaSha256": "358ea09884177012c6262e6fb81de67c5118f7f7c36e69dad6084d9f85734ec0"
+    },
+    {
+      "part": "near_upper_arm.png",
+      "protectedRgbaSha256": "1e35b431a51df1901a22946e8831df3e5c9c004fc801fdf80160727df75dd1b3"
+    },
+    {
+      "part": "pelvis.png",
+      "protectedRgbaSha256": "1950f2a4eba365881640bda1863e820ff29524e6e47013848d804d994ac021f5"
+    },
+    {
+      "part": "torso.png",
+      "protectedRgbaSha256": "5987d02c341ca7c63f840183ee02aeb5b97117d0a90712f80dec23cd9c129557"
+    }
+  ]
+}

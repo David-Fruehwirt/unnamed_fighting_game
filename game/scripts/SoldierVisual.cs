@@ -8,10 +8,10 @@ namespace UnnamedFightingGame;
 /// <summary>Sixteen independently replaceable part sheets advance on one discrete frame clock.</summary>
 public partial class SoldierVisual : Node2D
 {
-    public static readonly Dictionary<string, (int Start, int Count, int Ticks, bool Loop)> Clips = new()
+    public static readonly Dictionary<string, (int Start, int Count, double Ticks, bool Loop)> Clips = new()
     {
         ["idle"] = (0, 8, 6, true),
-        ["run"] = (8, 8, 5, true),
+        ["run"] = (8, 8, 8.4, true), // 140 ms per reference walk pose on the 60 Hz runtime clock.
         ["jump"] = (16, 3, 6, false),
         ["fall"] = (19, 3, 6, false)
     };

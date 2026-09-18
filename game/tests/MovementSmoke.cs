@@ -113,6 +113,17 @@ public partial class MovementSmoke : Node
         int[] idleTicks={6,6,6,6,3,3,3,3};
         for(int i=0;i<8;i++)
         {
+            _player.Visual.SetPose("run",i);
+            _player.Visual.Advance("run",.139,1);
+            Check(_player.Visual.AtlasFrame==8+i,$"Walk {i} holds for 140 ms");
+            _player.Visual.Advance("run",.002,1);
+            Check(_player.Visual.AtlasFrame==8+(i+1)%8,$"Walk {i} advances at reference boundary");
+        }
+        _player.Visual.SetPose("run",0);
+        _player.Visual.Advance("run",1.12,1);
+        Check(_player.Visual.AtlasFrame==8,"Walk completes its eight poses in 1120 ms");
+        for(int i=0;i<8;i++)
+        {
             _player.Visual.SetPose("idle",i);
             _player.Visual.Advance("idle",(idleTicks[i]-.01)/60,1);
             Check(_player.Visual.AtlasFrame==i,$"Idle {i} holds for its reference duration");

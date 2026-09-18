@@ -18,3 +18,15 @@ The walk faces right, matching the game's source direction. Trace contact, recoi
 ## Timing
 
 The canonical source clock changes from 60 to 300 ticks/second, scaling existing tick counts by five without changing their real durations. This represents 140 ms exactly (42 ticks) alongside the idle's 100/50 ms holds. Runtime movement uses 140 ms at normal speed; existing speed-dependent playback remains.
+
+## Verification and deliverables
+
+- `art/walk-frame-review.json`: decoded hashes and delays for all 224 GIF frames (12 distinct full images).
+- `art/walk-reference.json`: source joints and mapped poses for all eight authored frames.
+- `art/soldier.pixel.json`: canonical editable source; `art/previews/run.gif`: animated export; `art/previews/walk-comparison.png`: all eight poses next to the reference.
+- All original part definitions, individual pixel sources, palette and movement controller are unchanged. The walk uses the idle drawing function and proportion settings, with toe/heel articulation drawn from the same boot shapes.
+- Idle, jump and fall source cels, atlas pixels, socket metadata and real-time durations match pre-walk baseline `d681304`. All 224 protected part-frame RGBA comparisons pass. The idle and jump/fall standalone exports were not rewritten.
+- The largest walk/idle segment-length difference is **0.644 pixels**, caused by integer endpoint rounding. Hip joints overlap in side-view projection; the wide idle guard placement is preserved in idle.
+- Pixelloid verified 36 PNGs before Godot import. Imported pixels match the processed exports.
+- C# build: zero warnings/errors. Godot movement/art suite: **116 checks, zero failures**, including all eight 140 ms holds and the 1120 ms loop.
+- Inspected the eight-pose comparison and the in-game contact capture at `artifacts/walk-contact.png`.

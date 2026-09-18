@@ -1,5 +1,9 @@
 # Rework verification
 
+## Walk pass — 18 September 2026
+
+Replaced only the movement clip using the eight-frame demonstration in `soldier_walk.gif`. Full reference inspection, proportion mapping, timing and checks are recorded in [the walk workflow](WALK_REWORK.md). C# build passed without warnings/errors; **116 Godot checks passed**. The independent [walk preservation report](../art/WALK_VERIFICATION.json) covers all 224 protected idle/jump/fall part frames. Original armor designs and the movement controller are unchanged.
+
 ## Idle pass — 18 September 2026
 
 - Reviewed the 146-frame stance GIF, including the skeleton construction ending at frame 130 and the eight live poses. Exported a [comparison of all eight poses](../art/previews/idle-comparison.png).
