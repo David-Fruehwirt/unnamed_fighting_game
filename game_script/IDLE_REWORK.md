@@ -33,3 +33,9 @@
 ## Accuracy
 
 Reference joints are traced in the original 1024×1024 image. Integer rasterization necessarily rounds their projected positions by at most half a game pixel per axis. Armor remains armor: its contour is not a copy of the reference dummy's skin/clothing silhouette.
+
+## Result
+
+- Completed the eight-pose idle, retained the existing sixteen part designs, and used the reference's 600 ms loop.
+- Recorded original-image and mapped landmarks in `art/idle-reference.json`; exported `art/previews/idle-comparison.png` and `art/previews/idle.gif`.
+- Passed Code as Pixel Art validation, Pixelloid processing, the independent baseline comparison and all 99 Godot checks. See [verification](REWORK_VERIFICATION.md).

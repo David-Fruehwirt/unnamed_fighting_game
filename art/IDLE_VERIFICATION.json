@@ -1,0 +1,109 @@
+{
+  "baseline": "d9709b9993d400836a2ea9b0818618a01d229047",
+  "protectedSourceFrames": 14,
+  "protectedPartFrames": 224,
+  "unchangedClips": [
+    "run",
+    "jump",
+    "fall"
+  ],
+  "compared": "Source cels, pose metadata, clip timings, standalone exports, and atlas RGBA pixels",
+  "parts": [
+    {
+      "part": "backpack.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "b2657cdcf7be23a1edc82e568a805ad487a01a7a30be2c30348f3d201a2c4845",
+      "afterRgbaSha256": "b2657cdcf7be23a1edc82e568a805ad487a01a7a30be2c30348f3d201a2c4845"
+    },
+    {
+      "part": "far_foot.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "d4411114d71da41c6afc3d721d96ecc1f78649722a22cacad4e5b1a3b403b832",
+      "afterRgbaSha256": "d4411114d71da41c6afc3d721d96ecc1f78649722a22cacad4e5b1a3b403b832"
+    },
+    {
+      "part": "far_forearm.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "c5239f20c5e946b813aa77e24cf82701bfcbbca7c64047f1a05e4c69dc5c8a21",
+      "afterRgbaSha256": "c5239f20c5e946b813aa77e24cf82701bfcbbca7c64047f1a05e4c69dc5c8a21"
+    },
+    {
+      "part": "far_hand.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "7da0ad11f98e4d1e92ab3117dfbc67ce54e91537a678fcda480061008b4b86f2",
+      "afterRgbaSha256": "7da0ad11f98e4d1e92ab3117dfbc67ce54e91537a678fcda480061008b4b86f2"
+    },
+    {
+      "part": "far_shin.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "faa7e94b48c49d740bbc09303179a6faefec41b6a71a4196ee32867c74c8a604",
+      "afterRgbaSha256": "faa7e94b48c49d740bbc09303179a6faefec41b6a71a4196ee32867c74c8a604"
+    },
+    {
+      "part": "far_thigh.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "019785fc0aa81f864c94704008576101d70ee02180ccfc3f8cee1e6ba6cc93a7",
+      "afterRgbaSha256": "019785fc0aa81f864c94704008576101d70ee02180ccfc3f8cee1e6ba6cc93a7"
+    },
+    {
+      "part": "far_upper_arm.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "cbd7e87c35ec33de06583b3218b134a9e2b8b37da2e6a61104417a6d80e2ed2b",
+      "afterRgbaSha256": "cbd7e87c35ec33de06583b3218b134a9e2b8b37da2e6a61104417a6d80e2ed2b"
+    },
+    {
+      "part": "head.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "9c50a81995dcc58dcf1b6b876a359d84601dfee0651beec4dae4b41715c984fa",
+      "afterRgbaSha256": "9c50a81995dcc58dcf1b6b876a359d84601dfee0651beec4dae4b41715c984fa"
+    },
+    {
+      "part": "near_foot.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "1a549b70ca0aa44e917638e3423464dd81f4fd4dc670546b218c79aeb1b2cb97",
+      "afterRgbaSha256": "1a549b70ca0aa44e917638e3423464dd81f4fd4dc670546b218c79aeb1b2cb97"
+    },
+    {
+      "part": "near_forearm.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "0e271282ab1af7f4ca41acbd04487a5e45790a526e76932187b1260a7dc6e2bb",
+      "afterRgbaSha256": "0e271282ab1af7f4ca41acbd04487a5e45790a526e76932187b1260a7dc6e2bb"
+    },
+    {
+      "part": "near_hand.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "b365ad5ac90dd3f90a10c6d57b103ef52a5bf64b2352b15eae78259984ee267a",
+      "afterRgbaSha256": "b365ad5ac90dd3f90a10c6d57b103ef52a5bf64b2352b15eae78259984ee267a"
+    },
+    {
+      "part": "near_shin.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "c7ae45b4d75bf4f11dd0a97c7a94f35f365631ea2015409e91d9f38f60171960",
+      "afterRgbaSha256": "c7ae45b4d75bf4f11dd0a97c7a94f35f365631ea2015409e91d9f38f60171960"
+    },
+    {
+      "part": "near_thigh.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "39f312518038fbfbefd70feda5c49213a869dc3c45dc63ec5aac874f9e1100e7",
+      "afterRgbaSha256": "39f312518038fbfbefd70feda5c49213a869dc3c45dc63ec5aac874f9e1100e7"
+    },
+    {
+      "part": "near_upper_arm.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "6fd0acbb0b9726d4656ae7d79e7b5933fb12bda1004c1091b7e4c5bf603624b9",
+      "afterRgbaSha256": "6fd0acbb0b9726d4656ae7d79e7b5933fb12bda1004c1091b7e4c5bf603624b9"
+    },
+    {
+      "part": "pelvis.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "bd149d03929467d98336f9b77e255f8a21475fb923db61a8863c4c4b49d6f4f0",
+      "afterRgbaSha256": "bd149d03929467d98336f9b77e255f8a21475fb923db61a8863c4c4b49d6f4f0"
+    },
+    {
+      "part": "torso.png",
+      "nonIdleFrames": 14,
+      "beforeRgbaSha256": "3f3fab71edf63c048d92631a6358632940e6bdcd5211b5d0926badce467937da",
+      "afterRgbaSha256": "3f3fab71edf63c048d92631a6358632940e6bdcd5211b5d0926badce467937da"
+    }
+  ]
+}

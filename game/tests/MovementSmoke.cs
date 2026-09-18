@@ -98,7 +98,7 @@ public partial class MovementSmoke : Node
             string hash=Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant();
             Check(hash==entries[sprite.Name.ToString()].GetProperty("processedRgbaSha256").GetString(),
                 $"{sprite.Name}: Godot pixels match Pixelloid output");
-            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==18,
+            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==22,
                 $"{sprite.Name}: exact pixels, no raster rotation or scaling");
         }
         foreach(var (clip,info) in SoldierVisual.Clips)
@@ -109,6 +109,30 @@ public partial class MovementSmoke : Node
                 Check(_player.Visual.GetChildren().OfType<Sprite2D>().All(s=>s.Frame==info.Start+frame),
                     $"{clip}/{frame}: all layers share frame index");
             }
+        }
+        int[] idleTicks={6,6,6,6,3,3,3,3};
+        for(int i=0;i<8;i++)
+        {
+            _player.Visual.SetPose("idle",i);
+            _player.Visual.Advance("idle",(idleTicks[i]-.01)/60,1);
+            Check(_player.Visual.AtlasFrame==i,$"Idle {i} holds for its reference duration");
+            _player.Visual.Advance("idle",.02/60,1);
+            Check(_player.Visual.AtlasFrame==(i+1)%8,$"Idle {i} advances and wraps on the correct boundary");
+        }
+        _player.Visual.SetPose("idle",0);
+        _player.Visual.Advance("idle",.60,1);
+        Check(_player.Visual.AtlasFrame==0,"Idle loops at 600 ms");
+        _player.Visual.SetPose("run",3);
+        _player.Visual.Advance("idle",.1,1);
+        Check(_player.Visual.AtlasFrame==0,"Returning from movement starts idle at its first pose");
+        using var poses=JsonDocument.Parse(FileAccess.GetFileAsString("res://assets/soldier_frames/poses.json"));
+        foreach(var frame in poses.RootElement.GetProperty("frames").EnumerateArray().Take(8))
+        {
+            var parts=frame.GetProperty("parts");
+            int Y(string part,string point)=>parts.GetProperty(part).GetProperty(point).GetProperty("Y").GetInt32();
+            Check(Y("near_hand","Start")<Y("near_forearm","Start") &&
+                  Y("far_hand","Start")<Y("far_forearm","Start"),
+                frame.GetProperty("id").GetString()+": both fists stay above elbows in guard");
         }
         _player.Visual.SetPose("idle",0);
     }

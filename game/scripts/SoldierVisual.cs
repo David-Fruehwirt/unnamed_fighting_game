@@ -10,11 +10,13 @@ public partial class SoldierVisual : Node2D
 {
     public static readonly Dictionary<string, (int Start, int Count, int Ticks, bool Loop)> Clips = new()
     {
-        ["idle"] = (0, 4, 15, true),
-        ["run"] = (4, 8, 5, true),
-        ["jump"] = (12, 3, 6, false),
-        ["fall"] = (15, 3, 6, false)
+        ["idle"] = (0, 8, 6, true),
+        ["run"] = (8, 8, 5, true),
+        ["jump"] = (16, 3, 6, false),
+        ["fall"] = (19, 3, 6, false)
     };
+    // Reference frames 0–3: 100 ms; 4–7: 50 ms. One loop is 600 ms.
+    private static readonly int[] IdleTicks = { 6, 6, 6, 6, 3, 3, 3, 3 };
     public int AtlasFrame { get; private set; }
     public int PartCount => _parts.Count;
     public string Clip { get; private set; } = "idle";
@@ -53,6 +55,13 @@ public partial class SoldierVisual : Node2D
         var animation = Clips[clip];
         int local = (int)(_ticks / animation.Ticks);
         local = animation.Loop ? local % animation.Count : Math.Min(local, animation.Count - 1);
+        if (clip == "idle")
+        {
+            double phase = _ticks % 36;
+            local = 0;
+            while (local < IdleTicks.Length - 1 && phase >= IdleTicks[local])
+                phase -= IdleTicks[local++];
+        }
         ApplyFrame(animation.Start + local);
     }
 
@@ -62,6 +71,11 @@ public partial class SoldierVisual : Node2D
         Clip = clip;
         localFrame = Math.Clamp(localFrame, 0, animation.Count - 1);
         _ticks = localFrame * animation.Ticks;
+        if (clip == "idle")
+        {
+            _ticks = 0;
+            for (int i = 0; i < localFrame; i++) _ticks += IdleTicks[i];
+        }
         ApplyFrame(animation.Start + localFrame);
     }
 
