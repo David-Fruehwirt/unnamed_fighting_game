@@ -12,8 +12,11 @@ public partial class SoldierVisual : Node2D
     {
         ["idle"] = (0, 8, 6, true),
         ["run"] = (8, 8, 8.4, true), // 140 ms per reference walk pose on the 60 Hz runtime clock.
-        ["jump"] = (16, 3, 6, false),
-        ["fall"] = (19, 3, 6, false)
+        ["prepare"] = (16, 2, 2, false),
+        ["jump"] = (18, 4, 4, false),
+        ["fall"] = (22, 2, 6, false),
+        ["land"] = (24, 4, 4, false),
+        ["jump_sequence"] = (16, 12, 4, false)
     };
     // Reference frames 0–3: 100 ms; 4–7: 50 ms. One loop is 600 ms.
     private static readonly int[] IdleTicks = { 6, 6, 6, 6, 3, 3, 3, 3 };

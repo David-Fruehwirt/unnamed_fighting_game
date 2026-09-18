@@ -38,6 +38,7 @@ public partial class MovementSmoke : Node
             Check(_player.Visual.GetNodeOrNull<Marker2D>("NearWeaponSocket")!=null &&
                 _player.Visual.GetNodeOrNull<Marker2D>("FarWeaponSocket")!=null,"Both weapon sockets preserved");
             VerifyArt();
+            await VerifyJumpSequence();
             float startX=_player.Position.X;
             Input.ActionPress("move_right"); await Frames(25);
             Check(_player.Position.X>startX+60,"Right movement");
@@ -83,6 +84,24 @@ public partial class MovementSmoke : Node
         catch(Exception ex) { GD.PushError(ex.ToString()); GetTree().Quit(1); }
     }
 
+    private async Task VerifyJumpSequence()
+    {
+        _player.Reset();await Frames(3);
+        float floor=_player.Position.Y;
+        Input.ActionPress("jump");await Frames(1);
+        Check(_player.MotionState=="prepare"&&_player.IsOnFloor(),"Jump begins with grounded preparation");
+        var seen=new System.Collections.Generic.HashSet<int>{_player.Visual.AtlasFrame};
+        for(int i=0;i<80;i++){await Frames(1);seen.Add(_player.Visual.AtlasFrame);}
+        Input.ActionRelease("jump");await Frames(2);
+        Check(Enumerable.Range(16,12).All(seen.Contains),"Full jump displays all twelve reference poses");
+        Check(_player.IsOnFloor()&&_player.MotionState=="idle","Landing recovery returns to idle");
+        Input.ActionPress("jump");await Frames(1);Input.ActionRelease("jump");
+        float peak=floor;
+        for(int i=0;i<50;i++){await Frames(1);peak=Math.Min(peak,_player.Position.Y);}
+        Check(floor-peak>5&&floor-peak<40,"Releasing during preparation produces a short jump");
+        _player.Reset();await Frames(4);
+    }
+
     private void VerifyArt()
     {
         string reportPath=System.IO.Path.Combine(ProjectSettings.GlobalizePath("res://"),"..","art","PIXELLOID_REPORT.json");
@@ -98,7 +117,7 @@ public partial class MovementSmoke : Node
             string hash=Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant();
             Check(hash==entries[sprite.Name.ToString()].GetProperty("processedRgbaSha256").GetString(),
                 $"{sprite.Name}: Godot pixels match Pixelloid output");
-            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==22,
+            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==28,
                 $"{sprite.Name}: exact pixels, no raster rotation or scaling");
         }
         foreach(var (clip,info) in SoldierVisual.Clips)
@@ -111,17 +130,18 @@ public partial class MovementSmoke : Node
             }
         }
         int[] idleTicks={6,6,6,6,3,3,3,3};
+        double walkSeconds=SoldierVisual.Clips["run"].Ticks/60;
         for(int i=0;i<8;i++)
         {
             _player.Visual.SetPose("run",i);
-            _player.Visual.Advance("run",.139,1);
-            Check(_player.Visual.AtlasFrame==8+i,$"Walk {i} holds for 140 ms");
+            _player.Visual.Advance("run",walkSeconds-.001,1);
+            Check(_player.Visual.AtlasFrame==8+i,$"Walk {i} retains the configured hold duration");
             _player.Visual.Advance("run",.002,1);
             Check(_player.Visual.AtlasFrame==8+(i+1)%8,$"Walk {i} advances at reference boundary");
         }
         _player.Visual.SetPose("run",0);
-        _player.Visual.Advance("run",1.12,1);
-        Check(_player.Visual.AtlasFrame==8,"Walk completes its eight poses in 1120 ms");
+        _player.Visual.Advance("run",walkSeconds*8+.00001,1);
+        Check(_player.Visual.AtlasFrame==8,"Walk completes its eight poses at the configured cadence");
         for(int i=0;i<8;i++)
         {
             _player.Visual.SetPose("idle",i);

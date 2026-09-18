@@ -1,5 +1,9 @@
 # Rework verification
 
+## Jump pass — 18 September 2026
+
+Completed all twelve reference poses with unchanged armor definitions and fixed part dimensions. [Jump workflow and results](JUMP_REWORK.md) record the full sequence and authored timing. C# build passed without warnings/errors. **138 Godot checks passed**, including all twelve frames in a full jump, landing recovery, preparation, short-jump release, coyote time and buffered jumps. [Preservation verification](../art/JUMP_VERIFICATION.json) confirms all 256 idle/walk part frames remain identical; Pixelloid processed all 39 exported PNGs before integration.
+
 ## Walk pass — 18 September 2026
 
 Replaced only the movement clip using the eight-frame demonstration in `soldier_walk.gif`. Full reference inspection, proportion mapping, timing and checks are recorded in [the walk workflow](WALK_REWORK.md). C# build passed without warnings/errors; **116 Godot checks passed**. The independent [walk preservation report](../art/WALK_VERIFICATION.json) covers all 224 protected idle/jump/fall part frames. Original armor designs and the movement controller are unchanged.

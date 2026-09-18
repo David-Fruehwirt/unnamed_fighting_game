@@ -18,6 +18,8 @@ public partial class Soldier : CharacterBody2D
     public float Facing { get; private set; } = 1;
     public string MotionState { get; private set; } = "idle";
     private float _jumpBuffer;
+    private float _prepareLeft, _landingLeft;
+    private bool _releasedDuringPreparation;
 
     public override void _Ready()
     {
@@ -47,6 +49,16 @@ public partial class Soldier : CharacterBody2D
         }
         float axis = Input.GetAxis("move_left", "move_right");
         Vector2 velocity = Velocity;
+        bool wasOnFloor = IsOnFloor();
+        _landingLeft = Math.Max(0, _landingLeft - dt);
+        bool takeoff = false;
+        if (_prepareLeft > 0)
+        {
+            _releasedDuringPreparation |= Input.IsActionJustReleased("jump");
+            _prepareLeft = Math.Max(0, _prepareLeft - dt);
+            if (_prepareLeft < .00001f) _prepareLeft = 0;
+            takeoff = _prepareLeft == 0;
+        }
         if (IsOnFloor()) CoyoteLeft = CoyoteTime;
         else
         {
@@ -55,10 +67,18 @@ public partial class Soldier : CharacterBody2D
         }
         _jumpBuffer = Math.Max(0, _jumpBuffer - dt);
         if (Input.IsActionJustPressed("jump")) _jumpBuffer = JumpBufferTime;
-        if (_jumpBuffer > 0 && CoyoteLeft > 0)
+        if (_jumpBuffer > 0 && CoyoteLeft > 0 && _prepareLeft == 0 && !takeoff)
         {
-            velocity.Y = -JumpSpeed;
             _jumpBuffer = 0;
+            _landingLeft = 0;
+            _releasedDuringPreparation = !Input.IsActionPressed("jump");
+            // Two grounded anticipation poses. Coyote jumps remain immediate.
+            if (wasOnFloor) _prepareLeft = 4f / 60;
+            else takeoff = true;
+        }
+        if (takeoff)
+        {
+            velocity.Y = _releasedDuringPreparation ? -170 : -JumpSpeed;
             CoyoteLeft = 0;
         }
         if (Input.IsActionJustReleased("jump") && velocity.Y < -170) velocity.Y = -170;
@@ -67,8 +87,11 @@ public partial class Soldier : CharacterBody2D
         if (axis != 0) Facing = Math.Sign(axis);
         Velocity = velocity;
         MoveAndSlide();
+        if (!wasOnFloor && IsOnFloor() && velocity.Y > 50) _landingLeft = 16f / 60;
         Position = new Vector2(Mathf.Clamp(Position.X, 22, 938), Position.Y);
-        MotionState = !IsOnFloor() ? (Velocity.Y < -20 ? "jump" : "fall")
+        MotionState = _prepareLeft > 0 ? "prepare"
+            : !IsOnFloor() ? (Velocity.Y < -20 ? "jump" : "fall")
+            : _landingLeft > 0 ? "land"
             : Math.Abs(Velocity.X) > 15 ? "run" : "idle";
         Visual.Scale = new Vector2(Facing, 1);
         // Snap only the display: collision movement retains its full precision.
@@ -83,6 +106,8 @@ public partial class Soldier : CharacterBody2D
         Velocity = Vector2.Zero;
         CoyoteLeft = 0;
         _jumpBuffer = 0;
+        _prepareLeft = _landingLeft = 0;
+        _releasedDuringPreparation = false;
         Facing = 1;
         MotionState = "idle";
         Visual.Position = Vector2.Zero;
