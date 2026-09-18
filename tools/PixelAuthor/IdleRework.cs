@@ -14,35 +14,32 @@ public static partial class Program
 
     static List<PoseFrame> ReferenceIdle()
     {
-        // Cleanup: fixed articulation, planted legs, and one shared pixel of breathing.
-        int[] breath = [0,0,-1,-1,-1,0,0,0];
+        int[] bodyY = [0,-4,-8,-4,0,4,8,4];
+        int[] headY = [0,-4,-8,-8,-4,0,4,4];
+        int[] handY = [0,-8,-12,-8,0,4,12,8];
+        int[] kneeX = [624,628,628,628,624,620,620,620];
+        int[] kneeY = [596,596,592,596,596,600,604,600];
         var result = new List<PoseFrame>();
         var traces = new List<object>();
         for (int i=0;i<8;i++)
         {
-            int b=0;
+            int b=bodyY[i];
             var source = new Dictionary<string,Placement> {
-                ["head"] = new(new(674,398)),
+                ["head"] = new(new(674,398+headY[i])),
                 ["torso"] = new(new(678,496+b)),
                 ["pelvis"] = new(new(678,508+b)),
                 ["backpack"] = new(new(711,434+b))
             };
             SetLimb(source,"far","upper_arm","forearm","hand",
-                new(638,406),new(626,478),new(598,450));
+                new(638,406+b),new(626,458+handY[i]),new(598,410+handY[i]));
             SetLimb(source,"near","upper_arm","forearm","hand",
-                new(718,398),new(730,474),new(686,466));
+                new(718,398+b),new(730,454+b),new(686,426+b));
             SetLimb(source,"far","thigh","shin","foot",
-                new(658,514),new(624,596),new(648,680));
+                new(658,514+b),new(kneeX[i],kneeY[i]),new(648,i==2?676:680));
             SetLimb(source,"near","thigh","shin","foot",
-                new(698,514),new(724,596),new(748,684));
+                new(698,514+b),new(kneeX[i]+100,kneeY[i]),new(748,684));
             var mapped=source.ToDictionary(p=>p.Key,p=>new Placement(ProjectJoint(p.Value.Start),
                 p.Value.End is P end ? ProjectJoint(end) : null));
-            foreach(string id in LayerOrder.Where(id=>id is "head" or "torso" or "backpack" ||
-                id.Contains("arm") || id.EndsWith("hand")))
-            {
-                var p=mapped[id];
-                mapped[id]=new(new(p.Start.X,p.Start.Y+breath[i]),p.End is P e?new(e.X,e.Y+breath[i]):null);
-            }
             int ticks=i<4?6:3;
             result.Add(new($"idle_{i}","idle",ticks,mapped));
             traces.Add(new{gifFrame=i,durationMs=ticks*1000/60,source,mapped});
@@ -57,7 +54,7 @@ public static partial class Program
                 knees=new[]{new[]{622,586},new[]{722,590}},
                 ankles=new[]{new[]{648,681},new[]{746,685}}},
             mapping=new{scale=.30,mirrorX=true,sourceOrigin=new[]{680,695},targetOrigin=new[]{64,121}},
-            notes="Cleanup supersedes exact GIF motion: lowered guard, planted legs and shared one-pixel breathing. Source coordinates establish the base stance; mapped coordinates include breathing. Original armor definitions remain unchanged.",
+            notes="Skeleton construction establishes joint topology; live frames supply the fleshed-out joint positions. Coordinates are traced estimates, rounded to the game pixel grid. Original armor geometry and palette are retained.",
             frames=traces});
         return result;
     }
@@ -89,46 +86,7 @@ public static partial class Program
             Draw(canvas,d,v=>new((int)Math.Round(p.Start.X+(v.X-ax)*sx),
                 (int)Math.Round(p.Start.Y+(v.Y-ay)*sy)));
         }
-        CleanIdlePixels(canvas);
         return canvas;
-    }
-
-    static void CleanIdlePixels(Canvas canvas)
-    {
-        var cells=canvas.Cells;
-        // Broad, stable color planes instead of several one-pixel highlight ramps.
-        for(int i=0;i<cells.Length;i++)cells[i]=cells[i] switch {
-            "light"=>"white", "blue_light"=>"blue", "cyan_light"=>"cyan",
-            "steel"=>"joint", _=>cells[i]};
-        var visited=new bool[cells.Length];
-        for(int seed=0;seed<cells.Length;seed++)
-        {
-            if(visited[seed]||cells[seed] is null)continue;
-            var island=new List<int>();var queue=new Queue<int>();queue.Enqueue(seed);visited[seed]=true;
-            while(queue.TryDequeue(out int p))
-            {
-                island.Add(p);
-                for(int dy=-1;dy<=1;dy++)for(int dx=-1;dx<=1;dx++)
-                {
-                    int x=p%128+dx,y=p/128+dy,n=y*128+x;
-                    if(x<0||x>=128||y<0||y>=128||visited[n]||cells[n] is null)continue;
-                    visited[n]=true;queue.Enqueue(n);
-                }
-            }
-            if(island.Count<=3)foreach(int p in island)cells[p]=null;
-        }
-        var original=(string?[])cells.Clone();
-        for(int y=1;y<127;y++)for(int x=1;x<127;x++)
-        {
-            int p=y*128+x;
-            if(original[p] is null or "outline" or "cyan")continue;
-            var neighbors=new List<string>();
-            for(int dy=-1;dy<=1;dy++)for(int dx=-1;dx<=1;dx++)
-                if((dx!=0||dy!=0)&&original[p+dy*128+dx] is string token)neighbors.Add(token);
-            if(neighbors.Count!=8||neighbors.Count(t=>t==original[p])>1)continue;
-            var dominant=neighbors.GroupBy(t=>t).OrderByDescending(g=>g.Count()).First();
-            if(dominant.Count()>=5)cells[p]=dominant.Key;
-        }
     }
 
     static void ReworkIdle()
@@ -154,17 +112,6 @@ public static partial class Program
         var idle=ReferenceIdle();
         var definitions=LayerOrder.ToDictionary(id=>id,id=>JsonSerializer.Deserialize<PartDefinition>(
             File.ReadAllText($"art/draw/{id}.json"))!);
-        var basePixels=LayerOrder.ToDictionary(id=>id,id=>DrawIdlePart(id,definitions[id],idle[0].Parts[id]).Cells);
-        string?[] StablePixels(string id, PoseFrame pose)
-        {
-            var pixels=new string?[128*128];
-            int dx=pose.Parts[id].Start.X-idle[0].Parts[id].Start.X;
-            int dy=pose.Parts[id].Start.Y-idle[0].Parts[id].Start.Y;
-            for(int y=0;y<128;y++)for(int x=0;x<128;x++)
-                if(x+dx>=0&&x+dx<128&&y+dy>=0&&y+dy<128)
-                    pixels[(y+dy)*128+x+dx]=basePixels[id][y*128+x];
-            return pixels;
-        }
         var ops=new List<object>{new{type="removeAnimation",characterId="soldier",animationId="idle"}};
         foreach(var f in oldCharacter["views"]![0]!["frames"]!.AsArray()
             .Where(f=>f!["id"]!.GetValue<string>().StartsWith("idle_")))
@@ -173,7 +120,7 @@ public static partial class Program
             ops.Add(new{type="addFrame",characterId="soldier",viewId="right",frame=new{
                 id=pose.Id,name=pose.Id,durationTicks=pose.Ticks,
                 cels=LayerOrder.ToDictionary(id=>id,id=>new{grid=new{width=128,height=128,
-                    cells=StablePixels(id,pose)},offset=new{x=0,y=0}})}});
+                    cells=DrawIdlePart(id,definitions[id],pose.Parts[id]).Cells},offset=new{x=0,y=0}})}});
         ops.Add(new{type="addAnimation",characterId="soldier",index=0,animation=new{
             id="idle",name="idle",viewId="right",loop=true,tags=new[]{"frame-by-frame","reference-skeleton"},
             frames=idle.Select(p=>new{frameId=p.Id,durationTicks=p.Ticks}).ToArray()}});
