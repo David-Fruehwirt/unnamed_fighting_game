@@ -39,6 +39,26 @@ public static partial class Program
                 throw new Exception("Changed non-idle timing");
         var oldPoses=JsonNode.Parse(Git("show",baseline+":art/poses.json"))!["frames"]!.AsArray();
         var poses=JsonNode.Parse(File.ReadAllText("art/poses.json"))!["frames"]!.AsArray();
+        // A breathing frame may translate a part, never redraw its highlights or outline.
+        var first=frames["idle_0"]!["cels"]!;
+        foreach(var pose in poses.Where(p=>p!["clip"]!.GetValue<string>()=="idle"))
+        foreach(string part in LayerOrder)
+        {
+            var origin=poses[0]!["parts"]![part]!["Start"]!;
+            var position=pose!["parts"]![part]!["Start"]!;
+            int dx=position["X"]!.GetValue<int>()-origin["X"]!.GetValue<int>();
+            int dy=position["Y"]!.GetValue<int>()-origin["Y"]!.GetValue<int>();
+            bool planted=part=="pelvis"||part.EndsWith("thigh")||part.EndsWith("shin")||part.EndsWith("foot");
+            if(dx!=0||Math.Abs(dy)>1||(planted&&dy!=0))throw new Exception("Unstable idle placement: "+part);
+            var initial=first[part]!["grid"]!["cells"]!;
+            var actual=frames[pose["id"]!.GetValue<string>()]!["cels"]![part]!["grid"]!["cells"]!;
+            for(int y=0;y<128;y++)for(int x=0;x<128;x++)
+            {
+                string? expected=y-dy>=0&&y-dy<128?initial[(y-dy)*128+x]?.GetValue<string>():null;
+                if(actual[y*128+x]?.GetValue<string>()!=expected)throw new Exception("Idle pixel shimmer: "+part);
+            }
+        }
+        Console.WriteLine("PASS: all idle parts retain identical pixel patterns; legs planted and breathing limited to one pixel.");
         foreach(var p in oldPoses.Where(p=>p!["clip"]!.GetValue<string>()!="idle"))
             if(!JsonNode.DeepEquals(p,poses.Single(n=>n!["id"]!.GetValue<string>()==p!["id"]!.GetValue<string>())))
                 throw new Exception("Changed non-idle attachment pose");

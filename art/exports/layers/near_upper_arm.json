@@ -30,7 +30,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 6,
-      "hash": "fd4b0821"
+      "hash": "a866fed1"
     },
     {
       "frameId": "idle_1",
@@ -39,7 +39,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 6,
-      "hash": "7dd8e821"
+      "hash": "a866fed1"
     },
     {
       "frameId": "idle_2",
@@ -48,7 +48,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 6,
-      "hash": "f05a8353"
+      "hash": "73a65ed1"
     },
     {
       "frameId": "idle_3",
@@ -57,7 +57,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 6,
-      "hash": "7dd8e821"
+      "hash": "73a65ed1"
     },
     {
       "frameId": "idle_4",
@@ -66,7 +66,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 3,
-      "hash": "fd4b0821"
+      "hash": "73a65ed1"
     },
     {
       "frameId": "idle_5",
@@ -75,7 +75,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 3,
-      "hash": "83bd2821"
+      "hash": "a866fed1"
     },
     {
       "frameId": "idle_6",
@@ -84,7 +84,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 3,
-      "hash": "112f4821"
+      "hash": "a866fed1"
     },
     {
       "frameId": "idle_7",
@@ -93,7 +93,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 3,
-      "hash": "83bd2821"
+      "hash": "a866fed1"
     },
     {
       "frameId": "run_0",

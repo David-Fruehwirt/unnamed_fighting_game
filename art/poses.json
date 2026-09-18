@@ -48,23 +48,23 @@
           },
           "End": {
             "X": 80,
-            "Y": 50
+            "Y": 56
           }
         },
         "far_forearm": {
           "Start": {
             "X": 80,
-            "Y": 50
+            "Y": 56
           },
           "End": {
             "X": 89,
-            "Y": 36
+            "Y": 48
           }
         },
         "far_hand": {
           "Start": {
             "X": 89,
-            "Y": 36
+            "Y": 48
           },
           "End": null
         },
@@ -75,23 +75,23 @@
           },
           "End": {
             "X": 49,
-            "Y": 49
+            "Y": 55
           }
         },
         "near_forearm": {
           "Start": {
             "X": 49,
-            "Y": 49
+            "Y": 55
           },
           "End": {
             "X": 62,
-            "Y": 40
+            "Y": 52
           }
         },
         "near_hand": {
           "Start": {
             "X": 62,
-            "Y": 40
+            "Y": 52
           },
           "End": null
         },
@@ -159,436 +159,7 @@
         "head": {
           "Start": {
             "X": 66,
-            "Y": 31
-          },
-          "End": null
-        },
-        "torso": {
-          "Start": {
-            "X": 65,
-            "Y": 60
-          },
-          "End": null
-        },
-        "pelvis": {
-          "Start": {
-            "X": 65,
-            "Y": 64
-          },
-          "End": null
-        },
-        "backpack": {
-          "Start": {
-            "X": 55,
-            "Y": 42
-          },
-          "End": null
-        },
-        "far_upper_arm": {
-          "Start": {
-            "X": 77,
-            "Y": 33
-          },
-          "End": {
-            "X": 80,
-            "Y": 48
-          }
-        },
-        "far_forearm": {
-          "Start": {
-            "X": 80,
-            "Y": 48
-          },
-          "End": {
-            "X": 89,
-            "Y": 33
-          }
-        },
-        "far_hand": {
-          "Start": {
-            "X": 89,
-            "Y": 33
-          },
-          "End": null
-        },
-        "near_upper_arm": {
-          "Start": {
-            "X": 53,
-            "Y": 31
-          },
-          "End": {
-            "X": 49,
-            "Y": 48
-          }
-        },
-        "near_forearm": {
-          "Start": {
-            "X": 49,
-            "Y": 48
-          },
-          "End": {
-            "X": 62,
-            "Y": 39
-          }
-        },
-        "near_hand": {
-          "Start": {
-            "X": 62,
-            "Y": 39
-          },
-          "End": null
-        },
-        "far_thigh": {
-          "Start": {
-            "X": 71,
-            "Y": 66
-          },
-          "End": {
-            "X": 80,
-            "Y": 91
-          }
-        },
-        "far_shin": {
-          "Start": {
-            "X": 80,
-            "Y": 91
-          },
-          "End": {
-            "X": 74,
-            "Y": 116
-          }
-        },
-        "far_foot": {
-          "Start": {
-            "X": 74,
-            "Y": 116
-          },
-          "End": null
-        },
-        "near_thigh": {
-          "Start": {
-            "X": 59,
-            "Y": 66
-          },
-          "End": {
-            "X": 50,
-            "Y": 91
-          }
-        },
-        "near_shin": {
-          "Start": {
-            "X": 50,
-            "Y": 91
-          },
-          "End": {
-            "X": 44,
-            "Y": 118
-          }
-        },
-        "near_foot": {
-          "Start": {
-            "X": 44,
-            "Y": 118
-          },
-          "End": null
-        }
-      }
-    },
-    {
-      "id": "idle_2",
-      "clip": "idle",
-      "ticks": 6,
-      "parts": {
-        "head": {
-          "Start": {
-            "X": 66,
-            "Y": 30
-          },
-          "End": null
-        },
-        "torso": {
-          "Start": {
-            "X": 65,
-            "Y": 59
-          },
-          "End": null
-        },
-        "pelvis": {
-          "Start": {
-            "X": 65,
-            "Y": 62
-          },
-          "End": null
-        },
-        "backpack": {
-          "Start": {
-            "X": 55,
-            "Y": 40
-          },
-          "End": null
-        },
-        "far_upper_arm": {
-          "Start": {
-            "X": 77,
             "Y": 32
-          },
-          "End": {
-            "X": 80,
-            "Y": 46
-          }
-        },
-        "far_forearm": {
-          "Start": {
-            "X": 80,
-            "Y": 46
-          },
-          "End": {
-            "X": 89,
-            "Y": 32
-          }
-        },
-        "far_hand": {
-          "Start": {
-            "X": 89,
-            "Y": 32
-          },
-          "End": null
-        },
-        "near_upper_arm": {
-          "Start": {
-            "X": 53,
-            "Y": 30
-          },
-          "End": {
-            "X": 49,
-            "Y": 46
-          }
-        },
-        "near_forearm": {
-          "Start": {
-            "X": 49,
-            "Y": 46
-          },
-          "End": {
-            "X": 62,
-            "Y": 38
-          }
-        },
-        "near_hand": {
-          "Start": {
-            "X": 62,
-            "Y": 38
-          },
-          "End": null
-        },
-        "far_thigh": {
-          "Start": {
-            "X": 71,
-            "Y": 64
-          },
-          "End": {
-            "X": 80,
-            "Y": 90
-          }
-        },
-        "far_shin": {
-          "Start": {
-            "X": 80,
-            "Y": 90
-          },
-          "End": {
-            "X": 74,
-            "Y": 115
-          }
-        },
-        "far_foot": {
-          "Start": {
-            "X": 74,
-            "Y": 115
-          },
-          "End": null
-        },
-        "near_thigh": {
-          "Start": {
-            "X": 59,
-            "Y": 64
-          },
-          "End": {
-            "X": 50,
-            "Y": 90
-          }
-        },
-        "near_shin": {
-          "Start": {
-            "X": 50,
-            "Y": 90
-          },
-          "End": {
-            "X": 44,
-            "Y": 118
-          }
-        },
-        "near_foot": {
-          "Start": {
-            "X": 44,
-            "Y": 118
-          },
-          "End": null
-        }
-      }
-    },
-    {
-      "id": "idle_3",
-      "clip": "idle",
-      "ticks": 6,
-      "parts": {
-        "head": {
-          "Start": {
-            "X": 66,
-            "Y": 30
-          },
-          "End": null
-        },
-        "torso": {
-          "Start": {
-            "X": 65,
-            "Y": 60
-          },
-          "End": null
-        },
-        "pelvis": {
-          "Start": {
-            "X": 65,
-            "Y": 64
-          },
-          "End": null
-        },
-        "backpack": {
-          "Start": {
-            "X": 55,
-            "Y": 42
-          },
-          "End": null
-        },
-        "far_upper_arm": {
-          "Start": {
-            "X": 77,
-            "Y": 33
-          },
-          "End": {
-            "X": 80,
-            "Y": 48
-          }
-        },
-        "far_forearm": {
-          "Start": {
-            "X": 80,
-            "Y": 48
-          },
-          "End": {
-            "X": 89,
-            "Y": 33
-          }
-        },
-        "far_hand": {
-          "Start": {
-            "X": 89,
-            "Y": 33
-          },
-          "End": null
-        },
-        "near_upper_arm": {
-          "Start": {
-            "X": 53,
-            "Y": 31
-          },
-          "End": {
-            "X": 49,
-            "Y": 48
-          }
-        },
-        "near_forearm": {
-          "Start": {
-            "X": 49,
-            "Y": 48
-          },
-          "End": {
-            "X": 62,
-            "Y": 39
-          }
-        },
-        "near_hand": {
-          "Start": {
-            "X": 62,
-            "Y": 39
-          },
-          "End": null
-        },
-        "far_thigh": {
-          "Start": {
-            "X": 71,
-            "Y": 66
-          },
-          "End": {
-            "X": 80,
-            "Y": 91
-          }
-        },
-        "far_shin": {
-          "Start": {
-            "X": 80,
-            "Y": 91
-          },
-          "End": {
-            "X": 74,
-            "Y": 116
-          }
-        },
-        "far_foot": {
-          "Start": {
-            "X": 74,
-            "Y": 116
-          },
-          "End": null
-        },
-        "near_thigh": {
-          "Start": {
-            "X": 59,
-            "Y": 66
-          },
-          "End": {
-            "X": 50,
-            "Y": 91
-          }
-        },
-        "near_shin": {
-          "Start": {
-            "X": 50,
-            "Y": 91
-          },
-          "End": {
-            "X": 44,
-            "Y": 118
-          }
-        },
-        "near_foot": {
-          "Start": {
-            "X": 44,
-            "Y": 118
-          },
-          "End": null
-        }
-      }
-    },
-    {
-      "id": "idle_4",
-      "clip": "idle",
-      "ticks": 3,
-      "parts": {
-        "head": {
-          "Start": {
-            "X": 66,
-            "Y": 31
           },
           "End": null
         },
@@ -620,23 +191,23 @@
           },
           "End": {
             "X": 80,
-            "Y": 50
+            "Y": 56
           }
         },
         "far_forearm": {
           "Start": {
             "X": 80,
-            "Y": 50
+            "Y": 56
           },
           "End": {
             "X": 89,
-            "Y": 36
+            "Y": 48
           }
         },
         "far_hand": {
           "Start": {
             "X": 89,
-            "Y": 36
+            "Y": 48
           },
           "End": null
         },
@@ -647,23 +218,452 @@
           },
           "End": {
             "X": 49,
-            "Y": 49
+            "Y": 55
           }
         },
         "near_forearm": {
           "Start": {
             "X": 49,
-            "Y": 49
+            "Y": 55
           },
           "End": {
             "X": 62,
-            "Y": 40
+            "Y": 52
           }
         },
         "near_hand": {
           "Start": {
             "X": 62,
-            "Y": 40
+            "Y": 52
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 67
+          },
+          "End": {
+            "X": 81,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 81,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 67
+          },
+          "End": {
+            "X": 51,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 51,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "idle_2",
+      "clip": "idle",
+      "ticks": 6,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 31
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 60
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 33
+          },
+          "End": {
+            "X": 80,
+            "Y": 55
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 55
+          },
+          "End": {
+            "X": 89,
+            "Y": 47
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 47
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 31
+          },
+          "End": {
+            "X": 49,
+            "Y": 54
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 54
+          },
+          "End": {
+            "X": 62,
+            "Y": 51
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 51
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 67
+          },
+          "End": {
+            "X": 81,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 81,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 67
+          },
+          "End": {
+            "X": 51,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 51,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "idle_3",
+      "clip": "idle",
+      "ticks": 6,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 31
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 60
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 33
+          },
+          "End": {
+            "X": 80,
+            "Y": 55
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 55
+          },
+          "End": {
+            "X": 89,
+            "Y": 47
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 47
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 31
+          },
+          "End": {
+            "X": 49,
+            "Y": 54
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 54
+          },
+          "End": {
+            "X": 62,
+            "Y": 51
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 51
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 67
+          },
+          "End": {
+            "X": 81,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 81,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 67
+          },
+          "End": {
+            "X": 51,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 51,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "idle_4",
+      "clip": "idle",
+      "ticks": 3,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 66,
+            "Y": 31
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 60
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 55,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 77,
+            "Y": 33
+          },
+          "End": {
+            "X": 80,
+            "Y": 55
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 55
+          },
+          "End": {
+            "X": 89,
+            "Y": 47
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 89,
+            "Y": 47
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 53,
+            "Y": 31
+          },
+          "End": {
+            "X": 49,
+            "Y": 54
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 49,
+            "Y": 54
+          },
+          "End": {
+            "X": 62,
+            "Y": 51
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 62,
+            "Y": 51
           },
           "End": null
         },
@@ -738,92 +738,92 @@
         "torso": {
           "Start": {
             "X": 65,
-            "Y": 62
+            "Y": 61
           },
           "End": null
         },
         "pelvis": {
           "Start": {
             "X": 65,
-            "Y": 66
+            "Y": 65
           },
           "End": null
         },
         "backpack": {
           "Start": {
             "X": 55,
-            "Y": 44
+            "Y": 43
           },
           "End": null
         },
         "far_upper_arm": {
           "Start": {
             "X": 77,
-            "Y": 36
+            "Y": 34
           },
           "End": {
             "X": 80,
-            "Y": 51
+            "Y": 56
           }
         },
         "far_forearm": {
           "Start": {
             "X": 80,
-            "Y": 51
+            "Y": 56
           },
           "End": {
             "X": 89,
-            "Y": 37
+            "Y": 48
           }
         },
         "far_hand": {
           "Start": {
             "X": 89,
-            "Y": 37
+            "Y": 48
           },
           "End": null
         },
         "near_upper_arm": {
           "Start": {
             "X": 53,
-            "Y": 33
+            "Y": 32
           },
           "End": {
             "X": 49,
-            "Y": 50
+            "Y": 55
           }
         },
         "near_forearm": {
           "Start": {
             "X": 49,
-            "Y": 50
+            "Y": 55
           },
           "End": {
             "X": 62,
-            "Y": 42
+            "Y": 52
           }
         },
         "near_hand": {
           "Start": {
             "X": 62,
-            "Y": 42
+            "Y": 52
           },
           "End": null
         },
         "far_thigh": {
           "Start": {
             "X": 71,
-            "Y": 68
+            "Y": 67
           },
           "End": {
-            "X": 82,
-            "Y": 92
+            "X": 81,
+            "Y": 91
           }
         },
         "far_shin": {
           "Start": {
-            "X": 82,
-            "Y": 92
+            "X": 81,
+            "Y": 91
           },
           "End": {
             "X": 74,
@@ -840,17 +840,17 @@
         "near_thigh": {
           "Start": {
             "X": 59,
-            "Y": 68
+            "Y": 67
           },
           "End": {
-            "X": 52,
-            "Y": 92
+            "X": 51,
+            "Y": 91
           }
         },
         "near_shin": {
           "Start": {
-            "X": 52,
-            "Y": 92
+            "X": 51,
+            "Y": 91
           },
           "End": {
             "X": 44,
@@ -874,99 +874,99 @@
         "head": {
           "Start": {
             "X": 66,
-            "Y": 33
+            "Y": 32
           },
           "End": null
         },
         "torso": {
           "Start": {
             "X": 65,
-            "Y": 64
+            "Y": 61
           },
           "End": null
         },
         "pelvis": {
           "Start": {
             "X": 65,
-            "Y": 67
+            "Y": 65
           },
           "End": null
         },
         "backpack": {
           "Start": {
             "X": 55,
-            "Y": 45
+            "Y": 43
           },
           "End": null
         },
         "far_upper_arm": {
           "Start": {
             "X": 77,
-            "Y": 37
+            "Y": 34
           },
           "End": {
             "X": 80,
-            "Y": 54
+            "Y": 56
           }
         },
         "far_forearm": {
           "Start": {
             "X": 80,
-            "Y": 54
+            "Y": 56
           },
           "End": {
             "X": 89,
-            "Y": 39
+            "Y": 48
           }
         },
         "far_hand": {
           "Start": {
             "X": 89,
-            "Y": 39
+            "Y": 48
           },
           "End": null
         },
         "near_upper_arm": {
           "Start": {
             "X": 53,
-            "Y": 34
+            "Y": 32
           },
           "End": {
             "X": 49,
-            "Y": 51
+            "Y": 55
           }
         },
         "near_forearm": {
           "Start": {
             "X": 49,
-            "Y": 51
+            "Y": 55
           },
           "End": {
             "X": 62,
-            "Y": 43
+            "Y": 52
           }
         },
         "near_hand": {
           "Start": {
             "X": 62,
-            "Y": 43
+            "Y": 52
           },
           "End": null
         },
         "far_thigh": {
           "Start": {
             "X": 71,
-            "Y": 69
+            "Y": 67
           },
           "End": {
-            "X": 82,
-            "Y": 94
+            "X": 81,
+            "Y": 91
           }
         },
         "far_shin": {
           "Start": {
-            "X": 82,
-            "Y": 94
+            "X": 81,
+            "Y": 91
           },
           "End": {
             "X": 74,
@@ -983,17 +983,17 @@
         "near_thigh": {
           "Start": {
             "X": 59,
-            "Y": 69
+            "Y": 67
           },
           "End": {
-            "X": 52,
-            "Y": 94
+            "X": 51,
+            "Y": 91
           }
         },
         "near_shin": {
           "Start": {
-            "X": 52,
-            "Y": 94
+            "X": 51,
+            "Y": 91
           },
           "End": {
             "X": 44,
@@ -1017,99 +1017,99 @@
         "head": {
           "Start": {
             "X": 66,
-            "Y": 33
+            "Y": 32
           },
           "End": null
         },
         "torso": {
           "Start": {
             "X": 65,
-            "Y": 62
+            "Y": 61
           },
           "End": null
         },
         "pelvis": {
           "Start": {
             "X": 65,
-            "Y": 66
+            "Y": 65
           },
           "End": null
         },
         "backpack": {
           "Start": {
             "X": 55,
-            "Y": 44
+            "Y": 43
           },
           "End": null
         },
         "far_upper_arm": {
           "Start": {
             "X": 77,
-            "Y": 36
+            "Y": 34
           },
           "End": {
             "X": 80,
-            "Y": 52
+            "Y": 56
           }
         },
         "far_forearm": {
           "Start": {
             "X": 80,
-            "Y": 52
+            "Y": 56
           },
           "End": {
             "X": 89,
-            "Y": 38
+            "Y": 48
           }
         },
         "far_hand": {
           "Start": {
             "X": 89,
-            "Y": 38
+            "Y": 48
           },
           "End": null
         },
         "near_upper_arm": {
           "Start": {
             "X": 53,
-            "Y": 33
+            "Y": 32
           },
           "End": {
             "X": 49,
-            "Y": 50
+            "Y": 55
           }
         },
         "near_forearm": {
           "Start": {
             "X": 49,
-            "Y": 50
+            "Y": 55
           },
           "End": {
             "X": 62,
-            "Y": 42
+            "Y": 52
           }
         },
         "near_hand": {
           "Start": {
             "X": 62,
-            "Y": 42
+            "Y": 52
           },
           "End": null
         },
         "far_thigh": {
           "Start": {
             "X": 71,
-            "Y": 68
+            "Y": 67
           },
           "End": {
-            "X": 82,
-            "Y": 92
+            "X": 81,
+            "Y": 91
           }
         },
         "far_shin": {
           "Start": {
-            "X": 82,
-            "Y": 92
+            "X": 81,
+            "Y": 91
           },
           "End": {
             "X": 74,
@@ -1126,17 +1126,17 @@
         "near_thigh": {
           "Start": {
             "X": 59,
-            "Y": 68
+            "Y": 67
           },
           "End": {
-            "X": 52,
-            "Y": 92
+            "X": 51,
+            "Y": 91
           }
         },
         "near_shin": {
           "Start": {
-            "X": 52,
-            "Y": 92
+            "X": 51,
+            "Y": 91
           },
           "End": {
             "X": 44,
