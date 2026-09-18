@@ -2,6 +2,10 @@
 
 ## Scope
 
+### Cleanup follow-up
+
+The latest request supersedes exact reference motion: substantially reduce jitter, remove detached pixels, simplify noisy highlights, and lower the guard toward the waist. Keep the armor identity and all non-idle clips intact. Plant both legs, move the upper body together by at most one integer pixel, and keep each part's raster pattern stable. Merge redundant highlight colors and remove tiny detached islands; retain the visor and armor silhouette. Validate and preview, commit the art milestone, process through Pixelloid, import and verify, then commit and push.
+
 - Preserve the existing white/cobalt Soldier design, palette and sixteen editable part designs.
 - Change only idle proportions, articulation and timing to follow `reference_pics/soldier_class/soldier_stance.gif`.
 - Use the reference's raised guard, bent knees, head position and individual segment proportions. Mirror its left-facing stance for the game's right-facing source.
