@@ -3,7 +3,7 @@
   "projectId": "soldier",
   "characterId": "soldier",
   "animationId": "all",
-  "ticksPerSecond": 60,
+  "ticksPerSecond": 300,
   "sheet": {
     "width": 2816,
     "height": 128
@@ -29,7 +29,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "04d8a1f7"
     },
     {
@@ -38,7 +38,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "8f7862d5"
     },
     {
@@ -47,7 +47,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "63f20ca8"
     },
     {
@@ -56,7 +56,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "8f7862d5"
     },
     {
@@ -65,7 +65,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 3,
+      "durationTicks": 15,
       "hash": "04d8a1f7"
     },
     {
@@ -74,7 +74,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 3,
+      "durationTicks": 15,
       "hash": "8135e441"
     },
     {
@@ -83,7 +83,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 3,
+      "durationTicks": 15,
       "hash": "4fd068b7"
     },
     {
@@ -92,7 +92,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 3,
+      "durationTicks": 15,
       "hash": "8135e441"
     },
     {
@@ -101,8 +101,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "6cd844f2"
+      "durationTicks": 42,
+      "hash": "4b5e6a01"
     },
     {
       "frameId": "run_1",
@@ -110,8 +110,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "c27cfc5d"
+      "durationTicks": 42,
+      "hash": "96761cf3"
     },
     {
       "frameId": "run_2",
@@ -119,8 +119,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "7af46aaf"
+      "durationTicks": 42,
+      "hash": "82084e12"
     },
     {
       "frameId": "run_3",
@@ -128,8 +128,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "68989207"
+      "durationTicks": 42,
+      "hash": "c38cfd97"
     },
     {
       "frameId": "run_4",
@@ -137,8 +137,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "2f6ddd27"
+      "durationTicks": 42,
+      "hash": "7b8039a9"
     },
     {
       "frameId": "run_5",
@@ -146,8 +146,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "6cd64c00"
+      "durationTicks": 42,
+      "hash": "b023fcf3"
     },
     {
       "frameId": "run_6",
@@ -155,8 +155,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "af92459d"
+      "durationTicks": 42,
+      "hash": "155c3ebc"
     },
     {
       "frameId": "run_7",
@@ -164,8 +164,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "a395d8de"
+      "durationTicks": 42,
+      "hash": "a5386a93"
     },
     {
       "frameId": "jump_0",
@@ -173,7 +173,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "1174a7a3"
     },
     {
@@ -182,7 +182,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "183cf5aa"
     },
     {
@@ -191,7 +191,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "1bae671e"
     },
     {
@@ -200,7 +200,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "73d6af32"
     },
     {
@@ -209,7 +209,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "e4aae49e"
     },
     {
@@ -218,7 +218,7 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 6,
+      "durationTicks": 30,
       "hash": "43f08153"
     }
   ]

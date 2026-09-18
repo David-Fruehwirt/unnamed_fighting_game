@@ -14,6 +14,7 @@ public static partial class Program
 
     static List<PoseFrame> ReferenceIdle()
     {
+        int rate=JsonNode.Parse(File.ReadAllText("art/soldier.pixel.json"))!["ticksPerSecond"]!.GetValue<int>();
         int[] bodyY = [0,-4,-8,-4,0,4,8,4];
         int[] headY = [0,-4,-8,-8,-4,0,4,4];
         int[] handY = [0,-8,-12,-8,0,4,12,8];
@@ -40,9 +41,9 @@ public static partial class Program
                 new(698,514+b),new(kneeX[i]+100,kneeY[i]),new(748,684));
             var mapped=source.ToDictionary(p=>p.Key,p=>new Placement(ProjectJoint(p.Value.Start),
                 p.Value.End is P end ? ProjectJoint(end) : null));
-            int ticks=i<4?6:3;
+            int ticks=(i<4?6:3)*rate/60;
             result.Add(new($"idle_{i}","idle",ticks,mapped));
-            traces.Add(new{gifFrame=i,durationMs=ticks*1000/60,source,mapped});
+            traces.Add(new{gifFrame=i,durationMs=ticks*1000/rate,source,mapped});
         }
         Save("art/idle-reference.json",new{
             reference="reference_pics/soldier_class/soldier_stance.gif",skeletonFrame=130,

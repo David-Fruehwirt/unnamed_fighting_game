@@ -1,0 +1,1126 @@
+﻿{
+    "reference":  "soldier_walk.gif",
+    "frames":  [
+                   {
+                       "frame":  0,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  1,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  2,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  3,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  4,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  5,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  6,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  7,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  8,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  9,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  10,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  11,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  12,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  13,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  14,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  15,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  16,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  17,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  18,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  19,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "a9b784fc12eeeeb4d1296c41283756812415e3c1e2c8482a3dd3d531a3fec12e"
+                   },
+                   {
+                       "frame":  20,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "a9b784fc12eeeeb4d1296c41283756812415e3c1e2c8482a3dd3d531a3fec12e"
+                   },
+                   {
+                       "frame":  21,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  22,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  23,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  24,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  25,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  26,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  27,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  28,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  29,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  30,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  31,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  32,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  33,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  34,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  35,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  36,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  37,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  38,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  39,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  40,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  41,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  42,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  43,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  44,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  45,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  46,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  47,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e89cf64b2d845fce92d04b6109fc1924a4409cec15f5677b011a73ddb758ae8b"
+                   },
+                   {
+                       "frame":  48,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e89cf64b2d845fce92d04b6109fc1924a4409cec15f5677b011a73ddb758ae8b"
+                   },
+                   {
+                       "frame":  49,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  50,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  51,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  52,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  53,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  54,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  55,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  56,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  57,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  58,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  59,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  60,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  61,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  62,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  63,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  64,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  65,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  66,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  67,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  68,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  69,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  70,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  71,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  72,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  73,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  74,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  75,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "a9b784fc12eeeeb4d1296c41283756812415e3c1e2c8482a3dd3d531a3fec12e"
+                   },
+                   {
+                       "frame":  76,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "a9b784fc12eeeeb4d1296c41283756812415e3c1e2c8482a3dd3d531a3fec12e"
+                   },
+                   {
+                       "frame":  77,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  78,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  79,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  80,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  81,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  82,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  83,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  84,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  85,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  86,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  87,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  88,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  89,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  90,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  91,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  92,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  93,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  94,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  95,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  96,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  97,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  98,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  99,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  100,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  101,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  102,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  103,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e89cf64b2d845fce92d04b6109fc1924a4409cec15f5677b011a73ddb758ae8b"
+                   },
+                   {
+                       "frame":  104,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e89cf64b2d845fce92d04b6109fc1924a4409cec15f5677b011a73ddb758ae8b"
+                   },
+                   {
+                       "frame":  105,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  106,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  107,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  108,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  109,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  110,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  111,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  112,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  113,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  114,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  115,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  116,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  117,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  118,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  119,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  120,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  121,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  122,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  123,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  124,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  125,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  126,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  127,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  128,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  129,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  130,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  131,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "a9b784fc12eeeeb4d1296c41283756812415e3c1e2c8482a3dd3d531a3fec12e"
+                   },
+                   {
+                       "frame":  132,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "a9b784fc12eeeeb4d1296c41283756812415e3c1e2c8482a3dd3d531a3fec12e"
+                   },
+                   {
+                       "frame":  133,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  134,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  135,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  136,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  137,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  138,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  139,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  140,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  141,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  142,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  143,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  144,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  145,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  146,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  147,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  148,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  149,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  150,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  151,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  152,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  153,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  154,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  155,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  156,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  157,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  158,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  159,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e89cf64b2d845fce92d04b6109fc1924a4409cec15f5677b011a73ddb758ae8b"
+                   },
+                   {
+                       "frame":  160,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e89cf64b2d845fce92d04b6109fc1924a4409cec15f5677b011a73ddb758ae8b"
+                   },
+                   {
+                       "frame":  161,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  162,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  163,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  164,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  165,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  166,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  167,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  168,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  169,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  170,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  171,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  172,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  173,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  174,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "047f3106a9da3235ab620c087482fb1e0af19473e697b0ce59bff94c282f28c7"
+                   },
+                   {
+                       "frame":  175,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  176,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  177,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "931c15c167b016f584d36c8a19b145da95d2484d60b631f092358bbd55ed01fc"
+                   },
+                   {
+                       "frame":  178,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  179,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  180,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  181,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b84bb0e66ca1b5352fbf93f04a2c53be664c175ee0ad882a0e50820de00ce195"
+                   },
+                   {
+                       "frame":  182,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  183,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  184,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  185,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  186,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "3e7e7ebfa093583501aca11cb61b665bc0bf68e80775b8c692d41ef7d5b9fc52"
+                   },
+                   {
+                       "frame":  187,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "a9b784fc12eeeeb4d1296c41283756812415e3c1e2c8482a3dd3d531a3fec12e"
+                   },
+                   {
+                       "frame":  188,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "a9b784fc12eeeeb4d1296c41283756812415e3c1e2c8482a3dd3d531a3fec12e"
+                   },
+                   {
+                       "frame":  189,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  190,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  191,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  192,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  193,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  194,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  195,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "b8fb8fba66b51306f50185633028570802c44d74bb4443f98fc6a0d70043a9fe"
+                   },
+                   {
+                       "frame":  196,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  197,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  198,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  199,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  200,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  201,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  202,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "d436d3998d5d16bafe23f28030bb3336738462e737308f97a31ca7ccff252bfe"
+                   },
+                   {
+                       "frame":  203,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  204,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  205,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "5770627eeb5afe2f631d99e9bfd0c42de591c4520a77fdce56f8b9c227c9fecf"
+                   },
+                   {
+                       "frame":  206,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  207,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  208,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  209,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "cac4f6021eb77120a5942d389b4d1f1abe12bb4f4137f748aeb9224afc4d4202"
+                   },
+                   {
+                       "frame":  210,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  211,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  212,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  213,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  214,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e0c4eae6ab7f3e94c1bc3d1de06548b8a6b1476ad342f8321342560ec31c9439"
+                   },
+                   {
+                       "frame":  215,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e89cf64b2d845fce92d04b6109fc1924a4409cec15f5677b011a73ddb758ae8b"
+                   },
+                   {
+                       "frame":  216,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "e89cf64b2d845fce92d04b6109fc1924a4409cec15f5677b011a73ddb758ae8b"
+                   },
+                   {
+                       "frame":  217,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  218,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  219,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  220,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  221,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  222,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   },
+                   {
+                       "frame":  223,
+                       "durationMs":  20,
+                       "decodedPngSha256":  "f73633ec445e23888778b67e42e16922c55836b5e8cdd10e8583dd69ee8defeb"
+                   }
+               ],
+    "distinctImages":  1
+}

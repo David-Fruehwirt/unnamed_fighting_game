@@ -3,7 +3,7 @@
   "projectId": "soldier",
   "characterId": "soldier",
   "animationId": "run",
-  "ticksPerSecond": 60,
+  "ticksPerSecond": 300,
   "sheet": {
     "width": 1024,
     "height": 128
@@ -29,8 +29,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "31614d46"
+      "durationTicks": 42,
+      "hash": "293b021f"
     },
     {
       "frameId": "run_1",
@@ -38,8 +38,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "34b8d698"
+      "durationTicks": 42,
+      "hash": "865c4043"
     },
     {
       "frameId": "run_2",
@@ -47,8 +47,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "7245edeb"
+      "durationTicks": 42,
+      "hash": "ddc3520a"
     },
     {
       "frameId": "run_3",
@@ -56,8 +56,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "901683c5"
+      "durationTicks": 42,
+      "hash": "51db8ffb"
     },
     {
       "frameId": "run_4",
@@ -65,8 +65,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "0f889497"
+      "durationTicks": 42,
+      "hash": "7e3844bf"
     },
     {
       "frameId": "run_5",
@@ -74,8 +74,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "807dd3dc"
+      "durationTicks": 42,
+      "hash": "a01a2b54"
     },
     {
       "frameId": "run_6",
@@ -83,8 +83,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "49591f62"
+      "durationTicks": 42,
+      "hash": "bcf12171"
     },
     {
       "frameId": "run_7",
@@ -92,8 +92,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 5,
-      "hash": "e277d3d8"
+      "durationTicks": 42,
+      "hash": "94cbdb9c"
     }
   ]
 }
