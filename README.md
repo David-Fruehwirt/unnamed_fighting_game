@@ -16,7 +16,7 @@ The [design guide](game_script/CHARACTER_DESIGN.md) and [workflow](game_script/R
 
 All replacement art was drawn with code on integer pixel grids. Sixteen editable parts share a 12-color palette. The 128-by-128 animation canvas contains **22 discrete frames**: eight idle, eight run, three jump and three fall. A C# clock advances all part layers together; weapon sockets follow per-frame hand coordinates. Raster pixels are never rotated or interpolated.
 
-The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's skeleton and eight-pose, 600 ms loop. Existing armor designs are fitted to the traced proportions. Run, jump and fall remain pixel-identical to the restored version. [Compare all eight idle poses](art/previews/idle-comparison.png).
+The [idle rework](game_script/IDLE_REWORK.md) uses the supplied stance GIF's proportions and a 600 ms loop. The cleanup lowers the guard, plants the legs, and limits breathing to one shared pixel. Armor details stay fixed between frames to prevent shimmer. Run, jump and fall remain pixel-identical to the restored version. [Compare the reference and cleaned idle](art/previews/idle-comparison.png).
 
 | Location | Purpose |
 | --- | --- |

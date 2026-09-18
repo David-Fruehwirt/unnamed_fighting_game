@@ -2,6 +2,8 @@
 
 ## Idle pass — 18 September 2026
 
+Cleanup follow-up: the guard is lowered toward the waist, redundant highlight shades are merged, enclosed single-pixel color noise is simplified, and detached islands of up to three pixels are removed. Each cleaned body-part raster is authored once and translated by integer offsets; lower-body pixels stay fixed, upper-body breathing spans one pixel. `verify-idle` now checks every pixel in every idle layer against this translation rule, preventing frame-to-frame outline/highlight shimmer. Original part designs and non-idle clips remain protected.
+
 - Reviewed the 146-frame stance GIF, including the skeleton construction ending at frame 130 and the eight live poses. Exported a [comparison of all eight poses](../art/previews/idle-comparison.png).
 - Eight idle frames follow the reference's 100/100/100/100/50/50/50/50 ms timing. Joint positions are traced and rounded onto the 128×128 canvas; the original armor geometry is fitted to these proportions. This is an armored interpretation, not an identical copy of the dummy's contours.
 - Original individual part sources, shape definitions, palette and movement controller are unchanged.
