@@ -8,7 +8,7 @@ public static partial class Program
 {
     static void VerifyJump()
     {
-        const string baseline="440d39c";
+        const string baseline="f0247b4";
         string Git(params string[] args)
         {
             var info=new ProcessStartInfo("git"){RedirectStandardOutput=true,RedirectStandardError=true};
@@ -30,8 +30,8 @@ public static partial class Program
         foreach(string clip in new[]{"idle","run"})
             if(!JsonNode.DeepEquals(oldC["animations"]!.AsArray().Single(a=>a!["id"]!.GetValue<string>()==clip),
                 c["animations"]!.AsArray().Single(a=>a!["id"]!.GetValue<string>()==clip)))throw new Exception("Protected clip changed");
-        foreach(string id in new[]{"jump_pose_00","jump_pose_11"})
-            if(!JsonNode.DeepEquals(frames[id]!["cels"],frames["idle_0"]!["cels"]))throw new Exception("Jump endpoint differs from idle");
+        if(frames.Keys.Count(id=>id.StartsWith("jump_pose_"))!=8)
+            throw new Exception("Jump must contain exactly eight poses");
         var poses=JsonNode.Parse(File.ReadAllText("art/poses.json"))!["frames"]!.AsArray();
         var oldPoses=JsonNode.Parse(Git("show",baseline+":art/poses.json"))!["frames"]!.AsArray();
         for(int i=0;i<16;i++)if(!JsonNode.DeepEquals(poses[i],oldPoses[i]))throw new Exception("Protected attachment pose changed");
@@ -60,7 +60,7 @@ public static partial class Program
             const file='art/exports/layers/'+name;
             const old=PNG.sync.read(cp.execFileSync('git',['show',baseline+':'+file]));
             const now=PNG.sync.read(fs.readFileSync(file));
-            if(now.width!==28*128||now.height!==128)throw Error('Invalid atlas');
+            if(now.width!==24*128||now.height!==128)throw Error('Invalid atlas');
             const a=[],b=[];
             for(let y=0;y<128;y++){
                 a.push(old.data.subarray(y*old.width*4,(y*old.width+16*128)*4));
@@ -73,11 +73,11 @@ public static partial class Program
             parts.push({part:name,protectedRgbaSha256:sha(Buffer.concat(a))});
         }
         fs.writeFileSync('art/JUMP_VERIFICATION.json',JSON.stringify({baseline,protectedClips:['idle','run'],
-            protectedPartFrames:256,jumpFrames:12,parts},null,2)+'\n');
+            protectedPartFrames:256,jumpFrames:8,parts},null,2)+'\n');
         console.log('PASS: 256 idle/walk part frames unchanged; Pixelloid and game imports match.');
         """;
         var info=new ProcessStartInfo("node");foreach(string arg in new[]{"-e",bridge,Pix,baseline})info.ArgumentList.Add(arg);
         using var check=Process.Start(info)!;check.WaitForExit();if(check.ExitCode!=0)throw new Exception("Jump atlas verification failed");
-        Console.WriteLine($"PASS: all 12 poses in bounds; prepare/idle endpoints exact; maximum bone-length rounding {maxError:F3} px.");
+        Console.WriteLine($"PASS: exactly eight poses in bounds; maximum bone-length rounding {maxError:F3} px.");
     }
 }

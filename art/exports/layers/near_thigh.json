@@ -5,7 +5,7 @@
   "animationId": "all",
   "ticksPerSecond": 300,
   "sheet": {
-    "width": 3584,
+    "width": 3072,
     "height": 128
   },
   "origin": {
@@ -173,8 +173,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 10,
-      "hash": "7a053c19"
+      "durationTicks": 20,
+      "hash": "7e883331"
     },
     {
       "frameId": "jump_pose_01",
@@ -182,8 +182,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 10,
-      "hash": "c80d2c30"
+      "durationTicks": 20,
+      "hash": "199c2c3d"
     },
     {
       "frameId": "jump_pose_02",
@@ -192,7 +192,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 20,
-      "hash": "0995035c"
+      "hash": "a46d8073"
     },
     {
       "frameId": "jump_pose_03",
@@ -201,7 +201,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 20,
-      "hash": "e153069a"
+      "hash": "b5cef76f"
     },
     {
       "frameId": "jump_pose_04",
@@ -210,7 +210,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 20,
-      "hash": "e7d3a136"
+      "hash": "b52e15bf"
     },
     {
       "frameId": "jump_pose_05",
@@ -218,8 +218,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 20,
-      "hash": "c78c5264"
+      "durationTicks": 30,
+      "hash": "84324c30"
     },
     {
       "frameId": "jump_pose_06",
@@ -228,7 +228,7 @@
       "width": 128,
       "height": 128,
       "durationTicks": 30,
-      "hash": "9a40f4a9"
+      "hash": "1067a1aa"
     },
     {
       "frameId": "jump_pose_07",
@@ -236,44 +236,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 30,
-      "hash": "770fec23"
-    },
-    {
-      "frameId": "jump_pose_08",
-      "x": 3072,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 20,
-      "hash": "2fbff712"
-    },
-    {
-      "frameId": "jump_pose_09",
-      "x": 3200,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 20,
-      "hash": "22e7b264"
-    },
-    {
-      "frameId": "jump_pose_10",
-      "x": 3328,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 20,
-      "hash": "b13c836a"
-    },
-    {
-      "frameId": "jump_pose_11",
-      "x": 3456,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 20,
-      "hash": "7a053c19"
+      "durationTicks": 40,
+      "hash": "7e883331"
     }
   ]
 }

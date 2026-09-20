@@ -5,7 +5,7 @@
   "animationId": "land",
   "ticksPerSecond": 300,
   "sheet": {
-    "width": 512,
+    "width": 128,
     "height": 128
   },
   "origin": {
@@ -24,40 +24,13 @@
   },
   "frames": [
     {
-      "frameId": "jump_pose_08",
+      "frameId": "jump_pose_07",
       "x": 0,
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 20,
-      "hash": "995d5586"
-    },
-    {
-      "frameId": "jump_pose_09",
-      "x": 128,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 20,
-      "hash": "78afa445"
-    },
-    {
-      "frameId": "jump_pose_10",
-      "x": 256,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 20,
-      "hash": "e01ea2ad"
-    },
-    {
-      "frameId": "jump_pose_11",
-      "x": 384,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 20,
-      "hash": "d749e3f2"
+      "durationTicks": 40,
+      "hash": "8c10b471"
     }
   ]
 }

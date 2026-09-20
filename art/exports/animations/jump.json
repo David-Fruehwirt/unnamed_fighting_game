@@ -24,40 +24,40 @@
   },
   "frames": [
     {
-      "frameId": "jump_pose_02",
+      "frameId": "jump_pose_01",
       "x": 0,
       "y": 0,
       "width": 128,
       "height": 128,
       "durationTicks": 20,
-      "hash": "d4607c72"
+      "hash": "c2433ed7"
     },
     {
-      "frameId": "jump_pose_03",
+      "frameId": "jump_pose_02",
       "x": 128,
       "y": 0,
       "width": 128,
       "height": 128,
       "durationTicks": 20,
-      "hash": "4384231a"
+      "hash": "dfc2fd9d"
     },
     {
-      "frameId": "jump_pose_04",
+      "frameId": "jump_pose_03",
       "x": 256,
       "y": 0,
       "width": 128,
       "height": 128,
       "durationTicks": 20,
-      "hash": "93d21d8f"
+      "hash": "f9a21050"
     },
     {
-      "frameId": "jump_pose_05",
+      "frameId": "jump_pose_04",
       "x": 384,
       "y": 0,
       "width": 128,
       "height": 128,
       "durationTicks": 20,
-      "hash": "3df993c3"
+      "hash": "91cf05d9"
     }
   ]
 }

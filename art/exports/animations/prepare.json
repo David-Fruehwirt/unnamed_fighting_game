@@ -5,7 +5,7 @@
   "animationId": "prepare",
   "ticksPerSecond": 300,
   "sheet": {
-    "width": 256,
+    "width": 128,
     "height": 128
   },
   "origin": {
@@ -29,17 +29,8 @@
       "y": 0,
       "width": 128,
       "height": 128,
-      "durationTicks": 10,
-      "hash": "d749e3f2"
-    },
-    {
-      "frameId": "jump_pose_01",
-      "x": 128,
-      "y": 0,
-      "width": 128,
-      "height": 128,
-      "durationTicks": 10,
-      "hash": "5e8b511d"
+      "durationTicks": 20,
+      "hash": "52943e8c"
     }
   ]
 }

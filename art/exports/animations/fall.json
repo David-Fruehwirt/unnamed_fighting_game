@@ -24,22 +24,22 @@
   },
   "frames": [
     {
-      "frameId": "jump_pose_06",
+      "frameId": "jump_pose_05",
       "x": 0,
       "y": 0,
       "width": 128,
       "height": 128,
       "durationTicks": 30,
-      "hash": "7345d878"
+      "hash": "01f73b6e"
     },
     {
-      "frameId": "jump_pose_07",
+      "frameId": "jump_pose_06",
       "x": 128,
       "y": 0,
       "width": 128,
       "height": 128,
       "durationTicks": 30,
-      "hash": "1f278519"
+      "hash": "45e40a52"
     }
   ]
 }
