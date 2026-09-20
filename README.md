@@ -14,7 +14,7 @@ Use **Godot 4.7.2 .NET** and the **.NET 8 SDK**. Import `game/project.godot`, bu
 
 The [design guide](game_script/CHARACTER_DESIGN.md) and [workflow](game_script/REWORK_WORKFLOW.md) preserve the supplied references, Armored Core 6 and Gundam influences, and Brawlhalla-style gameplay scale.
 
-All replacement art was drawn with code on integer pixel grids. Sixteen editable parts share a 12-color palette. The 128-by-128 animation canvas contains **28 discrete frames**: eight idle, eight walk and twelve jump-sequence poses. A C# clock advances all part layers together; weapon sockets follow per-frame hand coordinates. Raster pixels are never rotated or interpolated.
+All replacement art was drawn with code on integer pixel grids. Sixteen editable parts share a 12-color palette. The 128-by-128 animation canvas contains **24 discrete frames**: eight idle, eight walk and eight jump-sequence poses. A C# clock advances all part layers together; weapon sockets follow per-frame hand coordinates. Raster pixels are never rotated or interpolated.
 
 The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's skeleton and eight-pose, 600 ms loop. The [walk rework](game_script/WALK_REWORK.md) replaces the movement clip with eight poses from `soldier_walk.gif`, using the idle's limb lengths and armor dimensions. Each walk pose lasts 140 ms at normal speed. [Compare the walk poses](art/previews/walk-comparison.png).
 
@@ -32,7 +32,7 @@ The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's 
 
 ![Soldier walk animation](art/previews/run.gif)
 
-The [twelve-pose jump](game_script/JUMP_REWORK.md) includes preparation, push-off, takeoff, ascent, apex, descent, landing and recovery. Physics supplies the jump height; the sprite frames retain the existing body-part sizes. [Compare all twelve poses](art/previews/jump-comparison.png).
+The [eight-pose jump](game_script/JUMP_8_REWORK.md) follows `soldier_jump_2.png`: preparation, push-off, ascent 1, ascent 2, apex, descent 1, descent 2 and landing. Physics supplies the jump height; the sprite frames retain the existing body-part sizes. [Compare all eight poses](art/previews/jump-comparison.png).
 
 ![Soldier jump poses](art/previews/jump_sequence.gif)
 
@@ -67,7 +67,7 @@ godot --headless --path game --editor --import
 godot --headless --path game res://tests/movement_smoke.tscn
 ```
 
-Latest result: **138 checks, zero failures**, covering all twelve poses during a full jump, grounded preparation, short jumps, landing recovery, jump buffering, coyote time, movement, frame synchronization and exact imported pixel hashes. The separate `verify-jump` check compares all 256 idle/walk part frames against commit `440d39c`, preserves their source timing and socket positions, and checks fixed jump segment lengths and canvas bounds. See [verification notes](game_script/REWORK_VERIFICATION.md).
+Latest result: **130 checks, zero failures**, covering all eight poses during a full jump, grounded preparation, short jumps, landing, jump buffering, coyote time, movement, frame synchronization and exact imported pixel hashes. The separate `verify-jump` check compares all 256 idle/walk part frames against commit `f0247b4`, preserves their source timing and socket positions, and checks fixed jump segment lengths and canvas bounds. See [verification notes](game_script/REWORK_VERIFICATION.md).
 
 Create `artifacts/` to capture a pose:
 

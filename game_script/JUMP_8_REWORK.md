@@ -15,3 +15,12 @@ The new reference keeps the leading fist raised and the trailing arm back throug
 5. Integrate preparation, four rising/apex poses, two descending poses and one landing pose. Check all eight during a full jump, short jumps, coyote time, buffering, bounds, fixed part lengths and idle/walk preservation. Commit, push and launch.
 
 The image supplies poses but no timing. Keep the current short grounded anticipation and responsive physics; use a short landing hold before returning to idle. Match the reference's articulation using unchanged armor sizes, allowing integer-pixel rounding rather than copying its apparent part distortion.
+
+## Completed result
+
+- Exactly eight poses in `art/soldier.pixel.json`; complete preview `art/previews/jump_sequence.gif`; comparison `art/previews/jump-comparison.png`; traced directions and anchors in `art/jump-reference.json`.
+- Atlas indices: idle 0–7, walk 8–15, prepare 16, push-off/ascent/apex 17–20, descent 21–22, land 23. Grounded anticipation stays about 67 ms; the landing hold is about 133 ms, followed by idle. No separate recovery frames remain.
+- Original part source files, geometry definitions, color palette and drawing dimensions remain unchanged. Maximum segment-length difference is 0.600 pixels from integer endpoint rounding; every pose fits within the canvas.
+- All 256 idle/walk part-frame pixel comparisons, source clip timing and socket metadata match baseline `f0247b4`. The user's local 8-tick walk cadence remains separate from the jump commit.
+- Pixelloid verified 39 PNGs before import. Godot imported pixels match the processed outputs.
+- C# build: no warnings/errors. Godot checks: **130 passed, zero failures**, including all eight poses during a full jump, short jumps, coyote time and buffering. Inspected the eight-pose comparison and `artifacts/jump-eight-land.png` in-game capture.

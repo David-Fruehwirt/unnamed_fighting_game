@@ -72,7 +72,7 @@ public partial class Soldier : CharacterBody2D
             _jumpBuffer = 0;
             _landingLeft = 0;
             _releasedDuringPreparation = !Input.IsActionPressed("jump");
-            // Two grounded anticipation poses. Coyote jumps remain immediate.
+            // One grounded anticipation pose. Coyote jumps remain immediate.
             if (wasOnFloor) _prepareLeft = 4f / 60;
             else takeoff = true;
         }
@@ -87,7 +87,7 @@ public partial class Soldier : CharacterBody2D
         if (axis != 0) Facing = Math.Sign(axis);
         Velocity = velocity;
         MoveAndSlide();
-        if (!wasOnFloor && IsOnFloor() && velocity.Y > 50) _landingLeft = 16f / 60;
+        if (!wasOnFloor && IsOnFloor() && velocity.Y > 50) _landingLeft = 8f / 60;
         Position = new Vector2(Mathf.Clamp(Position.X, 22, 938), Position.Y);
         MotionState = _prepareLeft > 0 ? "prepare"
             : !IsOnFloor() ? (Velocity.Y < -20 ? "jump" : "fall")

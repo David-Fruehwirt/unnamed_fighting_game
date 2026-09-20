@@ -1,11 +1,11 @@
 {
-  "baseline": "440d39c",
+  "baseline": "f0247b4",
   "protectedClips": [
     "idle",
     "run"
   ],
   "protectedPartFrames": 256,
-  "jumpFrames": 12,
+  "jumpFrames": 8,
   "parts": [
     {
       "part": "backpack.png",

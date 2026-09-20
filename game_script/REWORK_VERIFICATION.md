@@ -1,5 +1,9 @@
 # Rework verification
 
+## Eight-frame jump — 20 September 2026
+
+Replaced the twelve-pose jump with the eight poses from `soldier_jump_2.png`. [Current workflow and results](JUMP_8_REWORK.md) record the pose breakdown, unchanged part dimensions and landing behavior. **130 Godot checks passed**, with a clean C# build and Pixelloid processing before import. All 256 idle/walk part frames remain identical to baseline `f0247b4`; the maximum fixed-length endpoint rounding is 0.600 pixels.
+
 ## Jump pass — 18 September 2026
 
 Completed all twelve reference poses with unchanged armor definitions and fixed part dimensions. [Jump workflow and results](JUMP_REWORK.md) record the full sequence and authored timing. C# build passed without warnings/errors. **138 Godot checks passed**, including all twelve frames in a full jump, landing recovery, preparation, short-jump release, coyote time and buffered jumps. [Preservation verification](../art/JUMP_VERIFICATION.json) confirms all 256 idle/walk part frames remain identical; Pixelloid processed all 39 exported PNGs before integration.

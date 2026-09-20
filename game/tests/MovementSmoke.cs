@@ -93,7 +93,7 @@ public partial class MovementSmoke : Node
         var seen=new System.Collections.Generic.HashSet<int>{_player.Visual.AtlasFrame};
         for(int i=0;i<80;i++){await Frames(1);seen.Add(_player.Visual.AtlasFrame);}
         Input.ActionRelease("jump");await Frames(2);
-        Check(Enumerable.Range(16,12).All(seen.Contains),"Full jump displays all twelve reference poses");
+        Check(Enumerable.Range(16,8).All(seen.Contains),"Full jump displays all eight reference poses");
         Check(_player.IsOnFloor()&&_player.MotionState=="idle","Landing recovery returns to idle");
         Input.ActionPress("jump");await Frames(1);Input.ActionRelease("jump");
         float peak=floor;
@@ -117,7 +117,7 @@ public partial class MovementSmoke : Node
             string hash=Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant();
             Check(hash==entries[sprite.Name.ToString()].GetProperty("processedRgbaSha256").GetString(),
                 $"{sprite.Name}: Godot pixels match Pixelloid output");
-            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==28,
+            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==24,
                 $"{sprite.Name}: exact pixels, no raster rotation or scaling");
         }
         foreach(var (clip,info) in SoldierVisual.Clips)

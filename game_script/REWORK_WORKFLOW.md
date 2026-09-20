@@ -29,7 +29,7 @@
 
 ## Source conventions
 
-All sixteen parts, Pixelloid processing and C# integration are complete. Each body part was committed separately. The [18 September idle pass](IDLE_REWORK.md) expands the assembly to twenty-two frames while preserving the other clips. See [verification results](REWORK_VERIFICATION.md) and the root README for editing and run commands.
+All sixteen parts, Pixelloid processing and C# integration are complete. Each body part was committed separately. The current [eight-frame jump pass](JUMP_8_REWORK.md) leaves twenty-four atlas frames: eight idle, eight walk and eight jump poses. See [verification results](REWORK_VERIFICATION.md) and the root README for editing and run commands.
 
 - `.pixel.json` documents are the editable pixel source of truth.
 - Semantic palette entries define armor, shadow, cobalt, joints, visor and highlights.
