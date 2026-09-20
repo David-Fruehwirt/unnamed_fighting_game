@@ -5,7 +5,7 @@
   "animationId": "all",
   "ticksPerSecond": 300,
   "sheet": {
-    "width": 3072,
+    "width": 3712,
     "height": 128
   },
   "origin": {
@@ -238,6 +238,51 @@
       "height": 128,
       "durationTicks": 40,
       "hash": "fcbf8568"
+    },
+    {
+      "frameId": "attack_0",
+      "x": 3072,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "269face2"
+    },
+    {
+      "frameId": "attack_1",
+      "x": 3200,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "e5f30351"
+    },
+    {
+      "frameId": "attack_2",
+      "x": 3328,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "bd7657f2"
+    },
+    {
+      "frameId": "attack_3",
+      "x": 3456,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "a25d5f85"
+    },
+    {
+      "frameId": "attack_4",
+      "x": 3584,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "5a6146cb"
     }
   ]
 }

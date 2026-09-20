@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "projectId": "fight_effects",
+  "characterId": "fight_effects",
+  "animationId": "attack",
+  "ticksPerSecond": 300,
+  "sheet": {
+    "width": 800,
+    "height": 128
+  },
+  "origin": {
+    "x": 64,
+    "y": 121
+  },
+  "pivot": {
+    "x": 64,
+    "y": 121
+  },
+  "anchors": {
+    "feet": {
+      "x": 80,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "attack_0",
+      "x": 0,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "d252e665"
+    },
+    {
+      "frameId": "attack_1",
+      "x": 160,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "247dd7e9"
+    },
+    {
+      "frameId": "attack_2",
+      "x": 320,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "a2f24189"
+    },
+    {
+      "frameId": "attack_3",
+      "x": 480,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "32cbbb05"
+    },
+    {
+      "frameId": "attack_4",
+      "x": 640,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "8b0f33f9"
+    }
+  ]
+}

@@ -3535,6 +3535,721 @@
           }
         }
       }
+    },
+    {
+      "id": "attack_0",
+      "clip": "attack",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 73,
+            "Y": 33
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 68,
+            "Y": 62
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 67,
+            "Y": 66
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 60,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 83,
+            "Y": 37
+          },
+          "End": {
+            "X": 99,
+            "Y": 37
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 99,
+            "Y": 37
+          },
+          "End": {
+            "X": 116,
+            "Y": 37
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 116,
+            "Y": 37
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 60,
+            "Y": 32
+          },
+          "End": {
+            "X": 51,
+            "Y": 47
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 51,
+            "Y": 47
+          },
+          "End": {
+            "X": 65,
+            "Y": 40
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 65,
+            "Y": 40
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 73,
+            "Y": 68
+          },
+          "End": {
+            "X": 83,
+            "Y": 92
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 83,
+            "Y": 92
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 61,
+            "Y": 68
+          },
+          "End": {
+            "X": 50,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 50,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "attack_1",
+      "clip": "attack",
+      "ticks": 30,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 75,
+            "Y": 35
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 69,
+            "Y": 63
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 68,
+            "Y": 67
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 62,
+            "Y": 44
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 85,
+            "Y": 39
+          },
+          "End": {
+            "X": 101,
+            "Y": 38
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 101,
+            "Y": 38
+          },
+          "End": {
+            "X": 118,
+            "Y": 39
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 118,
+            "Y": 39
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 62,
+            "Y": 32
+          },
+          "End": {
+            "X": 53,
+            "Y": 47
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 53,
+            "Y": 47
+          },
+          "End": {
+            "X": 67,
+            "Y": 40
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 67,
+            "Y": 40
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 74,
+            "Y": 69
+          },
+          "End": {
+            "X": 85,
+            "Y": 93
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 85,
+            "Y": 93
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 62,
+            "Y": 69
+          },
+          "End": {
+            "X": 49,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 49,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "attack_2",
+      "clip": "attack",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 76,
+            "Y": 35
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 69,
+            "Y": 63
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 68,
+            "Y": 67
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 63,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 86,
+            "Y": 39
+          },
+          "End": {
+            "X": 102,
+            "Y": 39
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 102,
+            "Y": 39
+          },
+          "End": {
+            "X": 119,
+            "Y": 39
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 119,
+            "Y": 39
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 63,
+            "Y": 32
+          },
+          "End": {
+            "X": 54,
+            "Y": 47
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 54,
+            "Y": 47
+          },
+          "End": {
+            "X": 68,
+            "Y": 40
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 68,
+            "Y": 40
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 74,
+            "Y": 69
+          },
+          "End": {
+            "X": 85,
+            "Y": 93
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 85,
+            "Y": 93
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 62,
+            "Y": 69
+          },
+          "End": {
+            "X": 49,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 49,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "attack_3",
+      "clip": "attack",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 70,
+            "Y": 33
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 66,
+            "Y": 62
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 66,
+            "Y": 66
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 58,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 81,
+            "Y": 36
+          },
+          "End": {
+            "X": 92,
+            "Y": 48
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 92,
+            "Y": 48
+          },
+          "End": {
+            "X": 106,
+            "Y": 40
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 106,
+            "Y": 40
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 57,
+            "Y": 32
+          },
+          "End": {
+            "X": 52,
+            "Y": 49
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 52,
+            "Y": 49
+          },
+          "End": {
+            "X": 66,
+            "Y": 42
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 66,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 72,
+            "Y": 68
+          },
+          "End": {
+            "X": 83,
+            "Y": 92
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 83,
+            "Y": 92
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 60,
+            "Y": 68
+          },
+          "End": {
+            "X": 48,
+            "Y": 90
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 48,
+            "Y": 90
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "attack_4",
+      "clip": "attack",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 64,
+            "Y": 32
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 61
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 54,
+            "Y": 44
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 75,
+            "Y": 33
+          },
+          "End": {
+            "X": 80,
+            "Y": 48
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 80,
+            "Y": 48
+          },
+          "End": {
+            "X": 91,
+            "Y": 35
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 91,
+            "Y": 35
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 51,
+            "Y": 33
+          },
+          "End": {
+            "X": 46,
+            "Y": 50
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 46,
+            "Y": 50
+          },
+          "End": {
+            "X": 60,
+            "Y": 42
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 60,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 67
+          },
+          "End": {
+            "X": 81,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 81,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 67
+          },
+          "End": {
+            "X": 51,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 51,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
     }
   ],
   "ticksPerSecond": 300

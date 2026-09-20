@@ -1,0 +1,442 @@
+[
+    {
+        "frame":  0,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  1,
+        "ms":  100,
+        "hash":  "DBF62C2CA4D7056DD732F6B3D01BB4765A2C6968D251BDD3B30C21D8A2282B45"
+    },
+    {
+        "frame":  2,
+        "ms":  100,
+        "hash":  "0B669C975D9870A2F9C26B9185C40143A78AD161F01214CE5A3B868E7B04BB39"
+    },
+    {
+        "frame":  3,
+        "ms":  100,
+        "hash":  "5E2BBE4C038B54636FD0843AC75E06880DECC534B429AE615FE4EF4B525995DC"
+    },
+    {
+        "frame":  4,
+        "ms":  50,
+        "hash":  "160359B3BF3A53428A8264DF34EDF6A69E9FC3EAF012923AAE5A6CF38FED4669"
+    },
+    {
+        "frame":  5,
+        "ms":  50,
+        "hash":  "298EC2206BA5CAE2CCB5D8897E9B32A6A3CAFABF85F0EFB8D64C3985307F3779"
+    },
+    {
+        "frame":  6,
+        "ms":  50,
+        "hash":  "E93153C5A0EF5296A5094C0A4D72F383C9F513BDD1DD4330D2A6FD404717DDD0"
+    },
+    {
+        "frame":  7,
+        "ms":  50,
+        "hash":  "7C3F82C7588937514CDAAE42D442879EEAD2AFECE69FA2008375E08797484EF6"
+    },
+    {
+        "frame":  8,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  9,
+        "ms":  100,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  10,
+        "ms":  50,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  11,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  12,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  13,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  14,
+        "ms":  100,
+        "hash":  "DBF62C2CA4D7056DD732F6B3D01BB4765A2C6968D251BDD3B30C21D8A2282B45"
+    },
+    {
+        "frame":  15,
+        "ms":  100,
+        "hash":  "0B669C975D9870A2F9C26B9185C40143A78AD161F01214CE5A3B868E7B04BB39"
+    },
+    {
+        "frame":  16,
+        "ms":  100,
+        "hash":  "5E2BBE4C038B54636FD0843AC75E06880DECC534B429AE615FE4EF4B525995DC"
+    },
+    {
+        "frame":  17,
+        "ms":  50,
+        "hash":  "160359B3BF3A53428A8264DF34EDF6A69E9FC3EAF012923AAE5A6CF38FED4669"
+    },
+    {
+        "frame":  18,
+        "ms":  50,
+        "hash":  "298EC2206BA5CAE2CCB5D8897E9B32A6A3CAFABF85F0EFB8D64C3985307F3779"
+    },
+    {
+        "frame":  19,
+        "ms":  50,
+        "hash":  "E93153C5A0EF5296A5094C0A4D72F383C9F513BDD1DD4330D2A6FD404717DDD0"
+    },
+    {
+        "frame":  20,
+        "ms":  50,
+        "hash":  "7C3F82C7588937514CDAAE42D442879EEAD2AFECE69FA2008375E08797484EF6"
+    },
+    {
+        "frame":  21,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  22,
+        "ms":  100,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  23,
+        "ms":  50,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  24,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  25,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  26,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  27,
+        "ms":  100,
+        "hash":  "DBF62C2CA4D7056DD732F6B3D01BB4765A2C6968D251BDD3B30C21D8A2282B45"
+    },
+    {
+        "frame":  28,
+        "ms":  100,
+        "hash":  "0B669C975D9870A2F9C26B9185C40143A78AD161F01214CE5A3B868E7B04BB39"
+    },
+    {
+        "frame":  29,
+        "ms":  100,
+        "hash":  "5E2BBE4C038B54636FD0843AC75E06880DECC534B429AE615FE4EF4B525995DC"
+    },
+    {
+        "frame":  30,
+        "ms":  50,
+        "hash":  "160359B3BF3A53428A8264DF34EDF6A69E9FC3EAF012923AAE5A6CF38FED4669"
+    },
+    {
+        "frame":  31,
+        "ms":  50,
+        "hash":  "298EC2206BA5CAE2CCB5D8897E9B32A6A3CAFABF85F0EFB8D64C3985307F3779"
+    },
+    {
+        "frame":  32,
+        "ms":  50,
+        "hash":  "E93153C5A0EF5296A5094C0A4D72F383C9F513BDD1DD4330D2A6FD404717DDD0"
+    },
+    {
+        "frame":  33,
+        "ms":  50,
+        "hash":  "7C3F82C7588937514CDAAE42D442879EEAD2AFECE69FA2008375E08797484EF6"
+    },
+    {
+        "frame":  34,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  35,
+        "ms":  100,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  36,
+        "ms":  50,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  37,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  38,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  39,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  40,
+        "ms":  100,
+        "hash":  "DBF62C2CA4D7056DD732F6B3D01BB4765A2C6968D251BDD3B30C21D8A2282B45"
+    },
+    {
+        "frame":  41,
+        "ms":  100,
+        "hash":  "0B669C975D9870A2F9C26B9185C40143A78AD161F01214CE5A3B868E7B04BB39"
+    },
+    {
+        "frame":  42,
+        "ms":  100,
+        "hash":  "5E2BBE4C038B54636FD0843AC75E06880DECC534B429AE615FE4EF4B525995DC"
+    },
+    {
+        "frame":  43,
+        "ms":  50,
+        "hash":  "160359B3BF3A53428A8264DF34EDF6A69E9FC3EAF012923AAE5A6CF38FED4669"
+    },
+    {
+        "frame":  44,
+        "ms":  50,
+        "hash":  "298EC2206BA5CAE2CCB5D8897E9B32A6A3CAFABF85F0EFB8D64C3985307F3779"
+    },
+    {
+        "frame":  45,
+        "ms":  50,
+        "hash":  "E93153C5A0EF5296A5094C0A4D72F383C9F513BDD1DD4330D2A6FD404717DDD0"
+    },
+    {
+        "frame":  46,
+        "ms":  50,
+        "hash":  "7C3F82C7588937514CDAAE42D442879EEAD2AFECE69FA2008375E08797484EF6"
+    },
+    {
+        "frame":  47,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  48,
+        "ms":  50,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  49,
+        "ms":  100,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  50,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  51,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  52,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  53,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  54,
+        "ms":  50,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  55,
+        "ms":  100,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  56,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  57,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  58,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  59,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  60,
+        "ms":  50,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  61,
+        "ms":  100,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  62,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  63,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  64,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  65,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  66,
+        "ms":  50,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  67,
+        "ms":  100,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  68,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  69,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  70,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  71,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  72,
+        "ms":  50,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  73,
+        "ms":  100,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  74,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  75,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  76,
+        "ms":  100,
+        "hash":  "D87EC7E7381F4FA2D81CC49251111FF382932E6DD8C210C84B95DA7D70BD53B4"
+    },
+    {
+        "frame":  77,
+        "ms":  50,
+        "hash":  "0A9AD5F436655726BA41E136EE2FD57FB12E42A5110DB65EEBEBAC950D3A1E4D"
+    },
+    {
+        "frame":  78,
+        "ms":  50,
+        "hash":  "F7BE04231BFFEA3B145894CE5D7B3447166A535A92094A4881762D7942567301"
+    },
+    {
+        "frame":  79,
+        "ms":  100,
+        "hash":  "02D87ED76AA6D1932CF6C2069E1E0E7DB5FFEFED96EBF1F5BEA79F11233A87A5"
+    },
+    {
+        "frame":  80,
+        "ms":  50,
+        "hash":  "7CE3F383949196166E6D61FA9172189FB47588BFE2FE0CADA8F43C0FBB36E843"
+    },
+    {
+        "frame":  81,
+        "ms":  50,
+        "hash":  "C5C7CEF88BABE3468FC9A521F7777F1F0B822A46AE961DE5A5692AA5E5953C69"
+    },
+    {
+        "frame":  82,
+        "ms":  2000,
+        "hash":  "8AD42892E1A53DA1F5303F7C87F3EBF1F99A30893C96983AE31C495568FB76B8"
+    },
+    {
+        "frame":  83,
+        "ms":  2000,
+        "hash":  "BC38E0D165EFCC1280F297DA7CC53D50CDDF2ADA2FEE4AC1DF5746A576C4DB1F"
+    },
+    {
+        "frame":  84,
+        "ms":  2000,
+        "hash":  "83B294ADF2DCD687280DA6423B87CF6E1ABC617B91D761FCF1FE1ED8BDAD531B"
+    },
+    {
+        "frame":  85,
+        "ms":  2000,
+        "hash":  "1D0FEE17BA0FAD274C3AEDF3E1A21F17B284922A0AA76D55EB8DD26DA8072EA4"
+    },
+    {
+        "frame":  86,
+        "ms":  2000,
+        "hash":  "CE36183013A447D31AAC787D02FD371E7297012B43DAFB701B00F0E627C0B52D"
+    },
+    {
+        "frame":  87,
+        "ms":  2000,
+        "hash":  "7CAC41CA95B72AA51AE064CF2A7A618BCD4790C2A878217AF3E244E51DDE8AD5"
+    }
+]

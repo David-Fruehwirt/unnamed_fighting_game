@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "projectId": "fight_preview",
+  "characterId": "fight_preview",
+  "animationId": "attack",
+  "ticksPerSecond": 300,
+  "sheet": {
+    "width": 800,
+    "height": 128
+  },
+  "origin": {
+    "x": 80,
+    "y": 124
+  },
+  "pivot": {
+    "x": 80,
+    "y": 124
+  },
+  "anchors": {
+    "feet": {
+      "x": 80,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "attack_0",
+      "x": 0,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "0644e0d8"
+    },
+    {
+      "frameId": "attack_1",
+      "x": 160,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "c620e0dd"
+    },
+    {
+      "frameId": "attack_2",
+      "x": 320,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "bfbaa730"
+    },
+    {
+      "frameId": "attack_3",
+      "x": 480,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "2a089caf"
+    },
+    {
+      "frameId": "attack_4",
+      "x": 640,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "7894a439"
+    }
+  ]
+}
