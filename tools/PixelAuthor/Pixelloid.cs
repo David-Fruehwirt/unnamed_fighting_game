@@ -30,6 +30,9 @@ public static partial class Program
         walk(sourceDir);
         const results=[];
         for(const file of files.sort()){
+            const relative=path.relative(sourceDir,file);
+            // Supplied stage artwork retains its full decoded palette at native resolution.
+            const nativeStage=relative.replaceAll('\\','/').startsWith('stages/');
             const source=PNG.sync.read(fs.readFileSync(file));
             const result=pixelizeBuffer({width:source.width,height:source.height,data:new Uint8ClampedArray(source.data)},settings);
             const sourceHash=sha(source.data),resultHash=sha(result.data);
@@ -39,9 +42,8 @@ public static partial class Program
                 if(alpha!==0&&alpha!==255)partial++;
                 if(alpha){opaque++;colors.add(Array.from(result.data.slice(i,i+4)).join(','));}
             }
-            if(source.width!==result.width||source.height!==result.height||sourceHash!==resultHash||partial||colors.size>12)
+            if(source.width!==result.width||source.height!==result.height||sourceHash!==resultHash||partial||(!nativeStage&&colors.size>12))
                 throw new Error('Pixelloid validation failed: '+file);
-            const relative=path.relative(sourceDir,file);
             const output=path.join(root,'art','pixelloid',relative);
             fs.mkdirSync(path.dirname(output),{recursive:true});
             const png=new PNG({width:result.width,height:result.height});

@@ -1,0 +1,12 @@
+{
+  "reference": "reference_pics/stage_1.jpg",
+  "sourceSha256": "68c96391c299e953c8364576a3ca568d6856432a5bd3a3f1d1914b65724ce96d",
+  "width": 888,
+  "height": 448,
+  "retainedPixels": 272562,
+  "sourceRgbPreserved": true,
+  "resampling": false,
+  "paletteReduction": false,
+  "mask": "Border and four traced enclosed-hole seeds; channel spread \u003C=14, RGB sum 114..510; retain largest connected foreground component.",
+  "exportedRgbaSha256": "9c76e6f2487bc879602e41ec8d8d314724a171e7f00ebfcd6abe89ad45e4a7bd"
+}
