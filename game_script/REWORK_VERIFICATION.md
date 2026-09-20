@@ -1,5 +1,14 @@
 # Rework verification
 
+## Jab pass — 20 September 2026
+
+- Inspected all 88 GIF frames through 19 pixel-distinct images, including the six held breakdown frames. [Frame audit](../art/fight-frame-audit.json) records every decoded frame and duration.
+- Added five jab poses and synchronized smear/impact effects with 50/100/50/50/50 ms holds. J plays once, holds facing and foot contact, and returns to movement. Jump cancels the grounded jab; reset clears its state and effect.
+- All armor definitions, palette, existing source clips, attachment coordinates and **384 idle/walk/jump part frames** remain identical to `404ac55`. The fixed-length attack endpoints have at most **0.519 pixels** of integer rounding; both ankle positions remain fixed. [Preservation report](../art/FIGHT_VERIFICATION.json).
+- Code as Pixel Art validates both sources. Pixelloid processed all **41 PNGs** before import with identical input/output RGBA. All seventeen Godot body/effect textures match the processed pixels.
+- C# build: zero warnings/errors. Godot harness: **159 checks, zero failures**, including an immediate re-press at recovery completion and all existing movement/jump checks. Inspected the graphical hit capture at 960×540.
+- Sources: [body](../art/soldier.pixel.json), [effects](../art/fight-effects.pixel.json). [Combined preview](../art/previews/attack.gif) and [pose sheet](../art/previews/attack-poses.png).
+
 ## Eight-frame jump — 20 September 2026
 
 Replaced the twelve-pose jump with the eight poses from `soldier_jump_2.png`. [Current workflow and results](JUMP_8_REWORK.md) record the pose breakdown, unchanged part dimensions and landing behavior. **130 Godot checks passed**, with a clean C# build and Pixelloid processing before import. All 256 idle/walk part frames remain identical to baseline `f0247b4`; the maximum fixed-length endpoint rounding is 0.600 pixels.

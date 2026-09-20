@@ -16,10 +16,14 @@ public partial class SoldierVisual : Node2D
         ["jump"] = (17, 4, 4, false),
         ["fall"] = (21, 2, 6, false),
         ["land"] = (23, 1, 8, false),
-        ["jump_sequence"] = (16, 8, 4, false)
+        ["jump_sequence"] = (16, 8, 4, false),
+        ["attack"] = (24, 5, 3, false)
     };
     // Reference frames 0–3: 100 ms; 4–7: 50 ms. One loop is 600 ms.
     private static readonly int[] IdleTicks = { 6, 6, 6, 6, 3, 3, 3, 3 };
+    private static readonly int[] AttackTicks = { 3, 6, 3, 3, 3 };
+    public const double AttackSeconds = 18.0 / 60;
+    public Sprite2D AttackEffect { get; private set; } = null!;
     public int AtlasFrame { get; private set; }
     public int PartCount => _parts.Count;
     public string Clip { get; private set; } = "idle";
@@ -35,6 +39,7 @@ public partial class SoldierVisual : Node2D
             if (node is Sprite2D sprite) _parts.Add(sprite);
         _nearSocket = GetNode<Marker2D>("NearWeaponSocket");
         _farSocket = GetNode<Marker2D>("FarWeaponSocket");
+        AttackEffect = GetNode<Sprite2D>("AttackEffects/Impact");
         using var poses = JsonDocument.Parse(FileAccess.GetFileAsString("res://assets/soldier_frames/poses.json"));
         foreach (var frame in poses.RootElement.GetProperty("frames").EnumerateArray())
         {
@@ -65,6 +70,13 @@ public partial class SoldierVisual : Node2D
             while (local < IdleTicks.Length - 1 && phase >= IdleTicks[local])
                 phase -= IdleTicks[local++];
         }
+        if (clip == "attack")
+        {
+            double phase = _ticks;
+            local = 0;
+            while (local < AttackTicks.Length - 1 && phase + .000001 >= AttackTicks[local])
+                phase -= AttackTicks[local++];
+        }
         ApplyFrame(animation.Start + local);
     }
 
@@ -74,10 +86,11 @@ public partial class SoldierVisual : Node2D
         Clip = clip;
         localFrame = Math.Clamp(localFrame, 0, animation.Count - 1);
         _ticks = localFrame * animation.Ticks;
-        if (clip == "idle")
+        if (clip == "idle" || clip == "attack")
         {
             _ticks = 0;
-            for (int i = 0; i < localFrame; i++) _ticks += IdleTicks[i];
+            var durations = clip == "idle" ? IdleTicks : AttackTicks;
+            for (int i = 0; i < localFrame; i++) _ticks += durations[i];
         }
         ApplyFrame(animation.Start + localFrame);
     }
@@ -86,6 +99,8 @@ public partial class SoldierVisual : Node2D
     {
         AtlasFrame = index;
         foreach (var sprite in _parts) sprite.Frame = index;
+        AttackEffect.Visible = Clip == "attack";
+        if (AttackEffect.Visible) AttackEffect.Frame = index - Clips["attack"].Start;
         _nearSocket.Position = _handPositions[index].Near;
         _farSocket.Position = _handPositions[index].Far;
     }

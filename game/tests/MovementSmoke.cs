@@ -38,6 +38,7 @@ public partial class MovementSmoke : Node
             Check(_player.Visual.GetNodeOrNull<Marker2D>("NearWeaponSocket")!=null &&
                 _player.Visual.GetNodeOrNull<Marker2D>("FarWeaponSocket")!=null,"Both weapon sockets preserved");
             VerifyArt();
+            await VerifyAttack();
             await VerifyJumpSequence();
             float startX=_player.Position.X;
             Input.ActionPress("move_right"); await Frames(25);
@@ -84,6 +85,71 @@ public partial class MovementSmoke : Node
         catch(Exception ex) { GD.PushError(ex.ToString()); GetTree().Quit(1); }
     }
 
+    private async Task VerifyAttack()
+    {
+        Check(InputMap.ActionGetEvents("attack").OfType<InputEventKey>().Any(k=>k.PhysicalKeycode==Key.J),
+            "J physical key binds the attack action");
+        _player.Reset();await Frames(3);
+        float x=_player.Position.X;
+        Input.ActionPress("attack");await Frames(1);
+        Check(_player.MotionState=="attack"&&_player.Visual.AtlasFrame==24,"J starts the smear pose immediately");
+        var seen=new System.Collections.Generic.HashSet<int>{_player.Visual.AtlasFrame};
+        bool synced=true;
+        for(int i=0;i<24;i++)
+        {
+            if(_player.MotionState=="attack")
+            {
+                seen.Add(_player.Visual.AtlasFrame);
+                synced &= _player.Visual.AttackEffect.Visible &&
+                    _player.Visual.AttackEffect.Frame==_player.Visual.AtlasFrame-24;
+            }
+            await Frames(1);
+        }
+        Check(Enumerable.Range(24,5).All(seen.Contains),"Jab shows all five reference poses");
+        Check(synced,"Every jab pose synchronizes its smear or impact stage");
+        Check(_player.MotionState=="idle"&&!_player.Visual.AttackEffect.Visible,"Held J completes once and clears effects");
+        Check(Math.Abs(_player.Position.X-x)<.01,"Jab keeps its feet planted");
+        Input.ActionRelease("attack");await Frames(2);
+        Input.ActionPress("move_left");await Frames(4);Input.ActionRelease("move_left");await Frames(8);
+        Input.ActionPress("attack");await Frames(1);
+        Check(_player.MotionState=="attack","A fresh J press starts another jab");
+        Check(_player.Visual.AttackEffect.GlobalTransform.X.X<0,"Left-facing jab mirrors the effect with the body");
+        Input.ActionPress("move_right");await Frames(2);
+        Check(_player.Facing==-1&&Math.Abs(_player.Velocity.X)<.01,"Direction input cannot flip or slide an active jab");
+        Input.ActionRelease("move_right");Input.ActionRelease("attack");
+        Input.ActionPress("jump");await Frames(1);
+        Check(_player.MotionState=="prepare"&&!_player.Visual.AttackEffect.Visible,"Jump cancels jab and clears effects");
+        Input.ActionRelease("jump");await Frames(8);
+        Input.ActionPress("attack");await Frames(1);
+        Check(_player.MotionState!="attack","Grounded jab does not replace airborne animation");
+        Input.ActionRelease("attack");_player.Reset();await Frames(3);
+        Input.ActionPress("attack");await Frames(1);_player.Reset();
+        Check(_player.MotionState=="idle"&&!_player.Visual.AttackEffect.Visible,"Reset clears jab state and effect");
+        Input.ActionRelease("attack");await Frames(3);
+
+        Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");await Frames(17);
+        Input.ActionPress("attack");await Frames(1);
+        Check(_player.MotionState=="attack"&&_player.Visual.AtlasFrame==24,
+            "J pressed exactly at recovery completion restarts from smear");
+        Input.ActionRelease("attack");_player.Reset();await Frames(3);
+
+        int[] ticks={3,6,3,3,3};
+        for(int i=0;i<5;i++)
+        {
+            _player.Visual.SetPose("attack",i);
+            _player.Visual.Advance("attack",(ticks[i]-.01)/60,1);
+            Check(_player.Visual.AtlasFrame==24+i,$"Jab {i} holds for its reference duration");
+            _player.Visual.Advance("attack",.02/60,1);
+            Check(_player.Visual.AtlasFrame==24+Math.Min(i+1,4),$"Jab {i} advances at reference boundary without looping");
+        }
+        using var effect=_player.Visual.AttackEffect.Texture.GetImage();effect.Convert(Image.Format.Rgba8);
+        using var report=JsonDocument.Parse(System.IO.File.ReadAllText(System.IO.Path.Combine(ProjectSettings.GlobalizePath("res://"),"..","art","PIXELLOID_REPORT.json")));
+        var entry=report.RootElement.GetProperty("files").EnumerateArray().Single(e=>e.GetProperty("file").GetString()=="effects/attack.png");
+        Check(Convert.ToHexString(SHA256.HashData(effect.GetData())).ToLowerInvariant()==entry.GetProperty("processedRgbaSha256").GetString(),
+            "Godot effect pixels match the Pixelloid export exactly");
+        _player.Reset();await Frames(3);
+    }
+
     private async Task VerifyJumpSequence()
     {
         _player.Reset();await Frames(3);
@@ -117,7 +183,7 @@ public partial class MovementSmoke : Node
             string hash=Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant();
             Check(hash==entries[sprite.Name.ToString()].GetProperty("processedRgbaSha256").GetString(),
                 $"{sprite.Name}: Godot pixels match Pixelloid output");
-            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==24,
+            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==29,
                 $"{sprite.Name}: exact pixels, no raster rotation or scaling");
         }
         foreach(var (clip,info) in SoldierVisual.Clips)

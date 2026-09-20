@@ -26,3 +26,7 @@ The reference faces left; the source rig faces right. Mirror the traced directio
 ## Preservation baseline
 
 Commit `404ac55`: twenty-four existing poses, sixteen body layers, all part definitions and the armor palette. The local walk cadence is retained separately from the task's commits.
+
+## Result
+
+Completed all workflow gates: two validated editable sources, five jab poses, separate smear/ring effects, Pixelloid processing of 41 PNGs and J integration. Godot passed 159 checks; the preservation verifier confirms all 384 old body-part frames are unchanged. Maximum bone-length rounding is 0.519 pixels. The attack uses fixed feet and facing; movement resumes after 300 ms and jump cancels immediately. See [verification](REWORK_VERIFICATION.md) and [preview](../art/previews/attack.gif).

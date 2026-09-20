@@ -8,13 +8,14 @@ Use **Godot 4.7.2 .NET** and the **.NET 8 SDK**. Import `game/project.godot`, bu
 
 - **A / D** or **Left / Right**: move.
 - **Space / W / Up**: jump; release early for a shorter jump.
+- **J**: grounded jab with a fist smear and impact rings. One attack per press; jumping cancels it.
 - **R**: reset. Falling below the arena also resets the character.
 
 ## Art and animation
 
 The [design guide](game_script/CHARACTER_DESIGN.md) and [workflow](game_script/REWORK_WORKFLOW.md) preserve the supplied references, Armored Core 6 and Gundam influences, and Brawlhalla-style gameplay scale.
 
-All replacement art was drawn with code on integer pixel grids. Sixteen editable parts share a 12-color palette. The 128-by-128 animation canvas contains **24 discrete frames**: eight idle, eight walk and eight jump-sequence poses. A C# clock advances all part layers together; weapon sockets follow per-frame hand coordinates. Raster pixels are never rotated or interpolated.
+All replacement art was drawn with code on integer pixel grids. Sixteen editable parts share a 12-color palette. The 128-by-128 body canvas contains **29 discrete frames**: eight idle, eight walk, eight jump-sequence poses and five jab poses. A separate 160-by-128 effect canvas provides room for the impact rings. A C# clock advances all part layers and effects together; weapon sockets follow per-frame hand coordinates. Raster pixels are never rotated or interpolated.
 
 The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's skeleton and eight-pose, 600 ms loop. The [walk rework](game_script/WALK_REWORK.md) replaces the movement clip with eight poses from `soldier_walk.gif`, using the idle's limb lengths and armor dimensions. Each walk pose lasts 140 ms at normal speed. [Compare the walk poses](art/previews/walk-comparison.png).
 
@@ -22,11 +23,13 @@ The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's 
 | --- | --- |
 | `art/parts/*.pixel.json` | Editable individual parts |
 | `art/soldier.pixel.json` | Editable assembled animation with separate layers |
+| `art/fight-effects.pixel.json` | Editable jab smear and impact rings |
 | `art/draw/`, `tools/PixelAuthor/` | Initial drawing definitions and C# tools |
 | `art/exports/` | Code as Pixel Art exports |
 | `art/previews/` | Enlarged previews and animated GIFs |
 | `art/pixelloid/` | Pixelloid-processed outputs |
 | `game/assets/soldier_frames/` | Verified sheets used by Godot |
+| `game/assets/soldier_effects/` | Verified attack effect sheet |
 
 ![Soldier idle animation](art/previews/idle.gif)
 
@@ -35,6 +38,10 @@ The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's 
 The [eight-pose jump](game_script/JUMP_8_REWORK.md) follows `soldier_jump_2.png`: preparation, push-off, ascent 1, ascent 2, apex, descent 1, descent 2 and landing. Physics supplies the jump height; the sprite frames retain the existing body-part sizes. [Compare all eight poses](art/previews/jump-comparison.png).
 
 ![Soldier jump poses](art/previews/jump_sequence.gif)
+
+The [jab workflow](game_script/FIGHT_REWORK.md) follows all five attack poses in `soldier_fight.gif`, including its 50/100/50/50/50 ms timing and four white impact stages. The reference is retargeted to the existing armor and fixed limb lengths; the boots remain planted. Holding J does not repeat the attack.
+
+![Soldier jab and effects](art/previews/attack.gif)
 
 **Pixelloid 0.1.3 processes exported PNGs before Godot integration.** Pixel size 1 preserves the already-authored pixels. [The report](art/PIXELLOID_REPORT.json) records the engine revision, settings and before/after RGBA hashes. Godot uses lossless imports, nearest filtering and disabled alpha-border modification.
 
@@ -51,8 +58,9 @@ dotnet run --project tools/PixelAuthor -- animate
 dotnet run --project tools/PixelAuthor -- idle
 dotnet run --project tools/PixelAuthor -- walk
 dotnet run --project tools/PixelAuthor -- jump
+dotnet run --project tools/PixelAuthor -- fight
 dotnet run --project tools/PixelAuthor -- pixelloid
-dotnet run --project tools/PixelAuthor -- verify-jump
+dotnet run --project tools/PixelAuthor -- verify-fight
 ```
 
 Part construction refuses to overwrite an existing authored part. Regenerating animation from drawing definitions does not propagate later manual edits to part pixel documents. Preserve those edits and apply them explicitly to the assembled source before exporting. Keep `.pixel.json` as the editable source of truth. Revalidate through Pixelloid before copying updated layer sheets into Godot. Commit each body part and each medium milestone.
@@ -67,7 +75,7 @@ godot --headless --path game --editor --import
 godot --headless --path game res://tests/movement_smoke.tscn
 ```
 
-Latest result: **130 checks, zero failures**, covering all eight poses during a full jump, grounded preparation, short jumps, landing, jump buffering, coyote time, movement, frame synchronization and exact imported pixel hashes. The separate `verify-jump` check compares all 256 idle/walk part frames against commit `f0247b4`, preserves their source timing and socket positions, and checks fixed jump segment lengths and canvas bounds. See [verification notes](game_script/REWORK_VERIFICATION.md).
+Latest result: **159 checks, zero failures**, covering J input, all five jab poses and timing boundaries, synchronized effects, repeat presses, facing, planted feet, jump cancellation, reset, existing movement/jump behavior and imported pixel hashes. The separate `verify-fight` check compares all 384 idle/walk/jump part frames against commit `404ac55`, preserves source timing and sockets, and checks attack segment lengths, planted feet, effect imports and canvas bounds. See [verification notes](game_script/REWORK_VERIFICATION.md).
 
 Create `artifacts/` to capture a pose:
 
