@@ -461,6 +461,17 @@
       "sourceRgbaSha256": "095364b0dcf147c684ebc1fd43223a110506a3dd9c8f3cd162233fa5447125ff",
       "processedRgbaSha256": "095364b0dcf147c684ebc1fd43223a110506a3dd9c8f3cd162233fa5447125ff",
       "identity": true
+    },
+    {
+      "file": "stages/stage_1.png",
+      "width": 888,
+      "height": 448,
+      "colors": 65529,
+      "opaquePixels": 272562,
+      "partialAlphaPixels": 0,
+      "sourceRgbaSha256": "9c76e6f2487bc879602e41ec8d8d314724a171e7f00ebfcd6abe89ad45e4a7bd",
+      "processedRgbaSha256": "9c76e6f2487bc879602e41ec8d8d314724a171e7f00ebfcd6abe89ad45e4a7bd",
+      "identity": true
     }
   ]
 }
