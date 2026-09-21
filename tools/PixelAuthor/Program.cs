@@ -23,8 +23,8 @@ public static partial class Program
             else if (args.Length == 1 && args[0] == "walk") ReworkWalk();
             else if (args.Length == 1 && args[0] == "jump") ReworkJump();
             else if (args.Length == 1 && args[0] == "fight") BuildFight();
-            else if (args.Length == 1 && args[0] == "stage") BuildStage();
-            else if (args.Length == 1 && args[0] == "verify-stage") VerifyStage();
+            else if (args.Length == 1 && args[0] == "stage") BuildPixelStage();
+            else if (args.Length == 1 && args[0] == "verify-stage") VerifyPixelStage();
             else if (args.Length == 1 && args[0] == "verify-fight") VerifyFight();
             else if (args.Length == 1 && args[0] == "verify-jump") VerifyJump();
             else if (args.Length == 1 && args[0] == "verify-walk") VerifyWalk();

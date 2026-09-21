@@ -1,0 +1,29 @@
+{
+  "tool": "Pixelloid",
+  "revision": "3a479bf4fca8993e2752bcd91935f0dcf8c8fd3c",
+  "settings": {
+    "pixelSize": 3,
+    "offsetX": 0,
+    "offsetY": 0,
+    "samplingMode": "medoid"
+  },
+  "reference": "reference_pics/stage_1.jpg",
+  "input": [
+    900,
+    450
+  ],
+  "padding": {
+    "left": 6,
+    "top": 1,
+    "right": 6,
+    "bottom": 1
+  },
+  "output": [
+    300,
+    150
+  ],
+  "displayScale": 2,
+  "passthrough": false,
+  "inputRgbaSha256": "60b56236e65df06da8c5aaa6f15ef2a6ba548df6b3a8ef38e433e356fdd0aed6",
+  "outputRgbaSha256": "b29772d33f55b24d5f6619a01311c31356c3ae53a90b835d1fe97490a53175e1"
+}
