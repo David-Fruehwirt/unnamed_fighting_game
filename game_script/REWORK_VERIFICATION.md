@@ -1,5 +1,9 @@
 # Rework verification
 
+## Stage 1 — 21 September 2026
+
+Only `stage_1.jpg` was used. Its transparent 888×448 export preserves **272,562 original RGB pixels**, without resampling or cropping the silhouette. Code as Pixel Art validation and Pixelloid processing passed before Godot import. The ten-section deck collision follows the artwork to x=82 and x=902; tests verify both slopes, support immediately inside each ledge, no collision outside, falling and respawn. All Soldier assets remain unchanged. C# build: zero warnings/errors. Godot: **185 checks, zero failures**. [Workflow](STAGE_1_WORKFLOW.md), [verification report](../art/stages/STAGE_1_VERIFICATION.json), [in-game preview](../art/previews/stage-in-game.png).
+
 ## Jab pass — 20 September 2026
 
 - Inspected all 88 GIF frames through 19 pixel-distinct images, including the six held breakdown frames. [Frame audit](../art/fight-frame-audit.json) records every decoded frame and duration.

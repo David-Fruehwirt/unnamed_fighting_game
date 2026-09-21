@@ -1,6 +1,6 @@
 ﻿# Unnamed Fighting Game
 
-A C# Godot 2D movement prototype with a white-and-cobalt Soldier and one line platform.
+A C# Godot 2D fighting prototype with a white-and-cobalt Soldier and a scrapyard platform made from `stage_1.jpg`.
 
 ## Play
 
@@ -15,7 +15,7 @@ Use **Godot 4.7.2 .NET** and the **.NET 8 SDK**. Import `game/project.godot`, bu
 
 The [design guide](game_script/CHARACTER_DESIGN.md) and [workflow](game_script/REWORK_WORKFLOW.md) preserve the supplied references, Armored Core 6 and Gundam influences, and Brawlhalla-style gameplay scale.
 
-All replacement art was drawn with code on integer pixel grids. Sixteen editable parts share a 12-color palette. The 128-by-128 body canvas contains **29 discrete frames**: eight idle, eight walk, eight jump-sequence poses and five jab poses. A separate 160-by-128 effect canvas provides room for the impact rings. A C# clock advances all part layers and effects together; weapon sockets follow per-frame hand coordinates. Raster pixels are never rotated or interpolated.
+Soldier art was drawn with code on integer pixel grids. Sixteen editable parts share a 12-color palette. The 128-by-128 body canvas contains **29 discrete frames**: eight idle, eight walk, eight jump-sequence poses and five jab poses. A separate 160-by-128 effect canvas provides room for the impact rings. A C# clock advances all part layers and effects together; weapon sockets follow per-frame hand coordinates. Raster pixels are never rotated or interpolated.
 
 The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's skeleton and eight-pose, 600 ms loop. The [walk rework](game_script/WALK_REWORK.md) replaces the movement clip with eight poses from `soldier_walk.gif`, using the idle's limb lengths and armor dimensions. Each walk pose lasts 140 ms at normal speed. [Compare the walk poses](art/previews/walk-comparison.png).
 
@@ -24,12 +24,15 @@ The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's 
 | `art/parts/*.pixel.json` | Editable individual parts |
 | `art/soldier.pixel.json` | Editable assembled animation with separate layers |
 | `art/fight-effects.pixel.json` | Editable jab smear and impact rings |
+| `art/stages/stage_1.pixel.json` | Editable full-resolution stage pixels |
+| `art/stages/stage_1.layout.json` | Shared artwork placement, deck trace and spawn |
 | `art/draw/`, `tools/PixelAuthor/` | Initial drawing definitions and C# tools |
 | `art/exports/` | Code as Pixel Art exports |
 | `art/previews/` | Enlarged previews and animated GIFs |
 | `art/pixelloid/` | Pixelloid-processed outputs |
 | `game/assets/soldier_frames/` | Verified sheets used by Godot |
 | `game/assets/soldier_effects/` | Verified attack effect sheet |
+| `game/assets/stage/` | Verified stage PNG and collision layout |
 
 ![Soldier idle animation](art/previews/idle.gif)
 
@@ -47,6 +50,16 @@ The [jab workflow](game_script/FIGHT_REWORK.md) follows all five attack poses in
 
 ## Authoring
 
+### Main stage
+
+Only **`stage_1.jpg`** supplies the map. Its baked checkerboard was removed with a C# mask, preserving all **272,562 retained foreground pixels** at their original RGB values. The 888×448 crop is displayed at native resolution with lossless import, nearest filtering and integer viewport scaling. Its existing JPEG compression remains; no resizing, palette reduction or generated replacement was applied.
+
+The collision follows ten sections of the visible front deck lip, with ledges at game coordinates **x=82** and **x=902**. Props and hanging machinery remain decorative. Artwork and collision share one layout file; normal character-collider overlap determines the last supported position at a ledge. [Stage workflow](game_script/STAGE_1_WORKFLOW.md) · [Pixel verification](art/stages/STAGE_1_VERIFICATION.json).
+
+![Scrapyard stage in game](art/previews/stage-in-game.png)
+
+### Commands
+
 Install Code as Pixel Art using `npx code-as-pixel-art install`. Set `PIX_CLI` to its CLI `dist/bin.js` if outside `.codex/tools/code-as-pixel-art`. Pixelloid processing needs a source checkout with npm dependencies installed; set `PIXELLOID_SOURCE` if outside `.codex/tools/pixelloid`. The report records the validated revision.
 
 Run from the repository root:
@@ -59,8 +72,10 @@ dotnet run --project tools/PixelAuthor -- idle
 dotnet run --project tools/PixelAuthor -- walk
 dotnet run --project tools/PixelAuthor -- jump
 dotnet run --project tools/PixelAuthor -- fight
+dotnet run --project tools/PixelAuthor -- stage
 dotnet run --project tools/PixelAuthor -- pixelloid
 dotnet run --project tools/PixelAuthor -- verify-fight
+dotnet run --project tools/PixelAuthor -- verify-stage
 ```
 
 Part construction refuses to overwrite an existing authored part. Regenerating animation from drawing definitions does not propagate later manual edits to part pixel documents. Preserve those edits and apply them explicitly to the assembled source before exporting. Keep `.pixel.json` as the editable source of truth. Revalidate through Pixelloid before copying updated layer sheets into Godot. Commit each body part and each medium milestone.
@@ -75,7 +90,7 @@ godot --headless --path game --editor --import
 godot --headless --path game res://tests/movement_smoke.tscn
 ```
 
-Latest result: **159 checks, zero failures**, covering J input, all five jab poses and timing boundaries, synchronized effects, repeat presses, facing, planted feet, jump cancellation, reset, existing movement/jump behavior and imported pixel hashes. The separate `verify-fight` check compares all 384 idle/walk/jump part frames against commit `404ac55`, preserves source timing and sockets, and checks attack segment lengths, planted feet, effect imports and canvas bounds. See [verification notes](game_script/REWORK_VERIFICATION.md).
+Latest result: **185 checks, zero failures**, covering stage pixel preservation, all ten deck sections, both ledges, walking off the slopes, falling and respawn, plus all existing attack, animation and movement checks. `verify-stage` independently checks original JPEG RGB preservation, unclipped cropping, matching export/Pixelloid/game pixels and unchanged Soldier assets. `verify-fight` also confirms the 384 protected idle/walk/jump part frames. See [verification notes](game_script/REWORK_VERIFICATION.md).
 
 Create `artifacts/` to capture a pose:
 

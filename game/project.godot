@@ -22,9 +22,10 @@ config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 
 window/size/viewport_width=960
 window/size/viewport_height=540
-window/size/window_width_override=1440
-window/size/window_height_override=810
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 

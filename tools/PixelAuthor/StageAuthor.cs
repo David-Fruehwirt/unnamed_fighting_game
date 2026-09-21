@@ -108,4 +108,46 @@ public static partial class Program
         File.WriteAllText(file,JsonNode.Parse(File.ReadAllText(file))!.ToJsonString()+"\n");
         Console.WriteLine($"Stage: {width}x{height}, {retained} retained original pixels; export RGB verified.");
     }
+
+    static void VerifyStage()
+    {
+        Console.WriteLine(RunPix("validate","art/stages/stage_1.pixel.json","--json"));
+        StageBridge("""
+        const fs=require('fs'),path=require('path'),cp=require('child_process'),crypto=require('crypto');
+        const modules=path.join(path.dirname(process.argv[1]),'../../../node_modules');
+        const {PNG}=require(path.join(modules,'pngjs')),sharp=require(path.join(modules,'sharp'));
+        const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+        cp.execFileSync('git',['diff','--exit-code','5f438cc','--','art/parts','art/draw','art/palette.json',
+            'art/soldier.pixel.json','art/poses.json','art/fight-effects.pixel.json','art/exports/layers',
+            'art/exports/animations','art/exports/effects','game/assets/soldier_frames','game/assets/soldier_effects']);
+        const layout=JSON.parse(fs.readFileSync('art/stages/stage_1.layout.json'));
+        if(!fs.readFileSync('art/stages/stage_1.layout.json').equals(fs.readFileSync('game/assets/stage/stage_1.layout.json')))
+            throw Error('Game layout differs from authored trace');
+        const images=['art/exports/stages/stage_1.png','art/pixelloid/stages/stage_1.png','game/assets/stage/stage_1.png']
+            .map(p=>PNG.sync.read(fs.readFileSync(p)));
+        const img=images[0],{crop,position,surface}=layout;
+        if(images.some(p=>p.width!==crop.width||p.height!==crop.height||sha(p.data)!==sha(img.data)))throw Error('Stage export/import mismatch');
+        sharp('reference_pics/stage_1.jpg').ensureAlpha().raw().toBuffer({resolveWithObject:true}).then(({data,info})=>{
+            let retained=0;
+            for(let y=0;y<img.height;y++)for(let x=0;x<img.width;x++){
+                const d=(y*img.width+x)*4,s=((y+crop.y)*info.width+x+crop.x)*4,a=img.data[d+3];
+                if(a!==0&&a!==255)throw Error('Unexpected partial alpha');
+                if(!a)continue;
+                retained++;
+                if(x===0||y===0||x===img.width-1||y===img.height-1)throw Error('Foreground clipped by crop');
+                for(let c=0;c<3;c++)if(img.data[d+c]!==data[s+c])throw Error('Original foreground color changed');
+            }
+            for(const [x,y] of surface)if(img.data[((y-crop.y)*img.width+x-crop.x)*4+3]!==255)
+                throw Error('Collision trace point is outside visible artwork');
+            const result={baseline:'5f438cc',soldierAssetsUnchanged:true,width:img.width,height:img.height,
+                retainedOriginalPixels:retained,originalRgbPreserved:true,noResampling:true,binaryTransparency:true,
+                croppedWithoutClipping:true,exportPixelloidGameRgbaSha256:sha(img.data),
+                sourceSha256:sha(fs.readFileSync('reference_pics/stage_1.jpg')),
+                deckLeft:surface[0][0]-crop.x+position.x,deckRight:surface.at(-1)[0]-crop.x+position.x,
+                deckSections:surface.length-1,sharedLayout:true};
+            fs.writeFileSync('art/stages/STAGE_1_VERIFICATION.json',JSON.stringify(result,null,2)+'\n');
+            console.log('PASS: '+retained+' original pixels retained; no clipping/resampling; Pixelloid and Godot files match; all Soldier assets unchanged.');
+        }).catch(e=>{console.error(e);process.exitCode=1;});
+        """);
+    }
 }

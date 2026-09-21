@@ -12,6 +12,7 @@ public partial class Arena : Node2D
     public override void _Ready()
     {
         _soldier = GetNode<Soldier>("Soldier");
+        _soldier.SetSpawn(GetNode<StagePlatform>("Platform").Spawn);
         _stateLabel = GetNode<Label>("HUD/State");
         string[] args = OS.GetCmdlineUserArgs();
         if (args.Contains("--capture")) Capture(args);

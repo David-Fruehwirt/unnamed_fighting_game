@@ -12,7 +12,7 @@
 - Use the two images in `reference_pics/` for visual guidance. Retain white/cobalt armor, dark joints, a cyan visor, mechanical layering inspired by **Armored Core 6**, angular humanoid styling inspired by **Gundam**, and readable **Brawlhalla-style** gameplay size.
 - Target approximately 110–120 visible pixels tall at the 960×540 viewport. Use exact integer scaling and nearest filtering.
 - Author idle, run, jump and fall as discrete frames. Do not interpolate or rotate raster sprites. Preserve silhouettes, proportions, palette, anchors and foot placement.
-- Keep the simple line platform, horizontal movement, variable-height jumping, landing, facing, reset and automatic respawn.
+- Use the main platform from `stage_1.jpg` following [the stage workflow](STAGE_1_WORKFLOW.md). Preserve horizontal movement, variable-height jumping, landing, facing, reset and automatic respawn.
 - Preserve the combat design: one element selected in the loadout, temporary elemental status effects, and EM Frenzy gained from hits more quickly through combos. Combat implementation is outside this visual/movement rework.
 - **Commit after each completed body part. Commit after every other medium milestone.** Keep unrelated user work intact.
 

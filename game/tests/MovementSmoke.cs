@@ -10,6 +10,7 @@ public partial class MovementSmoke : Node
 {
     private int _failures, _checks;
     private Soldier _player = null!;
+    private StagePlatform _stage = null!;
     private void Check(bool condition, string message)
     {
         _checks++;
@@ -31,12 +32,14 @@ public partial class MovementSmoke : Node
             var arena=GD.Load<PackedScene>("res://scenes/arena.tscn").Instantiate();
             AddChild(arena);
             _player=arena.GetNode<Soldier>("Soldier");
+            _stage=arena.GetNode<StagePlatform>("Platform");
             await Frames(10);
-            Check(_player.IsOnFloor(),"Starts on line platform");
-            Check(Math.Abs(_player.Position.Y-412)<1,"Collision feet align with platform");
+            Check(_player.IsOnFloor(),"Starts on scrapyard deck");
+            Check(Math.Abs(_player.Position.Y-_stage.SurfaceY(_player.Position.X))<1,"Collision feet align with stage deck");
             Check(_player.Visual.PartCount==16,"Sixteen independent pixel part sprites");
             Check(_player.Visual.GetNodeOrNull<Marker2D>("NearWeaponSocket")!=null &&
                 _player.Visual.GetNodeOrNull<Marker2D>("FarWeaponSocket")!=null,"Both weapon sockets preserved");
+            await VerifyStage();
             VerifyArt();
             await VerifyAttack();
             await VerifyJumpSequence();
@@ -56,14 +59,14 @@ public partial class MovementSmoke : Node
             Input.ActionRelease("jump"); await Frames(14);
             Check(_player.MotionState=="fall","Descending pose");
             await Frames(40);
-            Check(_player.IsOnFloor(),"Gravity lands on line");
+            Check(_player.IsOnFloor(),"Gravity lands on stage");
             Check(Math.Abs(_player.Position.Y-floorY)<1,"No floor penetration");
-            _player.Position=new Vector2(881,_player.Position.Y); await Frames(2);
+            _player.Position=new Vector2(_stage.Right+25,_stage.SurfaceY(_stage.Right)); await Frames(2);
             Input.ActionPress("jump"); await Frames(2);
             Check(_player.Velocity.Y < -100,"Coyote-time edge jump");
             Input.ActionRelease("jump");
             _player.Reset(); await Frames(5);
-            _player.Position=new Vector2(900,_player.Position.Y); await Frames(55);
+            _player.Position=new Vector2(_stage.Right+25,_stage.SurfaceY(_stage.Right)); await Frames(65);
             Check(_player.Position.DistanceTo(_player.SpawnPosition)<2,"Respawn after falling off");
             _player.Position=new Vector2(600,250);
             Input.ActionPress("reset"); await Frames(2); Input.ActionRelease("reset");
@@ -72,7 +75,7 @@ public partial class MovementSmoke : Node
             Check(_player.Position.X<=938,"Horizontal bounds");
             Input.ActionRelease("move_right");
             _player.Reset(); await Frames(4);
-            _player.Position=new Vector2(_player.Position.X,390);
+            _player.Position=new Vector2(_player.Position.X,_player.SpawnPosition.Y-22);
             _player.Velocity=new Vector2(0,220); _player.CoyoteLeft=0; await Frames(2);
             Input.ActionPress("jump"); await Frames(9);
             Check(_player.Velocity.Y < -100,"Jump buffered across landing");
@@ -83,6 +86,60 @@ public partial class MovementSmoke : Node
             GetTree().Quit(_failures==0?0:1);
         }
         catch(Exception ex) { GD.PushError(ex.ToString()); GetTree().Quit(1); }
+    }
+
+    private async Task VerifyStage()
+    {
+        var sprite=_stage.GetNode<Sprite2D>("Artwork");
+        Check(sprite.Texture.GetWidth()==888&&sprite.Texture.GetHeight()==448&&sprite.Scale==Vector2.One,
+            "Stage retains native cropped resolution with no sprite scaling");
+        Check(_stage.TextureFilter==CanvasItem.TextureFilterEnum.Nearest&&_stage.Position==_stage.Position.Round(),
+            "Stage uses nearest sampling and integer placement");
+        Check(ProjectSettings.GetSetting("display/window/stretch/scale_mode").AsString()=="integer",
+            "Window resizing uses integer viewport scaling");
+        using var image=sprite.Texture.GetImage();image.Convert(Image.Format.Rgba8);
+        using var report=JsonDocument.Parse(System.IO.File.ReadAllText(System.IO.Path.Combine(ProjectSettings.GlobalizePath("res://"),"..","art","PIXELLOID_REPORT.json")));
+        var entry=report.RootElement.GetProperty("files").EnumerateArray().Single(e=>e.GetProperty("file").GetString()=="stages/stage_1.png");
+        Check(Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant()==entry.GetProperty("processedRgbaSha256").GetString(),
+            "Stage Godot pixels match Pixelloid exactly");
+        Check(image.GetPixel(0,0).A==0&&image.GetPixel(887,447).A==0,"Checkerboard outside the stage is transparent");
+        var polygon=_stage.GetNode<CollisionPolygon2D>("DeckCollision").Polygon;
+        Check(polygon.Take(_stage.Surface.Length).SequenceEqual(_stage.Surface),"Collision follows the shared deck lip trace");
+        Godot.Collections.Dictionary Ray(float x)
+        {
+            float y=_stage.SurfaceY(x);
+            var query=PhysicsRayQueryParameters2D.Create(new Vector2(x,y-24),new Vector2(x,y+30));
+            query.Exclude=new Godot.Collections.Array<Rid>{_player.GetRid()};
+            return _stage.GetWorld2D().DirectSpaceState.IntersectRay(query);
+        }
+        for(int i=1;i<_stage.Surface.Length;i++)
+        {
+            float x=_stage.GlobalPosition.X+(_stage.Surface[i-1].X+_stage.Surface[i].X)*.5f;
+            var hit=Ray(x);
+            Check(hit.Count>0&&Math.Abs(hit["position"].AsVector2().Y-_stage.SurfaceY(x))<.1,
+                $"Deck section {i}: physics matches visible lip coordinates");
+        }
+        Check(Ray(_stage.Left+.5f).Count>0&&Ray(_stage.Left-.5f).Count==0,"Left collision ends exactly at the traced deck edge");
+        Check(Ray(_stage.Right-.5f).Count>0&&Ray(_stage.Right+.5f).Count==0,"Right collision ends exactly at the traced deck edge");
+        foreach(int direction in new[]{-1,1})
+        {
+            _player.Reset();
+            float edge=direction<0?_stage.Left:_stage.Right;
+            float inside=edge-direction*24;
+            _player.Position=new Vector2(inside,_stage.SurfaceY(inside)-8);await Frames(15);
+            Check(_player.IsOnFloor(),$"{direction}: sloped deck end supports the Soldier");
+            string action=direction<0?"move_left":"move_right";
+            Input.ActionPress(action);
+            for(int i=0;i<25&&_player.IsOnFloor();i++)await Frames(1);
+            Input.ActionRelease(action);
+            float overhang=direction*(_player.Position.X-edge);
+            Check(!_player.IsOnFloor()&&overhang>=-1&&overhang<=17,$"{direction}: walking beyond the visible ledge starts falling");
+            await Frames(18);
+            Check(_player.Position.Y>_stage.SurfaceY(edge)+20,$"{direction}: no invisible floor beyond the stage");
+            await Frames(60);
+            Check(_player.Position.DistanceTo(_player.SpawnPosition)<2,$"{direction}: falling off returns to stage spawn");
+        }
+        _player.Reset();await Frames(4);
     }
 
     private async Task VerifyAttack()

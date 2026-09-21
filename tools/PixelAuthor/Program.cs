@@ -24,12 +24,13 @@ public static partial class Program
             else if (args.Length == 1 && args[0] == "jump") ReworkJump();
             else if (args.Length == 1 && args[0] == "fight") BuildFight();
             else if (args.Length == 1 && args[0] == "stage") BuildStage();
+            else if (args.Length == 1 && args[0] == "verify-stage") VerifyStage();
             else if (args.Length == 1 && args[0] == "verify-fight") VerifyFight();
             else if (args.Length == 1 && args[0] == "verify-jump") VerifyJump();
             else if (args.Length == 1 && args[0] == "verify-walk") VerifyWalk();
             else if (args.Length == 1 && args[0] == "verify-idle") VerifyIdle();
             else if (args.Length == 1 && args[0] == "pixelloid") ProcessPixelloid();
-            else throw new Exception("Usage: PixelAuthor part <name> | animate | idle | walk | jump | fight | verify-idle | verify-walk | verify-jump | verify-fight | pixelloid");
+            else throw new Exception("Usage: PixelAuthor part <name> | animate | idle | walk | jump | fight | stage | verify-idle | verify-walk | verify-jump | verify-fight | verify-stage | pixelloid");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine(ex.Message); return 1; }

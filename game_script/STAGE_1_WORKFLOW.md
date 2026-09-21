@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Use `reference_pics/stage_1.jpg` as the main platform.
+- Use only `reference_pics/stage_1.jpg` as the main platform. No other stage references are used or changed.
 - Remove its baked checkerboard with deterministic pixel processing. Preserve original foreground RGB and native resolution; no generated artwork, palette reduction, blur or fractional sprite scaling.
 - Align collision with the visible front deck lip and its endpoints. Keep the props and hanging machinery decorative.
 - Preserve all Soldier artwork, animations, combat controls and unrelated local changes.
@@ -20,3 +20,12 @@
 ## Limits
 
 The reference is a JPEG, so its existing compression artifacts cannot be recovered. The workflow preserves retained decoded pixels exactly; it does not claim to restore missing detail.
+
+## Completed verification — 21 September 2026
+
+- C# mask removes the outside checkerboard and four traced enclosed gaps. The 888×448 crop preserves 272,562 original foreground pixels without clipping, resampling or RGB changes.
+- Code as Pixel Art validates the editable full-resolution source. Actual Pixelloid processing at pitch 1 preserves every RGBA pixel; its PNG was imported only after that gate passed.
+- Ten collision sections follow the traced front deck lip; game-space endpoints are x=82 and x=902. Sprite placement and collision derive from the same layout. Raycasts verify support just inside each endpoint and no support just outside. Character tests verify walking off each sloped end, falling and respawn; normal capsule overlap can support the character's center slightly beyond the endpoint.
+- Godot uses lossless imports, no mipmaps, unchanged transparent RGB, nearest filtering, native sprite size and integer viewport scaling. Default window size is 960×540.
+- C# build passed with zero warnings/errors. Godot harness passed **185 checks**. `verify-stage` passes and confirms all Soldier assets are unchanged from `5f438cc`; `verify-fight` still passes.
+- Inspected [the full scene](../art/previews/stage-in-game.png) and magnified ledge alignment. [Source verification](../art/stages/STAGE_1_VERIFICATION.json) records hashes and retained-pixel counts.

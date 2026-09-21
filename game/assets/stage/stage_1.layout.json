@@ -1,0 +1,65 @@
+{
+  "reference": "reference_pics/stage_1.jpg",
+  "crop": {
+    "x": 68,
+    "y": 72,
+    "width": 888,
+    "height": 448
+  },
+  "position": {
+    "x": 36,
+    "y": 64
+  },
+  "surface": [
+    [
+      114,
+      294
+    ],
+    [
+      168,
+      326
+    ],
+    [
+      249,
+      326
+    ],
+    [
+      268,
+      334
+    ],
+    [
+      418,
+      334
+    ],
+    [
+      428,
+      342
+    ],
+    [
+      642,
+      342
+    ],
+    [
+      665,
+      333
+    ],
+    [
+      789,
+      331
+    ],
+    [
+      847,
+      328
+    ],
+    [
+      934,
+      296
+    ]
+  ],
+  "collisionDepth": 14,
+  "spawn": {
+    "x": 480,
+    "y": 334
+  },
+  "notes": "Front deck lip traced in original JPEG coordinates. Props and hanging scrap are decoration. Runtime subtracts crop and adds sprite position for both artwork and collision."
+}

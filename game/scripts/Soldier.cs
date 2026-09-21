@@ -117,6 +117,12 @@ public partial class Soldier : CharacterBody2D
             MotionState == "run" ? Mathf.Clamp(Math.Abs(Velocity.X) / MoveSpeed, 0.5f, 1.15f) : 1);
     }
 
+    public void SetSpawn(Vector2 position)
+    {
+        SpawnPosition = position;
+        Reset();
+    }
+
     public void Reset()
     {
         GlobalPosition = SpawnPosition;
