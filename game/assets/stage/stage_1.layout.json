@@ -1,59 +1,23 @@
 {
   "reference": "reference_pics/stage_1.jpg",
   "crop": {
-    "x": 68,
-    "y": 72,
-    "width": 888,
-    "height": 448
+    "x": 0,
+    "y": 0,
+    "width": 600,
+    "height": 300
   },
   "position": {
-    "x": 36,
-    "y": 64
+    "x": 180,
+    "y": 186
   },
   "surface": [
     [
-      114,
-      294
+      34,
+      148
     ],
     [
-      168,
-      326
-    ],
-    [
-      249,
-      326
-    ],
-    [
-      268,
-      334
-    ],
-    [
-      418,
-      334
-    ],
-    [
-      428,
-      342
-    ],
-    [
-      642,
-      342
-    ],
-    [
-      665,
-      333
-    ],
-    [
-      789,
-      331
-    ],
-    [
-      847,
-      328
-    ],
-    [
-      934,
-      296
+      582,
+      148
     ]
   ],
   "collisionDepth": 14,
@@ -61,5 +25,5 @@
     "x": 480,
     "y": 334
   },
-  "notes": "Front deck lip traced in original JPEG coordinates. Props and hanging scrap are decoration. Runtime subtracts crop and adds sprite position for both artwork and collision."
+  "notes": "Display-pixel coordinates: flat invisible surface at reference row 294 across the widest deck section. Stage artwork is 300x150 logical pixels exported at 2x."
 }

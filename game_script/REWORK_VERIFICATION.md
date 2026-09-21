@@ -1,5 +1,9 @@
 # Rework verification
 
+## Smaller pixelated Stage 1 — 21 September 2026
+
+Actual Pixelloid medoid sampling at pixel size 3 produces a 300×150 source, exported with exact 2×2 blocks to 600×300. Collision is flat at y=334 from x=214 to x=762. Character assets, scene and controller are unchanged; the local walk-cadence edit is preserved. C# build passed without warnings/errors, the independent stage verifier passed, and **188 Godot checks passed**. Inspected the normal-resolution [game preview](../art/previews/stage-in-game.png). [Workflow](STAGE_1_PIXEL_REWORK.md) and [non-identity pixelization report](../art/stages/STAGE_1_PIXELIZATION.json).
+
 ## Stage 1 — 21 September 2026
 
 Only `stage_1.jpg` was used. Its transparent 888×448 export preserves **272,562 original RGB pixels**, without resampling or cropping the silhouette. Code as Pixel Art validation and Pixelloid processing passed before Godot import. The ten-section deck collision follows the artwork to x=82 and x=902; tests verify both slopes, support immediately inside each ledge, no collision outside, falling and respawn. All Soldier assets remain unchanged. C# build: zero warnings/errors. Godot: **185 checks, zero failures**. [Workflow](STAGE_1_WORKFLOW.md), [verification report](../art/stages/STAGE_1_VERIFICATION.json), [in-game preview](../art/previews/stage-in-game.png).

@@ -91,8 +91,8 @@ public partial class MovementSmoke : Node
     private async Task VerifyStage()
     {
         var sprite=_stage.GetNode<Sprite2D>("Artwork");
-        Check(sprite.Texture.GetWidth()==888&&sprite.Texture.GetHeight()==448&&sprite.Scale==Vector2.One,
-            "Stage retains native cropped resolution with no sprite scaling");
+        Check(sprite.Texture.GetWidth()==600&&sprite.Texture.GetHeight()==300&&sprite.Scale==Vector2.One,
+            "Stage uses the smaller 600x300 pixel export");
         Check(_stage.TextureFilter==CanvasItem.TextureFilterEnum.Nearest&&_stage.Position==_stage.Position.Round(),
             "Stage uses nearest sampling and integer placement");
         Check(ProjectSettings.GetSetting("display/window/stretch/scale_mode").AsString()=="integer",
@@ -102,7 +102,12 @@ public partial class MovementSmoke : Node
         var entry=report.RootElement.GetProperty("files").EnumerateArray().Single(e=>e.GetProperty("file").GetString()=="stages/stage_1.png");
         Check(Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant()==entry.GetProperty("processedRgbaSha256").GetString(),
             "Stage Godot pixels match Pixelloid exactly");
-        Check(image.GetPixel(0,0).A==0&&image.GetPixel(887,447).A==0,"Checkerboard outside the stage is transparent");
+        Check(image.GetPixel(0,0).A==0&&image.GetPixel(599,299).A==0,"Checkerboard outside the stage is transparent");
+        bool blocks=true;
+        for(int y=0;y<300;y+=2)for(int x=0;x<600;x+=2)
+            blocks &= image.GetPixel(x,y)==image.GetPixel(x+1,y)&&image.GetPixel(x,y)==image.GetPixel(x,y+1)&&image.GetPixel(x,y)==image.GetPixel(x+1,y+1);
+        Check(blocks,"Stage has uniform visible 2x2 pixel blocks");
+        Check(_stage.Surface.Length==2&&_stage.Surface[0].Y==_stage.Surface[1].Y,"One straight horizontal walking surface");
         var polygon=_stage.GetNode<CollisionPolygon2D>("DeckCollision").Polygon;
         Check(polygon.Take(_stage.Surface.Length).SequenceEqual(_stage.Surface),"Collision follows the shared deck lip trace");
         Godot.Collections.Dictionary Ray(float x)
@@ -112,12 +117,12 @@ public partial class MovementSmoke : Node
             query.Exclude=new Godot.Collections.Array<Rid>{_player.GetRid()};
             return _stage.GetWorld2D().DirectSpaceState.IntersectRay(query);
         }
-        for(int i=1;i<_stage.Surface.Length;i++)
+        for(int i=0;i<=10;i++)
         {
-            float x=_stage.GlobalPosition.X+(_stage.Surface[i-1].X+_stage.Surface[i].X)*.5f;
+            float x=Mathf.Lerp(_stage.Left+1,_stage.Right-1,i/10f);
             var hit=Ray(x);
             Check(hit.Count>0&&Math.Abs(hit["position"].AsVector2().Y-_stage.SurfaceY(x))<.1,
-                $"Deck section {i}: physics matches visible lip coordinates");
+                $"Deck sample {i}: physics stays at the flat walking height");
         }
         Check(Ray(_stage.Left+.5f).Count>0&&Ray(_stage.Left-.5f).Count==0,"Left collision ends exactly at the traced deck edge");
         Check(Ray(_stage.Right-.5f).Count>0&&Ray(_stage.Right+.5f).Count==0,"Right collision ends exactly at the traced deck edge");
@@ -127,7 +132,7 @@ public partial class MovementSmoke : Node
             float edge=direction<0?_stage.Left:_stage.Right;
             float inside=edge-direction*24;
             _player.Position=new Vector2(inside,_stage.SurfaceY(inside)-8);await Frames(15);
-            Check(_player.IsOnFloor(),$"{direction}: sloped deck end supports the Soldier");
+            Check(_player.IsOnFloor(),$"{direction}: flat deck end supports the Soldier");
             string action=direction<0?"move_left":"move_right";
             Input.ActionPress(action);
             for(int i=0;i<25&&_player.IsOnFloor();i++)await Frames(1);

@@ -1,5 +1,7 @@
 # Stage 1 — scrapyard platform
 
+This records the original import. The [pixel rework](STAGE_1_PIXEL_REWORK.md) supersedes native-resolution display and sloped collision with a smaller 2× pixel export and one flat surface.
+
 ## Requirements
 
 - Use only `reference_pics/stage_1.jpg` as the main platform. No other stage references are used or changed.

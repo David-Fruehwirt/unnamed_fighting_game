@@ -25,6 +25,7 @@ The [idle rework](game_script/IDLE_REWORK.md) follows the supplied stance GIF's 
 | `art/soldier.pixel.json` | Editable assembled animation with separate layers |
 | `art/fight-effects.pixel.json` | Editable jab smear and impact rings |
 | `art/stages/stage_1.pixel.json` | Editable full-resolution stage pixels |
+| `art/stages/stage_1.pixelized.pixel.json` | Current 300×150 pixelized stage source |
 | `art/stages/stage_1.layout.json` | Shared artwork placement, deck trace and spawn |
 | `art/draw/`, `tools/PixelAuthor/` | Initial drawing definitions and C# tools |
 | `art/exports/` | Code as Pixel Art exports |
@@ -52,9 +53,9 @@ The [jab workflow](game_script/FIGHT_REWORK.md) follows all five attack poses in
 
 ### Main stage
 
-Only **`stage_1.jpg`** supplies the map. Its baked checkerboard was removed with a C# mask, preserving all **272,562 retained foreground pixels** at their original RGB values. The 888×448 crop is displayed at native resolution with lossless import, nearest filtering and integer viewport scaling. Its existing JPEG compression remains; no resizing, palette reduction or generated replacement was applied.
+Only **`stage_1.jpg`** supplies the map. The transparent master is preserved, padded to 900×450 and processed by actual Pixelloid medoid sampling at pixel size 3. The resulting editable **300×150** source is exported at exactly 2×, giving a smaller **600×300 stage with visible 2×2 pixels**. Lossless import, nearest filtering and integer viewport scaling keep the blocks sharp. [Pixelization settings and hashes](art/stages/STAGE_1_PIXELIZATION.json).
 
-The collision follows ten sections of the visible front deck lip, with ledges at game coordinates **x=82** and **x=902**. Props and hanging machinery remain decorative. Artwork and collision share one layout file; normal character-collider overlap determines the last supported position at a ledge. [Stage workflow](game_script/STAGE_1_WORKFLOW.md) · [Pixel verification](art/stages/STAGE_1_VERIFICATION.json).
+The walking surface is one invisible horizontal line across the widest deck section, from **x=214 to x=762 at y=334**. Props and hanging machinery remain decorative. Artwork and collision share one layout file; normal character-collider overlap determines the last supported position at a ledge. Character size, controls, physics and animations are unchanged. [Current stage workflow](game_script/STAGE_1_PIXEL_REWORK.md) · [Pixel verification](art/stages/STAGE_1_VERIFICATION.json).
 
 ![Scrapyard stage in game](art/previews/stage-in-game.png)
 
@@ -90,7 +91,7 @@ godot --headless --path game --editor --import
 godot --headless --path game res://tests/movement_smoke.tscn
 ```
 
-Latest result: **185 checks, zero failures**, covering stage pixel preservation, all ten deck sections, both ledges, walking off the slopes, falling and respawn, plus all existing attack, animation and movement checks. `verify-stage` independently checks original JPEG RGB preservation, unclipped cropping, matching export/Pixelloid/game pixels and unchanged Soldier assets. `verify-fight` also confirms the 384 protected idle/walk/jump part frames. See [verification notes](game_script/REWORK_VERIFICATION.md).
+Latest result: **188 checks, zero failures**, covering uniform 2×2 stage pixels, flat support across the full deck, both ledges, falling and respawn, plus existing attack, animation and movement checks. `verify-stage` checks actual Pixelloid reduction, exact nearest-neighbor export, matching export/Pixelloid/game pixels and unchanged Soldier assets/controller. See [verification notes](game_script/REWORK_VERIFICATION.md).
 
 Create `artifacts/` to capture a pose:
 
