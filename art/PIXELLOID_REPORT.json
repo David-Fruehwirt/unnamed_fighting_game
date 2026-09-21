@@ -464,13 +464,13 @@
     },
     {
       "file": "stages/stage_1.png",
-      "width": 888,
-      "height": 448,
-      "colors": 65529,
-      "opaquePixels": 272562,
+      "width": 600,
+      "height": 300,
+      "colors": 17780,
+      "opaquePixels": 121184,
       "partialAlphaPixels": 0,
-      "sourceRgbaSha256": "9c76e6f2487bc879602e41ec8d8d314724a171e7f00ebfcd6abe89ad45e4a7bd",
-      "processedRgbaSha256": "9c76e6f2487bc879602e41ec8d8d314724a171e7f00ebfcd6abe89ad45e4a7bd",
+      "sourceRgbaSha256": "311eb1f00918112fe80ebdea38ed62f8c38ffac1e4b5a237d341b83b65cc2821",
+      "processedRgbaSha256": "311eb1f00918112fe80ebdea38ed62f8c38ffac1e4b5a237d341b83b65cc2821",
       "identity": true
     }
   ]
