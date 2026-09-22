@@ -467,10 +467,10 @@
       "width": 600,
       "height": 300,
       "colors": 32,
-      "opaquePixels": 121232,
+      "opaquePixels": 121092,
       "partialAlphaPixels": 0,
-      "sourceRgbaSha256": "5f80ed48ce8dc9b16b1431a931e500bc3cc20fcbd26bb0cc142afa352d91f96f",
-      "processedRgbaSha256": "5f80ed48ce8dc9b16b1431a931e500bc3cc20fcbd26bb0cc142afa352d91f96f",
+      "sourceRgbaSha256": "a8ef33851846d9b1b2abc1c134da908d4188384905bc44320d33ac7bf6d414ba",
+      "processedRgbaSha256": "a8ef33851846d9b1b2abc1c134da908d4188384905bc44320d33ac7bf6d414ba",
       "identity": true
     }
   ]
