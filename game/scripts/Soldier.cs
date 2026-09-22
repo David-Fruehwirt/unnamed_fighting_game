@@ -12,6 +12,11 @@ public partial class Soldier : CharacterBody2D
     [Export] public float JumpSpeed { get; set; } = 465f;
     [Export] public float CoyoteTime { get; set; } = 0.11f;
     [Export] public float JumpBufferTime { get; set; } = 0.12f;
+    [Export] public float GroundAttackSpeedFactor { get; set; } = 0.5f;
+    [Export] public float AirAttackSpeedFactor { get; set; } = 1f;
+    [Export] public float AttackAcceleration { get; set; } = 600f;
+    [Export] public float GroundAttackBraking { get; set; } = 900f;
+    [Export] public float AirAttackBraking { get; set; } = 120f;
     public SoldierVisual Visual { get; private set; } = null!;
     public Vector2 SpawnPosition { get; private set; }
     public float CoyoteLeft { get; set; }
@@ -20,6 +25,9 @@ public partial class Soldier : CharacterBody2D
     private float _jumpBuffer;
     private float _prepareLeft, _landingLeft;
     private float _attackLeft;
+    private bool _attackQueued;
+    public bool IsAttacking => _attackLeft > 0;
+    public bool AttackQueued => _attackQueued;
     private bool _releasedDuringPreparation;
 
     public override void _Ready()
@@ -55,11 +63,15 @@ public partial class Soldier : CharacterBody2D
         bool attackStarted = false;
         _attackLeft = Math.Max(0, _attackLeft - dt);
         if (_attackLeft < .00001f) _attackLeft = 0;
-        if (Input.IsActionJustPressed("attack") && _attackLeft == 0 && wasOnFloor &&
-            _prepareLeft == 0 && !Input.IsActionJustPressed("jump"))
+        bool attackPressed = Input.IsActionJustPressed("attack");
+        if (attackPressed && IsAttacking) _attackQueued = true;
+        // One pending press; a press on the completion tick starts only one new jab.
+        if (!IsAttacking && (attackPressed || _attackQueued))
         {
+            _attackQueued = false;
             _attackLeft = (float)SoldierVisual.AttackSeconds;
             attackStarted = true;
+            if (axis != 0) Facing = Math.Sign(axis);
         }
         _landingLeft = Math.Max(0, _landingLeft - dt);
         bool takeoff = false;
@@ -80,7 +92,6 @@ public partial class Soldier : CharacterBody2D
         if (Input.IsActionJustPressed("jump")) _jumpBuffer = JumpBufferTime;
         if (_jumpBuffer > 0 && CoyoteLeft > 0 && _prepareLeft == 0 && !takeoff)
         {
-            _attackLeft = 0;
             _jumpBuffer = 0;
             _landingLeft = 0;
             _releasedDuringPreparation = !Input.IsActionPressed("jump");
@@ -94,21 +105,24 @@ public partial class Soldier : CharacterBody2D
             CoyoteLeft = 0;
         }
         if (Input.IsActionJustReleased("jump") && velocity.Y < -170) velocity.Y = -170;
-        if (!wasOnFloor) _attackLeft = 0;
-        // Grounded jab plants the feet and holds facing. Jumping cancels it immediately.
-        if (_attackLeft > 0) { axis = 0; velocity.X = 0; }
-        velocity.X = Mathf.MoveToward(velocity.X, axis * MoveSpeed,
-            (axis != 0 ? Acceleration : Braking) * dt);
-        if (axis != 0) Facing = Math.Sign(axis);
+        // Attack playback is independent of locomotion: keep momentum and vertical physics.
+        bool groundedAttack = wasOnFloor && !takeoff;
+        float targetSpeed = MoveSpeed * (IsAttacking ?
+            (groundedAttack ? GroundAttackSpeedFactor : AirAttackSpeedFactor) : 1);
+        float steering = IsAttacking ? AttackAcceleration : Acceleration;
+        float braking = IsAttacking ? (groundedAttack ? GroundAttackBraking : AirAttackBraking) : Braking;
+        velocity.X = Mathf.MoveToward(velocity.X, axis * targetSpeed,
+            (axis != 0 ? steering : braking) * dt);
+        if (!IsAttacking && axis != 0) Facing = Math.Sign(axis);
         Velocity = velocity;
         MoveAndSlide();
         if (!wasOnFloor && IsOnFloor() && velocity.Y > 50) _landingLeft = 8f / 60;
         Position = new Vector2(Mathf.Clamp(Position.X, 22, 938), Position.Y);
-        MotionState = _prepareLeft > 0 ? "prepare"
+        string movementState = _prepareLeft > 0 ? "prepare"
             : !IsOnFloor() ? (Velocity.Y < -20 ? "jump" : "fall")
-            : _attackLeft > 0 ? "attack"
             : _landingLeft > 0 ? "land"
             : Math.Abs(Velocity.X) > 15 ? "run" : "idle";
+        MotionState = IsAttacking ? "attack" : movementState;
         Visual.Scale = new Vector2(Facing, 1);
         // Snap only the display: collision movement retains its full precision.
         Visual.Position = GlobalPosition.Round() - GlobalPosition;
@@ -131,6 +145,7 @@ public partial class Soldier : CharacterBody2D
         _jumpBuffer = 0;
         _prepareLeft = _landingLeft = 0;
         _attackLeft = 0;
+        _attackQueued = false;
         _releasedDuringPreparation = false;
         Facing = 1;
         MotionState = "idle";

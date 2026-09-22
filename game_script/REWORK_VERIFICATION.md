@@ -1,5 +1,9 @@
 # Rework verification
 
+## Mobile attacks and 4× stage pixels — 22 September 2026
+
+Implemented `next_plan.md`. Stage 1 now has 150×75 logical pixels, 32 opaque colors and exact 4× nearest-neighbor export at the same displayed size and collision placement. Pixelloid conversion, Code as Pixel Art validation and export/import checks passed. Mobile attacks preserve momentum and vertical physics, lock facing per jab and accept one queued follow-up. Character artwork and animation timing are unchanged. C# build: zero warnings/errors. Godot: **208 checks, zero failures**. [Workflow, research and results](MOBILE_ATTACK_REWORK.md).
+
 ## Smaller pixelated Stage 1 — 21 September 2026
 
 Actual Pixelloid medoid sampling at pixel size 3 produces a 300×150 source, exported with exact 2×2 blocks to 600×300. Collision is flat at y=334 from x=214 to x=762. Character assets, scene and controller are unchanged; the local walk-cadence edit is preserved. C# build passed without warnings/errors, the independent stage verifier passed, and **188 Godot checks passed**. Inspected the normal-resolution [game preview](../art/previews/stage-in-game.png). [Workflow](STAGE_1_PIXEL_REWORK.md) and [non-identity pixelization report](../art/stages/STAGE_1_PIXELIZATION.json).

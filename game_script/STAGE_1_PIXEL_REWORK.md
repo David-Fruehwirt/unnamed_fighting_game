@@ -1,5 +1,7 @@
 # Stage 1 pixel rework — 21 September 2026
 
+Historical 2× pass. The [current coarse stage and mobile attack pass](MOBILE_ATTACK_REWORK.md) changes the stage to 4×4 pixels and 32 colors while preserving its displayed size and flat collision.
+
 ## Agreed requirements
 
 Use only stage_1.jpg. Make the stage approximately 600 pixels wide with visible 2×2 pixels. Replace the sloped deck collision with one invisible straight surface across its widest section. Keep side-view movement and every character file, asset, animation and setting unchanged, including the local walk cadence.

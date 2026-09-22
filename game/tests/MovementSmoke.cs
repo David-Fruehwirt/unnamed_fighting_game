@@ -42,6 +42,7 @@ public partial class MovementSmoke : Node
             await VerifyStage();
             VerifyArt();
             await VerifyAttack();
+            await VerifyMobileAttacks();
             await VerifyJumpSequence();
             float startX=_player.Position.X;
             Input.ActionPress("move_right"); await Frames(25);
@@ -104,9 +105,14 @@ public partial class MovementSmoke : Node
             "Stage Godot pixels match Pixelloid exactly");
         Check(image.GetPixel(0,0).A==0&&image.GetPixel(599,299).A==0,"Checkerboard outside the stage is transparent");
         bool blocks=true;
-        for(int y=0;y<300;y+=2)for(int x=0;x<600;x+=2)
-            blocks &= image.GetPixel(x,y)==image.GetPixel(x+1,y)&&image.GetPixel(x,y)==image.GetPixel(x,y+1)&&image.GetPixel(x,y)==image.GetPixel(x+1,y+1);
-        Check(blocks,"Stage has uniform visible 2x2 pixel blocks");
+        var colors=new System.Collections.Generic.HashSet<Color>();
+        for(int y=0;y<300;y+=4)for(int x=0;x<600;x+=4)
+        {
+            Color color=image.GetPixel(x,y);if(color.A>0)colors.Add(color);
+            for(int dy=0;dy<4;dy++)for(int dx=0;dx<4;dx++)blocks &= color==image.GetPixel(x+dx,y+dy);
+        }
+        Check(blocks,"Stage has uniform visible 4x4 pixel blocks");
+        Check(colors.Count==32,"Stage contains exactly 32 opaque colors");
         Check(_stage.Surface.Length==2&&_stage.Surface[0].Y==_stage.Surface[1].Y,"One straight horizontal walking surface");
         var polygon=_stage.GetNode<CollisionPolygon2D>("DeckCollision").Polygon;
         Check(polygon.Take(_stage.Surface.Length).SequenceEqual(_stage.Surface),"Collision follows the shared deck lip trace");
@@ -177,13 +183,13 @@ public partial class MovementSmoke : Node
         Check(_player.MotionState=="attack","A fresh J press starts another jab");
         Check(_player.Visual.AttackEffect.GlobalTransform.X.X<0,"Left-facing jab mirrors the effect with the body");
         Input.ActionPress("move_right");await Frames(2);
-        Check(_player.Facing==-1&&Math.Abs(_player.Velocity.X)<.01,"Direction input cannot flip or slide an active jab");
+        Check(_player.Facing==-1&&_player.Velocity.X>0,"Direction input steers without flipping the active jab");
         Input.ActionRelease("move_right");Input.ActionRelease("attack");
         Input.ActionPress("jump");await Frames(1);
-        Check(_player.MotionState=="prepare"&&!_player.Visual.AttackEffect.Visible,"Jump cancels jab and clears effects");
+        Check(_player.MotionState=="attack"&&_player.Visual.AttackEffect.Visible,"Jump preparation preserves active jab and effects");
         Input.ActionRelease("jump");await Frames(8);
         Input.ActionPress("attack");await Frames(1);
-        Check(_player.MotionState!="attack","Grounded jab does not replace airborne animation");
+        Check(_player.MotionState=="attack"&&_player.AttackQueued,"Airborne press queues the next jab during an active attack");
         Input.ActionRelease("attack");_player.Reset();await Frames(3);
         Input.ActionPress("attack");await Frames(1);_player.Reset();
         Check(_player.MotionState=="idle"&&!_player.Visual.AttackEffect.Visible,"Reset clears jab state and effect");
