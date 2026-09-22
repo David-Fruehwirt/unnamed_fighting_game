@@ -1,5 +1,9 @@
 # Rework verification
 
+## Stage pixel scale matched to Soldier — 22 September 2026
+
+Stage 1 now uses a 600×300 logical source at 1× display scale, matching the Soldier's one-pixel grid. The existing 32-color palette, stage dimensions, collision, spawn and character behavior are preserved. Code as Pixel Art, Pixelloid, independent pixel verification and the C# build passed. Godot: **208 checks, zero failures**. [Workflow and current source](STAGE_PIXEL_MATCH.md).
+
 ## Mobile attacks and 4× stage pixels — 22 September 2026
 
 Implemented `next_plan.md`. Stage 1 now has 150×75 logical pixels, 32 opaque colors and exact 4× nearest-neighbor export at the same displayed size and collision placement. Pixelloid conversion, Code as Pixel Art validation and export/import checks passed. Mobile attacks preserve momentum and vertical physics, lock facing per jab and accept one queued follow-up. Character artwork and animation timing are unchanged. C# build: zero warnings/errors. Godot: **208 checks, zero failures**. [Workflow, research and results](MOBILE_ATTACK_REWORK.md).

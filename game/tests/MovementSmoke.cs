@@ -104,14 +104,16 @@ public partial class MovementSmoke : Node
         Check(Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant()==entry.GetProperty("processedRgbaSha256").GetString(),
             "Stage Godot pixels match Pixelloid exactly");
         Check(image.GetPixel(0,0).A==0&&image.GetPixel(599,299).A==0,"Checkerboard outside the stage is transparent");
-        bool blocks=true;
         var colors=new System.Collections.Generic.HashSet<Color>();
-        for(int y=0;y<300;y+=4)for(int x=0;x<600;x+=4)
+        int fineTransitions=0;
+        for(int y=0;y<300;y++)for(int x=0;x<600;x++)
         {
             Color color=image.GetPixel(x,y);if(color.A>0)colors.Add(color);
-            for(int dy=0;dy<4;dy++)for(int dx=0;dx<4;dx++)blocks &= color==image.GetPixel(x+dx,y+dy);
+            if(x%2==0&&x+1<600&&color.A>0&&image.GetPixel(x+1,y).A>0&&color!=image.GetPixel(x+1,y))fineTransitions++;
         }
-        Check(blocks,"Stage has uniform visible 4x4 pixel blocks");
+        var part=_player.Visual.GetNode<Sprite2D>("torso");
+        Check(fineTransitions>100&&sprite.GlobalTransform.X.Length()==part.GlobalTransform.X.Length()&&
+            sprite.GlobalTransform.Y.Length()==part.GlobalTransform.Y.Length(),"Stage uses fine 1:1 pixels at the same scale as Soldier parts");
         Check(colors.Count==32,"Stage contains exactly 32 opaque colors");
         Check(_stage.Surface.Length==2&&_stage.Surface[0].Y==_stage.Surface[1].Y,"One straight horizontal walking surface");
         var polygon=_stage.GetNode<CollisionPolygon2D>("DeckCollision").Polygon;
