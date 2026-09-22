@@ -2,6 +2,27 @@ namespace PixelAuthor;
 
 public static partial class Program
 {
+    static byte[] MatchStagePalette(byte[] rgba)
+    {
+        var source=System.Text.Json.Nodes.JsonNode.Parse(File.ReadAllText("art/stages/stage_1.coarse.pixel.json"))!;
+        var palette=source["palette"]!.AsArray().Select(p=>{
+            string hex=p!["color"]!.GetValue<string>();
+            return new[]{Convert.ToInt32(hex.Substring(1,2),16),Convert.ToInt32(hex.Substring(3,2),16),Convert.ToInt32(hex.Substring(5,2),16)};
+        }).ToArray();
+        var cache=new Dictionary<int,int[]>();
+        for(int i=0;i<rgba.Length;i+=4)if(rgba[i+3]!=0)
+        {
+            int rgb=(rgba[i]<<16)|(rgba[i+1]<<8)|rgba[i+2];
+            if(!cache.TryGetValue(rgb,out var mapped))
+            {
+                mapped=palette.OrderBy(p=>Enumerable.Range(0,3).Sum(c=>Math.Pow(rgba[i+c]-p[c],2))).First();
+                cache.Add(rgb,mapped);
+            }
+            for(int c=0;c<3;c++)rgba[i+c]=(byte)mapped[c];
+        }
+        return rgba;
+    }
+
     // Weighted median-cut with explicit ordering and nearest-palette assignment; no dithering.
     static byte[] QuantizeStage(byte[] rgba)
     {

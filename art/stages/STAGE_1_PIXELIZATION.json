@@ -2,7 +2,7 @@
   "tool": "Pixelloid",
   "revision": "3a479bf4fca8993e2752bcd91935f0dcf8c8fd3c",
   "settings": {
-    "pixelSize": 6,
+    "pixelSize": 1.5,
     "offsetX": 0,
     "offsetY": 0,
     "samplingMode": "medoid"
@@ -19,17 +19,17 @@
     "bottom": 1
   },
   "output": [
-    150,
-    75
+    600,
+    300
   ],
-  "displayScale": 4,
+  "displayScale": 1,
   "passthrough": false,
   "inputRgbaSha256": "60b56236e65df06da8c5aaa6f15ef2a6ba548df6b3a8ef38e433e356fdd0aed6",
-  "outputRgbaSha256": "3e5dd5a57d5a751bdfb15d6ca9b24356010a4f1c07d60f3e97740a84095d9c43",
+  "outputRgbaSha256": "a6910f47c0f6928b89fc269cd9d039a9ded102b501a7a4d6526f5a35441a024f",
   "quantization": {
-    "method": "deterministic weighted median-cut",
+    "method": "nearest existing Stage 1 palette",
     "opaqueColors": 32,
     "dithering": false
   },
-  "quantizedRgbaSha256": "0d40c1f58a665588a686655dea247d9be1740c7f7d90193350f99b077985c9ce"
+  "quantizedRgbaSha256": "a8ef33851846d9b1b2abc1c134da908d4188384905bc44320d33ac7bf6d414ba"
 }
