@@ -133,6 +133,7 @@ public partial class TrainingSmoke : Node
             Check(!GetTree().Paused,"Closing settings resumes gameplay");
             await Frames(2);
             Check(_dummy.GetNode("DamageNumbers").GetChildCount()==0,"Manual reset clears floating damage feedback");
+            await VerifyPercentageAndCamera();
             GD.Print($"TRAINING RESULT: {_checks} checks; {_failures} failures");
             DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(TestSettings));
             GetTree().Quit(_failures==0?0:1);

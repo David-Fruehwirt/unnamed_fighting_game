@@ -55,7 +55,7 @@ public partial class MovementSmoke
         _player.Position=new Vector2(480,160);_player.Velocity=new Vector2(200,100);await Frames(1);
         speed=_player.Velocity.X;float vertical=_player.Velocity.Y;
         Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");
-        Check(_player.IsAttacking&&Math.Abs(_player.Velocity.X-(speed-2))<.1,"Falling jab retains drift with 120 px/s squared neutral braking");
+        Check(_player.IsAttacking&&Math.Abs(_player.Velocity.X-(speed+70-2))<.1,"Falling jab adds forward momentum and retains 120 px/s squared neutral braking");
         Check(_player.Velocity.Y>vertical,"Gravity continues during the jab");
         Input.ActionPress("move_left");speed=_player.Velocity.X;await Frames(1);
         Check(Math.Abs(_player.Velocity.X-(speed-10))<.1&&_player.Facing==1,"Air steering changes velocity at 600 while jab facing stays locked");

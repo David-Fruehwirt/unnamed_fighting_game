@@ -56,8 +56,8 @@ public partial class TrainingDummy : CharacterBody2D, IDamageReceiver
     public override void _PhysicsProcess(double delta)
     {
         _sinceHit+=delta;
-        if(AutoResetPosition&&_returnPending&&_sinceHit>=ReturnDelay) ResetPosition();
         if(KnockoutBounds.Outside(GlobalPosition)) { ResetDummy();return; }
+        if(AutoResetPosition&&_returnPending&&_sinceHit>=ReturnDelay) ResetPosition();
         var velocity=Velocity;
         if(!KnockbackEnabled)velocity.X=0;
         else if(!Damage.Stunned)velocity.X=Mathf.MoveToward(velocity.X,0,600*(float)delta);
@@ -71,6 +71,7 @@ public partial class TrainingDummy : CharacterBody2D, IDamageReceiver
     public void ResetPosition()
     {
         GlobalPosition=HomePosition;Velocity=Vector2.Zero;_returnPending=false;Damage.ClearStun();
+        _art.Position=Vector2.Zero;
     }
 
     public void ResetDummy()

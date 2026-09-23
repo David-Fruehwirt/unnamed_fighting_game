@@ -8,6 +8,7 @@ public partial class Arena : Node2D
 {
     private Soldier _soldier = null!;
     private Label _stateLabel = null!;
+    private Label _damageLabel = null!;
 
     public override void _Ready()
     {
@@ -18,11 +19,22 @@ public partial class Arena : Node2D
         dummy.AddCollisionExceptionWith(_soldier);
         dummy.SetHome(new Vector2(620,stage.SurfaceY(620)));
         _stateLabel = GetNode<Label>("HUD/State");
+        AddChild(new ArenaCamera { Name="Camera",Target=_soldier });
+        var hud=GetNode<CanvasLayer>("HUD");
+        _damageLabel=new Label { Name="SoldierPercentage",Position=new Vector2(40,96),Size=new Vector2(240,32),
+            MouseFilter=Control.MouseFilterEnum.Ignore };
+        _damageLabel.AddThemeFontSizeOverride("font_size",22);hud.AddChild(_damageLabel);
+        hud.AddChild(new DummyIndicator { Name="DummyIndicator",Target=dummy });
         string[] args = OS.GetCmdlineUserArgs();
         if (args.Contains("--capture")) Capture(args);
     }
 
-    public override void _Process(double delta) => _stateLabel.Text = _soldier.MotionState.ToUpperInvariant();
+    public override void _Process(double delta)
+    {
+        _stateLabel.Text = _soldier.MotionState.ToUpperInvariant();
+        _damageLabel.Text=$"SOLDIER  {_soldier.Damage.Percentage:0}%";
+        _damageLabel.AddThemeColorOverride("font_color",DamageState.Tint(_soldier.Damage.Percentage));
+    }
 
     private async void Capture(string[] args)
     {

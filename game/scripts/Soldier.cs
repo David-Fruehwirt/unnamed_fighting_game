@@ -113,8 +113,12 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
         if (Input.IsActionJustReleased("jump") && velocity.Y < -170) velocity.Y = -170;
         // Attack playback is independent of locomotion: keep momentum and vertical physics.
         bool groundedAttack = wasOnFloor && !takeoff;
+        if(attackStarted&&!groundedAttack)
+            velocity.X=Mathf.Clamp(velocity.X+Facing*(AttackNumber==2?100:70),-360,360);
         float targetSpeed = MoveSpeed * (IsAttacking ?
             (groundedAttack ? GroundAttackSpeedFactor : AirAttackSpeedFactor) : 1);
+        if(IsAttacking&&!groundedAttack&&axis*velocity.X>0)
+            targetSpeed=Math.Max(targetSpeed,Math.Abs(velocity.X));
         float steering = IsAttacking ? AttackAcceleration : Acceleration;
         float braking = IsAttacking ? (groundedAttack ? GroundAttackBraking : AirAttackBraking) : Braking;
         velocity.X = Mathf.MoveToward(velocity.X, axis * targetSpeed,
