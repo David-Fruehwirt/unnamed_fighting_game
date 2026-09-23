@@ -494,6 +494,17 @@
       "sourceRgbaSha256": "a8ef33851846d9b1b2abc1c134da908d4188384905bc44320d33ac7bf6d414ba",
       "processedRgbaSha256": "a8ef33851846d9b1b2abc1c134da908d4188384905bc44320d33ac7bf6d414ba",
       "identity": true
+    },
+    {
+      "file": "training/dummy.png",
+      "width": 80,
+      "height": 120,
+      "colors": 11,
+      "opaquePixels": 3190,
+      "partialAlphaPixels": 0,
+      "sourceRgbaSha256": "58755a218695f8b8a82c16df4c27f2c18a8f8a76ebed84c4d83d0e4a3ca48b1c",
+      "processedRgbaSha256": "58755a218695f8b8a82c16df4c27f2c18a8f8a76ebed84c4d83d0e4a3ca48b1c",
+      "identity": true
     }
   ]
 }
