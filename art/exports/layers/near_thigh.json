@@ -5,7 +5,7 @@
   "animationId": "all",
   "ticksPerSecond": 300,
   "sheet": {
-    "width": 3712,
+    "width": 4736,
     "height": 128
   },
   "origin": {
@@ -278,6 +278,78 @@
     {
       "frameId": "attack_4",
       "x": 3584,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "7a053c19"
+    },
+    {
+      "frameId": "cross_0",
+      "x": 3712,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "5163d348"
+    },
+    {
+      "frameId": "cross_1",
+      "x": 3840,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "d758cf7c"
+    },
+    {
+      "frameId": "cross_2",
+      "x": 3968,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "d991419f"
+    },
+    {
+      "frameId": "cross_3",
+      "x": 4096,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "ab99dad8"
+    },
+    {
+      "frameId": "cross_4",
+      "x": 4224,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "ab99dad8"
+    },
+    {
+      "frameId": "cross_5",
+      "x": 4352,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "6eac0a4b"
+    },
+    {
+      "frameId": "cross_6",
+      "x": 4480,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "e883d2cc"
+    },
+    {
+      "frameId": "cross_7",
+      "x": 4608,
       "y": 0,
       "width": 128,
       "height": 128,

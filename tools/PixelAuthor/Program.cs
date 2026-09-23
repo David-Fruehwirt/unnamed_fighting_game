@@ -23,14 +23,16 @@ public static partial class Program
             else if (args.Length == 1 && args[0] == "walk") ReworkWalk();
             else if (args.Length == 1 && args[0] == "jump") ReworkJump();
             else if (args.Length == 1 && args[0] == "fight") BuildFight();
+            else if (args.Length == 1 && args[0] == "cross") BuildCross();
             else if (args.Length == 1 && args[0] == "stage") BuildPixelStage();
             else if (args.Length == 1 && args[0] == "verify-stage") VerifyPixelStage();
             else if (args.Length == 1 && args[0] == "verify-fight") VerifyFight();
+            else if (args.Length == 1 && args[0] == "verify-cross") VerifyCross();
             else if (args.Length == 1 && args[0] == "verify-jump") VerifyJump();
             else if (args.Length == 1 && args[0] == "verify-walk") VerifyWalk();
             else if (args.Length == 1 && args[0] == "verify-idle") VerifyIdle();
             else if (args.Length == 1 && args[0] == "pixelloid") ProcessPixelloid();
-            else throw new Exception("Usage: PixelAuthor part <name> | animate | idle | walk | jump | fight | stage | verify-idle | verify-walk | verify-jump | verify-fight | verify-stage | pixelloid");
+            else throw new Exception("Usage: PixelAuthor part <name> | animate | idle | walk | jump | fight | cross | stage | verify-idle | verify-walk | verify-jump | verify-fight | verify-cross | verify-stage | pixelloid");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine(ex.Message); return 1; }

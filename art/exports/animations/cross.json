@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "projectId": "soldier",
+  "characterId": "soldier",
+  "animationId": "cross",
+  "ticksPerSecond": 300,
+  "sheet": {
+    "width": 1024,
+    "height": 128
+  },
+  "origin": {
+    "x": 64,
+    "y": 121
+  },
+  "pivot": {
+    "x": 64,
+    "y": 121
+  },
+  "anchors": {
+    "feet": {
+      "x": 64,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "cross_0",
+      "x": 0,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "0867116b"
+    },
+    {
+      "frameId": "cross_1",
+      "x": 128,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "562c48d6"
+    },
+    {
+      "frameId": "cross_2",
+      "x": 256,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "0f58782e"
+    },
+    {
+      "frameId": "cross_3",
+      "x": 384,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "63c318a9"
+    },
+    {
+      "frameId": "cross_4",
+      "x": 512,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "63c318a9"
+    },
+    {
+      "frameId": "cross_5",
+      "x": 640,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "d18f96fb"
+    },
+    {
+      "frameId": "cross_6",
+      "x": 768,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "c2525d5a"
+    },
+    {
+      "frameId": "cross_7",
+      "x": 896,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "b764b9eb"
+    }
+  ]
+}
