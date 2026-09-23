@@ -63,3 +63,14 @@ Validated on 2026-09-15 with Godot 4.7.2 .NET and .NET SDK 8.0.401.
 - The old generated atlas and unused resources were removed from production; Git history retains them. Gameplay and verification scripts are now C#.
 
 Attacks, loadout UI, elemental effects and EM Frenzy remain future combat implementation.
+
+## Cross combo verification (2026-09-23)
+
+The Soldier now has 37 body atlas poses, including eight new cross frames (450 ms). J supports a capped jab-cross combo with a 200 ms follow-up grace window and 150 ms post-cross cooldown. Movement and jumping remain available. See [cross requirements and result](CROSS_COMBO_REWORK.md).
+
+- C# build: zero warnings and errors.
+- Godot smoke suite: 261 checks, zero failures.
+- Existing 464 body-part frames and first-attack effects preserved.
+- All 44 PNG exports processed through Pixelloid; imported RGBA hashes match.
+- New eight-frame timing, effects, combo boundaries, spam, airborne behavior, landing and reset verified.
+- In-game cross impact and all reference pose/effect stages visually inspected.

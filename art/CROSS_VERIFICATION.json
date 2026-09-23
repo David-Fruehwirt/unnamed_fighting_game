@@ -1,0 +1,95 @@
+{
+  "baseline": "a6d8b2e",
+  "protectedClips": [
+    "idle",
+    "run",
+    "prepare",
+    "jump",
+    "fall",
+    "land",
+    "jump_sequence",
+    "attack"
+  ],
+  "protectedPartFrames": 464,
+  "crossFrames": 8,
+  "durationMs": 450,
+  "maximumBoneRoundingPixels": 0.691742152377433,
+  "plantedFeet": true,
+  "effectRgbaSha256": "2eab650ce0d47a5154f21ee381f32ac58b18b8417c2fdd9916f986fad90279a9",
+  "effectPixelCounts": [
+    0,
+    0,
+    25,
+    249,
+    258,
+    280,
+    176,
+    50
+  ],
+  "parts": [
+    {
+      "part": "backpack.png",
+      "protectedRgbaSha256": "91811d87aad3a13a269333f32145f8a85571d15d34df5d411ae2f00e8e2a95e7"
+    },
+    {
+      "part": "far_foot.png",
+      "protectedRgbaSha256": "0163dcc8d5f0c1747374199ac091debed062432e0dd19c7b9fa6c6d59b7bc47a"
+    },
+    {
+      "part": "far_forearm.png",
+      "protectedRgbaSha256": "129dfd459f5d5a4e0eb7f1a7f0ab5ab1cd36dede9508207c5805cb7b054e35b6"
+    },
+    {
+      "part": "far_hand.png",
+      "protectedRgbaSha256": "8c4547a64605cd07b0fd4bc7eff585e36827a7572b87f6e4bbc0008055b08a7c"
+    },
+    {
+      "part": "far_shin.png",
+      "protectedRgbaSha256": "39c9e767673c173cba8293cba16c939e7ec75a8f79f66ad13a6f6b0431df43c0"
+    },
+    {
+      "part": "far_thigh.png",
+      "protectedRgbaSha256": "4d2b983cba2a772d57c1a2d7ebebba75d3769ee572ed7785781b38cd463ee8b8"
+    },
+    {
+      "part": "far_upper_arm.png",
+      "protectedRgbaSha256": "9e8e802c2c5bba459ee64718310fcd77f72401bd816690083bdd3cf75a72e988"
+    },
+    {
+      "part": "head.png",
+      "protectedRgbaSha256": "65110d1195d2962896306afe3fbe0b586a6fac0db849e9c264fd2099aec49cc2"
+    },
+    {
+      "part": "near_foot.png",
+      "protectedRgbaSha256": "b5aef46d7e0f0af58a0ee542287944d7f6906ad0f32926f34df1bb44b5a2e97e"
+    },
+    {
+      "part": "near_forearm.png",
+      "protectedRgbaSha256": "a7e53dfbcadddb8c65bc79e688e62afc091b5824590a0f420ca924aab8b517f1"
+    },
+    {
+      "part": "near_hand.png",
+      "protectedRgbaSha256": "e51f0d1b698f036c3cbe92b0c6f6c6243009365c50714cdeceeee446b33354df"
+    },
+    {
+      "part": "near_shin.png",
+      "protectedRgbaSha256": "3b7e959b3484b3d7bda7a7046cd0935c7035fda545357b871868d0bfe7de6040"
+    },
+    {
+      "part": "near_thigh.png",
+      "protectedRgbaSha256": "d7df64030d0d3da52181edaf7b5348b1e836eb4225aa67040fd14ee4caf85348"
+    },
+    {
+      "part": "near_upper_arm.png",
+      "protectedRgbaSha256": "7eb9c839f32b94d98e784c5b8fc2c9778bcb6646f091a993153d4e3e63850750"
+    },
+    {
+      "part": "pelvis.png",
+      "protectedRgbaSha256": "a0d739dbb950a2fb01cb22d0b535c21a47c2b2e9bd6c9dd898e87677fc9ef50a"
+    },
+    {
+      "part": "torso.png",
+      "protectedRgbaSha256": "1bdffba61a17ea129673192af89c0e2f89b99d7c9e5ca89ae0d42badde13abf9"
+    }
+  ]
+}

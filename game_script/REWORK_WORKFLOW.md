@@ -37,3 +37,7 @@ All sixteen parts, Pixelloid processing and C# integration are complete. Each bo
 - PNGs, GIFs and sprite sheets are derived exports.
 - Pixel authoring and Pixelloid validation happen outside the Godot asset folder until the validation gate passes.
 - The earlier generated atlas and prompt describe the previous prototype; replacement production artwork must not depend on image generation.
+
+### Current cross extension
+
+The [cross pass](CROSS_COMBO_REWORK.md) appends eight cross poses: **37 body atlas frames**, with separate five-frame jab and eight-frame cross effect sheets. It preserves existing artwork and adds a finite two-punch J combo. Use PixelAuthor `cross` and `verify-cross` for this extension; previous pass reports describe their original historical atlas sizes.
