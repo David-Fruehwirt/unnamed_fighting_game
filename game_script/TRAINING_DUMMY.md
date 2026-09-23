@@ -18,4 +18,16 @@ Settings: knockback defaults OFF. Automatic position reset defaults ON, returnin
 
 ## Position-reset interpretation
 
-Default is automatic return after two seconds without a hit plus a manual Reset Dummy button. A clarification was requested while independent art work continued; amend this section if the user chooses manual-only.
+Confirmed by the user: automatic return after two seconds without a hit plus a manual Reset Dummy button.
+
+## Completed workflow and verification
+
+Authored and committed the stand, target-painted torso and carved head separately in `art/dummy.pixel.json`. Code as Pixel Art MCP inspected the source, applied hash-guarded semantic pixel operations in batches of at most 1000, validated it and rendered the previews/export. Pixelloid processed the 80x120 sprite at pitch 1 with identical RGBA output before Godot import. The sprite uses eleven opaque colors and binary transparency.
+
+The dummy sits at (620,334). Hit circles follow the animated far hand for jab impact and near hand for cross impact. Jab does 10 damage; cross does 15. Each punch can hit a target once. Health refills one second after depletion. Independent settings persist in `user://training.cfg`; Escape or Settings opens the pause panel. Auto-reset changes position only, preserving HP; Reset Dummy restores both. Disabling knockback stops horizontal impulse motion; gravity still settles a dummy already in the air. Off-stage rescue always restores the target.
+
+Build: zero warnings/errors. Training suite: **36 checks, zero failures**, including two saved visual checks. Existing movement/animation suite: **262 checks, zero failures**. Reviewed `artifacts/training-hit.png` and `artifacts/training-settings.png`. All Soldier source/imported artwork, attack timing, stage artwork and collision layout are preserved against `86e7f76`; the pre-existing local run-speed edit remains uncommitted.
+
+Reproduce art: run PixelAuthor `dummy stand`, `dummy body`, `dummy head` to prepare operation files in `art/work/`; inspect the source and apply each operation file with Code as Pixel Art and its current expected hash. Validate, render to `art/exports/training/dummy.png`, run PixelAuthor `pixelloid`, then import `art/pixelloid/training/dummy.png` with lossless compression, no mipmaps and alpha-border fixing disabled. No standard image generation is used.
+
+Reproduce tests: build `game/Unnamed Fighting Game.csproj`; run Godot on `res://tests/training_smoke.tscn` and `res://tests/movement_smoke.tscn`. Pass `-- --capture-training` with a graphical renderer to save hit/settings review images. Training tests use a separate temporary settings file.

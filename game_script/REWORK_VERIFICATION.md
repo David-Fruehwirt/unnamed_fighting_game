@@ -78,3 +78,9 @@ The Soldier now has 37 body atlas poses, including eight new cross frames (450 m
 ## Faster punches (2026-09-23)
 
 Runtime jab/cross playback is now 1.5x: 200/300 ms. All original frames and effects remain synchronized; grace/cooldown remain 200/150 ms. No artwork, imported assets, movement settings or non-attack clips changed. C# builds without warnings/errors; all 262 Godot checks pass, including per-frame timing, combo boundaries, spam prevention, air attacks and landing.
+
+## Wooden training dummy (2026-09-23)
+
+Added a stationary wooden target, 100 HP bar, damage numbers, jab/cross hit detection, persistent knockback and automatic-return toggles, and Reset Dummy. New sprite authored as three editable parts through Code as Pixel Art and processed through Pixelloid before import. Eleven-color 80x120 sprite; all RGBA hashes match.
+
+C# build: zero warnings/errors. Training suite: 36 checks with captures, zero failures; existing movement suite: 262 checks, zero failures. Soldier and stage artwork/animation assets unchanged against `86e7f76`. See [workflow and behavior](TRAINING_DUMMY.md).

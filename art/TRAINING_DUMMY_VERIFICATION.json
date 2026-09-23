@@ -1,0 +1,37 @@
+{
+  "baseline": "86e7f76",
+  "source": "art/dummy.pixel.json",
+  "parts": [
+    "stand",
+    "body",
+    "head"
+  ],
+  "file": "training/dummy.png",
+  "width": 80,
+  "height": 120,
+  "colors": 11,
+  "opaquePixels": 3190,
+  "partialAlphaPixels": 0,
+  "sourceRgbaSha256": "58755a218695f8b8a82c16df4c27f2c18a8f8a76ebed84c4d83d0e4a3ca48b1c",
+  "processedRgbaSha256": "58755a218695f8b8a82c16df4c27f2c18a8f8a76ebed84c4d83d0e4a3ca48b1c",
+  "identity": true,
+  "preservation": "Soldier source, pose metadata, parts, palette, atlas/animation/effect exports and imports, stage assets, and FistCombo unchanged; existing local run cadence retained.",
+  "build": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "checks": {
+    "training": 36,
+    "movement": 262,
+    "failures": 0
+  },
+  "defaults": {
+    "health": 100,
+    "jabDamage": 10,
+    "crossDamage": 15,
+    "knockback": false,
+    "autoResetPosition": true,
+    "returnDelaySeconds": 2,
+    "healthRefillDelaySeconds": 1
+  }
+}
