@@ -74,3 +74,7 @@ The Soldier now has 37 body atlas poses, including eight new cross frames (450 m
 - All 44 PNG exports processed through Pixelloid; imported RGBA hashes match.
 - New eight-frame timing, effects, combo boundaries, spam, airborne behavior, landing and reset verified.
 - In-game cross impact and all reference pose/effect stages visually inspected.
+
+## Faster punches (2026-09-23)
+
+Runtime jab/cross playback is now 1.5x: 200/300 ms. All original frames and effects remain synchronized; grace/cooldown remain 200/150 ms. No artwork, imported assets, movement settings or non-attack clips changed. C# builds without warnings/errors; all 262 Godot checks pass, including per-frame timing, combo boundaries, spam prevention, air attacks and landing.

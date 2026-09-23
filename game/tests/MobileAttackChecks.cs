@@ -17,7 +17,7 @@ public partial class MovementSmoke
         float speed=_player.Velocity.X,x=_player.Position.X;
         Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");
         Check(_player.IsAttacking&&_player.Velocity.X>=speed-11,"Running jab preserves incoming momentum");
-        await Frames(12);
+        await Frames(9);
         Check(_player.Position.X>x+25&&_player.Velocity.X>100&&_player.Velocity.X<150,"Ground jab carries forward and approaches half run speed");
         Input.ActionRelease("move_right");speed=_player.Velocity.X;await Frames(1);
         Check(Math.Abs(_player.Velocity.X-Math.Max(0,speed-15))<.1,"Ground attack neutral input brakes at 900 px/s squared");

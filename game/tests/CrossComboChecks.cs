@@ -10,34 +10,35 @@ public partial class MovementSmoke
 {
     private void VerifyComboBoundaries()
     {
+        Check(SoldierVisual.AttackSeconds==.2&&SoldierVisual.CrossSeconds==.3,"Punch durations are 200/300 ms at 1.5x speed");
         var combo = new FistCombo();
         Check(combo.Advance(0,true)&&combo.AttackNumber==1,"Fresh press starts punch one");
-        combo.Advance(.1,true);combo.Advance(.1,true);
+        combo.Advance(.05,true);combo.Advance(.05,true);
         Check(combo.Queued&&combo.AttackNumber==1,"Several first-punch presses buffer only one cross");
         Check(combo.Advance(.1,false)&&combo.AttackNumber==2&&!combo.Queued,"Buffered cross starts at the first-punch boundary");
-        combo.Advance(.2,true);combo.Advance(.249999,true);
-        Check(combo.AttackNumber==2&&!combo.Queued,"Cross discards extra presses and holds its full 450 ms");
+        combo.Advance(.2,true);combo.Advance(.099999,true);
+        Check(combo.AttackNumber==2&&!combo.Queued,"Cross discards extra presses and holds its full 300 ms");
         combo.Advance(.000001,true);
         Check(!combo.IsAttacking&&!combo.Queued,"Press at cross completion is discarded during cooldown");
         combo.Advance(.149999,true);
         Check(!combo.IsAttacking,"Press just before cooldown expiry is discarded");
         Check(combo.Advance(.000001,true)&&combo.AttackNumber==1,"Fresh press at 150 ms cooldown boundary restarts punch one");
-        combo.Reset();combo.Advance(0,true);combo.Advance(.3,false);
+        combo.Reset();combo.Advance(0,true);combo.Advance(.2,false);
         Check(!combo.IsAttacking,"Single jab returns to movement during grace");
         combo.Advance(.199999,true);
         Check(combo.AttackNumber==2,"Second press just inside 200 ms grace selects cross");
-        combo.Reset();combo.Advance(0,true);combo.Advance(.3,false);combo.Advance(.2,true);
+        combo.Reset();combo.Advance(0,true);combo.Advance(.2,false);combo.Advance(.2,true);
         Check(combo.AttackNumber==1,"Press at grace expiry starts punch one");
         combo.Reset();combo.Advance(0,true);combo.Advance(1,true);
         Check(combo.AttackNumber==1,"Late press starts punch one even after a long update");
-        combo.Reset();combo.Advance(0,true);combo.Advance(.1,true);combo.Advance(.2,false);
-        combo.Advance(.45,false);combo.Advance(.15,false);
+        combo.Reset();combo.Advance(0,true);combo.Advance(.1,true);combo.Advance(.1,false);
+        combo.Advance(.3,false);combo.Advance(.15,false);
         Check(!combo.IsAttacking&&!combo.Queued,"No third attack without a fresh press after cooldown");
-        combo.Reset();combo.Advance(0,true);combo.Advance(.3,false);combo.Reset();combo.Advance(0,true);
+        combo.Reset();combo.Advance(0,true);combo.Advance(.2,false);combo.Reset();combo.Advance(0,true);
         Check(combo.AttackNumber==1,"Reset clears the grace window");
-        combo.Advance(.1,true);combo.Advance(.2,false);combo.Reset();combo.Advance(0,true);
+        combo.Advance(.1,true);combo.Advance(.1,false);combo.Reset();combo.Advance(0,true);
         Check(combo.AttackNumber==1&&!combo.Queued,"Reset during cross returns to punch one");
-        combo.Advance(.1,true);combo.Advance(.2,false);combo.Advance(.45,false);combo.Reset();
+        combo.Advance(.1,true);combo.Advance(.1,false);combo.Advance(.3,false);combo.Reset();
         Check(combo.Advance(0,true)&&combo.AttackNumber==1,"Reset clears combo cooldown");
     }
 
@@ -54,7 +55,7 @@ public partial class MovementSmoke
         var seen=new System.Collections.Generic.HashSet<int>();
         bool synchronized=true,queued=false;
         // Spam throughout punch two and cooldown: none may become a third queued punch.
-        for(int i=0;i<35;i++)
+        for(int i=0;i<26;i++)
         {
             if(i%2==0)Input.ActionPress("attack");else Input.ActionRelease("attack");
             if(_player.AttackNumber==2)
@@ -105,12 +106,12 @@ public partial class MovementSmoke
         Check(_player.Facing==-1,"Cross facing stays fixed while direction input changes");
         await CleanAttackStart();
 
-        int[] ticks={3,3,3,3,3,6,3,3};
+        int[] ticks={2,2,2,2,2,4,2,2};
         for(int i=0;i<8;i++)
         {
             _player.Visual.SetPose("cross",i);
             _player.Visual.Advance("cross",(ticks[i]-.01)/60,1);
-            Check(_player.Visual.AtlasFrame==29+i,$"Cross {i} holds reference duration");
+            Check(_player.Visual.AtlasFrame==29+i,$"Cross {i} holds accelerated duration");
             _player.Visual.Advance("cross",.02/60,1);
             Check(_player.Visual.AtlasFrame==29+Math.Min(i+1,7),$"Cross {i} advances without looping");
         }

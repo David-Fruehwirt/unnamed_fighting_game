@@ -190,7 +190,7 @@ public partial class MovementSmoke : Node
         Input.ActionRelease("move_right");Input.ActionRelease("attack");
         Input.ActionPress("jump");await Frames(1);
         Check(_player.MotionState=="attack"&&_player.Visual.AttackEffect.Visible,"Jump preparation preserves active jab and effects");
-        Input.ActionRelease("jump");await Frames(8);
+        Input.ActionRelease("jump");await Frames(5);
         Input.ActionPress("attack");await Frames(1);
         Check(_player.MotionState=="attack"&&_player.AttackQueued,"Airborne press queues the next jab during an active attack");
         Input.ActionRelease("attack");_player.Reset();await Frames(3);
@@ -198,20 +198,20 @@ public partial class MovementSmoke : Node
         Check(_player.MotionState=="idle"&&!_player.Visual.AttackEffect.Visible,"Reset clears jab state and effect");
         Input.ActionRelease("attack");await Frames(3);
 
-        Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");await Frames(17);
+        Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");await Frames(11);
         Input.ActionPress("attack");await Frames(1);
         Check(_player.MotionState=="cross"&&_player.Visual.AtlasFrame==29,
             "J pressed exactly at jab completion starts the cross");
         Input.ActionRelease("attack");_player.Reset();await Frames(3);
 
-        int[] ticks={3,6,3,3,3};
+        int[] ticks={2,4,2,2,2};
         for(int i=0;i<5;i++)
         {
             _player.Visual.SetPose("attack",i);
             _player.Visual.Advance("attack",(ticks[i]-.01)/60,1);
-            Check(_player.Visual.AtlasFrame==24+i,$"Jab {i} holds for its reference duration");
+            Check(_player.Visual.AtlasFrame==24+i,$"Jab {i} holds for its accelerated duration");
             _player.Visual.Advance("attack",.02/60,1);
-            Check(_player.Visual.AtlasFrame==24+Math.Min(i+1,4),$"Jab {i} advances at reference boundary without looping");
+            Check(_player.Visual.AtlasFrame==24+Math.Min(i+1,4),$"Jab {i} advances at accelerated boundary without looping");
         }
         using var effect=_player.Visual.AttackEffect.Texture.GetImage();effect.Convert(Image.Format.Rgba8);
         using var report=JsonDocument.Parse(System.IO.File.ReadAllText(System.IO.Path.Combine(ProjectSettings.GlobalizePath("res://"),"..","art","PIXELLOID_REPORT.json")));

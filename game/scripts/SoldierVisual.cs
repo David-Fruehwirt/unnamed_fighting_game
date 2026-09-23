@@ -17,16 +17,17 @@ public partial class SoldierVisual : Node2D
         ["fall"] = (21, 2, 6, false),
         ["land"] = (23, 1, 8, false),
         ["jump_sequence"] = (16, 8, 4, false),
-        ["attack"] = (24, 5, 3, false),
-        ["cross"] = (29, 8, 3, false)
+        ["attack"] = (24, 5, 2, false),
+        ["cross"] = (29, 8, 2, false)
     };
     // Reference frames 0–3: 100 ms; 4–7: 50 ms. One loop is 600 ms.
     private static readonly int[] IdleTicks = { 6, 6, 6, 6, 3, 3, 3, 3 };
-    private static readonly int[] AttackTicks = { 3, 6, 3, 3, 3 };
-    private static readonly int[] CrossTicks = { 3, 3, 3, 3, 3, 6, 3, 3 };
-    public const double CrossSeconds = 27.0 / 60;
+    // Runtime punches play at 1.5x reference speed; source artwork/timing stays intact.
+    private static readonly int[] AttackTicks = { 2, 4, 2, 2, 2 };
+    private static readonly int[] CrossTicks = { 2, 2, 2, 2, 2, 4, 2, 2 };
+    public const double CrossSeconds = 18.0 / 60;
     private Texture2D _jabTexture = null!, _crossTexture = null!;
-    public const double AttackSeconds = 18.0 / 60;
+    public const double AttackSeconds = 12.0 / 60;
     public Sprite2D AttackEffect { get; private set; } = null!;
     public int AtlasFrame { get; private set; }
     public int PartCount => _parts.Count;

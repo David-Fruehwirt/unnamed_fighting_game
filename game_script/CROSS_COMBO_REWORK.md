@@ -1,5 +1,11 @@
 # Soldier cross punch and finite combo
 
+## Current runtime speed (2026-09-23)
+
+Both punches now play at **1.5x reference speed**: jab **200 ms**, cross **300 ms**. At 60 Hz the jab holds its five frames for 2/4/2/2/2 ticks; the cross holds its eight frames for 2/2/2/2/2/4/2/2 ticks. Effects share the same clock. The 200 ms follow-up grace and 150 ms cooldown are unchanged.
+
+Only C# runtime timing and corresponding tests changed. Editable pixel sources, reference-timed GIF previews, Pixelloid exports, body sizes and all other animations remain unchanged. The reference timings and original implementation results below are historical. Build: zero warnings/errors; Godot: **262 checks, zero failures**.
+
 ## Requirements and reference audit
 
 Use soldier_fight_2.gif for attack two, preserving all sixteen armor definitions, palette, part scales, and idle bone lengths. Preserve all existing clips and the stage. Reference poses must be retargeted to fixed existing bone lengths; the dummy's contours cannot be copied without changing the Soldier design.
