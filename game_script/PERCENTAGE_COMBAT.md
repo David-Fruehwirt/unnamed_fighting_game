@@ -17,3 +17,13 @@ Airborne punch startup adds forward horizontal momentum: jab 70 px/s, cross 100 
 ## Workflow
 
 Commit documentation, then shared percentage combat, then camera/recovery milestones. Reuse existing pixel assets and Pixelloid exports without modifying artwork. Adapt tests for both receivers, percentage growth, launch scaling and hitstun; all boundaries and resets; settings; air momentum and unchanged jump physics; camera limits, icon and pause. Run movement/combat suites, inspect low/high damage gameplay, record verification, commit, push and launch. Preserve unrelated local edits. Baseline: 13e883a.
+
+## Verification result
+
+Implemented shared `IDamageReceiver` / `DamageState` and named jab/cross profiles. The Soldier now has a hurtbox, percentage display and hitstun; the dummy remains passive. Positive percentage hit numbers, color progression and last-hit information replace HP. Knockout checks take precedence over the dummy's automatic position return, and reset clears hitstun, motion and fractional sprite offsets. Saved training toggles remain compatible.
+
+Godot training/percentage/camera suite: **118 checks, zero failures**, including five saved visual captures. Existing movement/animation suite: **262 checks, zero failures**. Total: **380 checks**. C# build: zero warnings/errors. Tests cover post-hit launch magnitude at 0/50/100/200%, both facings, exact hitstun duration, self-hit exclusion and actual hits on another Soldier, each knockout edge, reset precedence, horizontal recovery boosts/cap with unchanged vertical motion, bounded 1x camera, offscreen indicator directions, partial visibility and pause behavior.
+
+Visually reviewed low/high percentage readouts, the wooden-head indicator, and camera tracking outside the stage. All files under `art/` and `game/assets/` are unchanged against `13e883a`, as is `FistCombo.cs`; the local uncommitted walk-cadence adjustment is preserved. No new bitmap artwork was needed, so existing verified Pixelloid exports were reused.
+
+Reproduce with the C# build, then Godot `res://tests/movement_smoke.tscn` and `res://tests/training_smoke.tscn`. Use a graphical renderer and `-- --capture-training` for the five visual checks. Captures are stored under ignored `artifacts/`.

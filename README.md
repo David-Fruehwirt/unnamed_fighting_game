@@ -2,6 +2,8 @@
 
 A Godot 2D fighting prototype with a white-and-cobalt Soldier on a pixel-art scrapyard stage.
 
+Damage builds from 0%: jab +5%, cross +7%. Higher damage means stronger knockback.
+
 ![Soldier](art/previews/idle.gif)
 
 ## Controls

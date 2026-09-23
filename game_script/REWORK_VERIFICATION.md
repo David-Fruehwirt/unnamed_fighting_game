@@ -84,3 +84,9 @@ Runtime jab/cross playback is now 1.5x: 200/300 ms. All original frames and effe
 Added a stationary wooden target, 100 HP bar, damage numbers, jab/cross hit detection, persistent knockback and automatic-return toggles, and Reset Dummy. New sprite authored as three editable parts through Code as Pixel Art and processed through Pixelloid before import. Eleven-color 80x120 sprite; all RGBA hashes match.
 
 C# build: zero warnings/errors. Training suite: 36 checks with captures, zero failures; existing movement suite: 262 checks, zero failures. Soldier and stage artwork/animation assets unchanged against `86e7f76`. See [workflow and behavior](TRAINING_DUMMY.md).
+
+## Percentage combat and recovery camera (2026-09-23)
+
+HP is replaced by 0%+ damage on both combatants; jab/cross add 5%/7%. Launch force scales with post-hit percentage and survives hitstun. Shared knockout bounds replace the viewport clamp. Air punches gain forward-only momentum; the camera follows only the Soldier within limits, with a wooden-head indicator for an offscreen dummy.
+
+Build: zero warnings/errors. Training/percentage/camera: 118 passing checks with visual captures. Movement/animation: 262 passing checks. Total: 380 checks, no failures. All artwork and imported assets remain unchanged against `13e883a`. See [requirements, reference and tuning](PERCENTAGE_COMBAT.md).

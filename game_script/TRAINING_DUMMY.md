@@ -1,5 +1,9 @@
 # Wooden training dummy
 
+## Current damage model
+
+The [percentage combat rework](PERCENTAGE_COMBAT.md) replaces the original HP behavior below. Both combatants start at 0%; jab adds 5%, cross 7%, and launch strength grows with damage. There is no 100% limit or healing timer. Position-only automatic return preserves damage; manual reset and crossing knockout boundaries reset to 0%. The original artwork and settings remain in use. The HP requirements and initial verification below describe the historical first implementation.
+
 ## Requirements and defaults
 
 Add a stationary wooden target for testing both J punches. Show a health bar with numeric HP and separate damage numbers for every successful punch. Preserve Soldier artwork, animations, 1.5x attack playback, map and movement. No patrol or idle animation.
