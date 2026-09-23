@@ -13,6 +13,10 @@ public partial class Arena : Node2D
     {
         _soldier = GetNode<Soldier>("Soldier");
         _soldier.SetSpawn(GetNode<StagePlatform>("Platform").Spawn);
+        var dummy=GetNode<TrainingDummy>("Dummy");
+        var stage=GetNode<StagePlatform>("Platform");
+        dummy.AddCollisionExceptionWith(_soldier);
+        dummy.SetHome(new Vector2(620,stage.SurfaceY(620)));
         _stateLabel = GetNode<Label>("HUD/State");
         string[] args = OS.GetCmdlineUserArgs();
         if (args.Contains("--capture")) Capture(args);

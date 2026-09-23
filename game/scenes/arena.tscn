@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/soldier.tscn" id="1"]
 [ext_resource type="Script" path="res://scripts/Arena.cs" id="2"]
 
 [ext_resource type="Script" path="res://scripts/StagePlatform.cs" id="3"]
 [ext_resource type="Texture2D" path="res://assets/stage/stage_1.png" id="4"]
+
+[ext_resource type="PackedScene" path="res://scenes/training_dummy.tscn" id="5"]
+[ext_resource type="Script" path="res://scripts/TrainingSettings.cs" id="6"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("2")
@@ -21,6 +24,9 @@ centered = false
 
 [node name="Soldier" parent="." instance=ExtResource("1")]
 position = Vector2(480, 334)
+
+[node name="Dummy" parent="." instance=ExtResource("5")]
+position = Vector2(620, 334)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -61,3 +67,8 @@ theme_override_colors/font_color = Color(0.63, 0.72, 0.83, 1)
 theme_override_font_sizes/font_size = 12
 text = "A / D  or  ARROWS   Move       SPACE / W / UP   Jump       J   Attack       R   Reset"
 horizontal_alignment = 1
+
+[node name="TrainingSettings" type="Control" parent="HUD"]
+layout_mode = 0
+mouse_filter = 2
+script = ExtResource("6")

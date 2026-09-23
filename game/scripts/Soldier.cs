@@ -28,6 +28,7 @@ public partial class Soldier : CharacterBody2D
     public bool IsAttacking => _combo.IsAttacking;
     public bool AttackQueued => _combo.Queued;
     public int AttackNumber => _combo.AttackNumber;
+    public ulong AttackSerial { get; private set; }
     private bool _releasedDuringPreparation;
 
     public override void _Ready()
@@ -61,6 +62,7 @@ public partial class Soldier : CharacterBody2D
         Vector2 velocity = Velocity;
         bool wasOnFloor = IsOnFloor();
         bool attackStarted = _combo.Advance(dt, Input.IsActionJustPressed("attack"));
+        if (attackStarted) AttackSerial++;
         if (attackStarted && axis != 0) Facing = Math.Sign(axis);
         _landingLeft = Math.Max(0, _landingLeft - dt);
         bool takeoff = false;
@@ -134,6 +136,7 @@ public partial class Soldier : CharacterBody2D
         _jumpBuffer = 0;
         _prepareLeft = _landingLeft = 0;
         _combo.Reset();
+        AttackSerial++;
         _releasedDuringPreparation = false;
         Facing = 1;
         MotionState = "idle";
