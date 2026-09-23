@@ -77,7 +77,7 @@ public partial class MovementSmoke
         Check(!_player.IsAttacking&&!_player.AttackQueued&&!_player.Visual.AttackEffect.Visible,"Reset clears both active and queued attacks");
         Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");await Frames(1);
         Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");
-        _player.Position=new Vector2(480,710);await Frames(1);
+        _player.Position=new Vector2(480,860);await Frames(1);
         Check(!_player.IsAttacking&&!_player.AttackQueued&&_player.Position==_player.SpawnPosition,"Respawn also clears the attack queue");
         await CleanAttackStart();
     }

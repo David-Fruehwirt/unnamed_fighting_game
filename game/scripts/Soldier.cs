@@ -3,7 +3,7 @@ using System;
 
 namespace UnnamedFightingGame;
 
-public partial class Soldier : CharacterBody2D
+public partial class Soldier : CharacterBody2D, IDamageReceiver
 {
     [Export] public float MoveSpeed { get; set; } = 235f;
     [Export] public float Acceleration { get; set; } = 1700f;
@@ -17,6 +17,9 @@ public partial class Soldier : CharacterBody2D
     [Export] public float AttackAcceleration { get; set; } = 600f;
     [Export] public float GroundAttackBraking { get; set; } = 900f;
     [Export] public float AirAttackBraking { get; set; } = 120f;
+    public DamageState Damage { get; } = new();
+    public event Action? Respawned;
+    private Node2D _numbers = null!;
     public SoldierVisual Visual { get; private set; } = null!;
     public Vector2 SpawnPosition { get; private set; }
     public float CoyoteLeft { get; set; }
@@ -34,6 +37,8 @@ public partial class Soldier : CharacterBody2D
     public override void _Ready()
     {
         Visual = GetNode<SoldierVisual>("Visual");
+        _numbers = new Node2D { Name="DamageNumbers" };
+        AddChild(_numbers);
         SpawnPosition = GlobalPosition;
         Bind("move_left", Key.A, Key.Left);
         Bind("move_right", Key.D, Key.Right);
@@ -53,9 +58,19 @@ public partial class Soldier : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         float dt = (float)delta;
-        if (Input.IsActionJustPressed("reset") || GlobalPosition.Y > 700)
+        if (Input.IsActionJustPressed("reset") || KnockoutBounds.Outside(GlobalPosition))
         {
             Reset();
+            return;
+        }
+        if(Damage.Stunned)
+        {
+            Damage.Tick(dt);
+            Velocity=new Vector2(Velocity.X,Math.Min(Velocity.Y+Gravity*dt,800));
+            MoveAndSlide();
+            MotionState="hitstun";
+            Visual.Position=GlobalPosition.Round()-GlobalPosition;
+            Visual.Advance("idle",dt,1);
             return;
         }
         float axis = Input.GetAxis("move_left", "move_right");
@@ -108,7 +123,6 @@ public partial class Soldier : CharacterBody2D
         Velocity = velocity;
         MoveAndSlide();
         if (!wasOnFloor && IsOnFloor() && velocity.Y > 50) _landingLeft = 8f / 60;
-        Position = new Vector2(Mathf.Clamp(Position.X, 22, 938), Position.Y);
         string movementState = _prepareLeft > 0 ? "prepare"
             : !IsOnFloor() ? (Velocity.Y < -20 ? "jump" : "fall")
             : _landingLeft > 0 ? "land"
@@ -122,6 +136,18 @@ public partial class Soldier : CharacterBody2D
             MotionState == "run" ? Mathf.Clamp(Math.Abs(Velocity.X) / MoveSpeed, 0.5f, 1.15f) : 1);
     }
 
+    public int ReceiveHit(AttackHit hit,float facing)
+    {
+        if(hit.Percentage<=0)return 0;
+        Velocity=Damage.Apply(hit,facing);
+        _combo.Reset();AttackSerial++;
+        _prepareLeft=_landingLeft=_jumpBuffer=CoyoteLeft=0;
+        MotionState="hitstun";
+        Visual.SetPose("idle",0);
+        DamageFeedback.Show(_numbers,Damage.LastDamage,Damage.HitCount);
+        return Damage.LastDamage;
+    }
+
     public void SetSpawn(Vector2 position)
     {
         SpawnPosition = position;
@@ -130,6 +156,8 @@ public partial class Soldier : CharacterBody2D
 
     public void Reset()
     {
+        Damage.Reset();
+        foreach(Node number in _numbers.GetChildren())number.QueueFree();
         GlobalPosition = SpawnPosition;
         Velocity = Vector2.Zero;
         CoyoteLeft = 0;
@@ -143,5 +171,6 @@ public partial class Soldier : CharacterBody2D
         Visual.Position = Vector2.Zero;
         Visual.Scale = Vector2.One;
         Visual.SetPose("idle", 0);
+        Respawned?.Invoke();
     }
 }

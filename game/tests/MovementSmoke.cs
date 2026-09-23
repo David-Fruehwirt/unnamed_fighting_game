@@ -74,7 +74,7 @@ public partial class MovementSmoke : Node
             Input.ActionPress("reset"); await Frames(2); Input.ActionRelease("reset");
             Check(_player.Position.DistanceTo(_player.SpawnPosition)<2,"R resets player");
             _player.Position=new Vector2(935,240); Input.ActionPress("move_right"); await Frames(10);
-            Check(_player.Position.X<=938,"Horizontal bounds");
+            Check(_player.Position.X>938,"Movement can leave the original viewport");
             Input.ActionRelease("move_right");
             _player.Reset(); await Frames(4);
             _player.Position=new Vector2(_player.Position.X,_player.SpawnPosition.Y-22);

@@ -6,8 +6,8 @@ namespace UnnamedFightingGame;
 /// <summary>Damage follows the visible fist only during impact poses, once per target per punch.</summary>
 public partial class SoldierCombat : Node2D
 {
-    [Export] public int JabDamage { get; set; } = 10;
-    [Export] public int CrossDamage { get; set; } = 15;
+    [Export] public int JabDamage { get; set; } = 5;
+    [Export] public int CrossDamage { get; set; } = 7;
     private Soldier _soldier = null!;
     private readonly CircleShape2D _fist = new() { Radius=9 };
     private readonly HashSet<ulong> _hitTargets = new();
@@ -29,10 +29,10 @@ public partial class SoldierCombat : Node2D
         };
         foreach(var result in GetWorld2D().DirectSpaceState.IntersectShape(query))
         {
-            if(result["collider"].AsGodotObject() is not Area2D area || area.GetParent() is not TrainingDummy target) continue;
-            if(!_hitTargets.Add(target.GetInstanceId())) continue;
-            target.TakeHit(cross?CrossDamage:JabDamage,cross?"Cross":"Jab",
-                new Vector2(_soldier.Facing*(cross?190:120),cross?-130:-90));
+            if(result["collider"].AsGodotObject() is not Area2D area || area.GetParent() is not IDamageReceiver target) continue;
+            if(ReferenceEquals(target,_soldier)||!_hitTargets.Add(area.GetParent().GetInstanceId())) continue;
+            var hit=(cross?AttackHit.Cross:AttackHit.Jab) with { Percentage=cross?CrossDamage:JabDamage };
+            target.ReceiveHit(hit,_soldier.Facing);
         }
     }
 }

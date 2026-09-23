@@ -3,20 +3,16 @@ using System;
 
 namespace UnnamedFightingGame;
 
-public partial class TrainingDummy : CharacterBody2D
+public partial class TrainingDummy : CharacterBody2D, IDamageReceiver
 {
-    [Export] public int MaxHealth { get; set; } = 100;
-    public int Health { get; private set; }
-    public int LastDamage { get; private set; }
-    public int HitCount { get; private set; }
+    public DamageState Damage { get; } = new();
     public bool KnockbackEnabled { get; set; }
     public bool AutoResetPosition { get; set; } = true;
     public Vector2 HomePosition { get; private set; }
     public const double ReturnDelay = 2;
-    public bool Recovering => _refillLeft > 0;
-    private double _sinceHit, _refillLeft;
+    private double _sinceHit;
     private bool _returnPending;
-    private Label _healthText = null!, _lastHit = null!;
+    private Label _percentText = null!, _lastHit = null!;
     private Node2D _numbers = null!;
     private Sprite2D _art = null!;
 
@@ -24,7 +20,7 @@ public partial class TrainingDummy : CharacterBody2D
     {
         HomePosition = GlobalPosition;
         _art = GetNode<Sprite2D>("Artwork");
-        _healthText = MakeLabel(new(-60,-145),new(120,18),12);
+        _percentText = MakeLabel(new(-60,-139),new(120,26),22);
         _lastHit = MakeLabel(new(-70,-163),new(140,18),11);
         _numbers = new Node2D { Name = "DamageNumbers" };
         AddChild(_numbers);
@@ -45,43 +41,27 @@ public partial class TrainingDummy : CharacterBody2D
 
     public void SetHome(Vector2 position) { HomePosition=position;ResetDummy(); }
 
-    public int TakeHit(int damage,string attack,Vector2 impulse)
+    public int ReceiveHit(AttackHit hit,float facing)
     {
-        if (damage <= 0 || Health == 0) return 0;
-        LastDamage = Math.Min(damage,Health);
-        Health -= LastDamage;
-        HitCount++;
+        if(hit.Percentage<=0)return 0;
+        var impulse=Damage.Apply(hit,facing,KnockbackEnabled);
         _sinceHit=0;_returnPending=true;
-        if(KnockbackEnabled) Velocity=impulse;
-        _lastHit.Text=$"{attack.ToUpperInvariant()}  {LastDamage} DMG";
-        var number = new Label { Text=$"−{LastDamage}",Position=new Vector2(HitCount%2==0?-45:20,-95),
-            MouseFilter=Control.MouseFilterEnum.Ignore };
-        number.AddThemeFontSizeOverride("font_size",18);
-        number.AddThemeColorOverride("font_color",new Color("ffd787"));
-        number.AddThemeColorOverride("font_outline_color",new Color("211b20"));
-        number.AddThemeConstantOverride("outline_size",4);
-        _numbers.AddChild(number);
-        var tween=number.CreateTween().SetParallel();
-        tween.TweenProperty(number,"position:y",number.Position.Y-38,.8);
-        tween.TweenProperty(number,"modulate:a",0f,.8).SetDelay(.15);
-        tween.Chain().TweenCallback(Callable.From(number.QueueFree));
-        if(Health==0) _refillLeft=1;
-        UpdateHealth();
-        return LastDamage;
+        if(KnockbackEnabled)Velocity=impulse;
+        _lastHit.Text=$"{hit.Name.ToUpperInvariant()}  +{Damage.LastDamage}%";
+        DamageFeedback.Show(_numbers,Damage.LastDamage,Damage.HitCount);
+        UpdatePercentage();
+        return Damage.LastDamage;
     }
 
     public override void _PhysicsProcess(double delta)
     {
         _sinceHit+=delta;
-        if(_refillLeft>0)
-        {
-            _refillLeft=Math.Max(0,_refillLeft-delta);
-            if(_refillLeft==0) { Health=MaxHealth;UpdateHealth(); }
-        }
         if(AutoResetPosition&&_returnPending&&_sinceHit>=ReturnDelay) ResetPosition();
-        if(GlobalPosition.Y>700) { ResetDummy();return; }
+        if(KnockoutBounds.Outside(GlobalPosition)) { ResetDummy();return; }
         var velocity=Velocity;
-        velocity.X=KnockbackEnabled?Mathf.MoveToward(velocity.X,0,600*(float)delta):0;
+        if(!KnockbackEnabled)velocity.X=0;
+        else if(!Damage.Stunned)velocity.X=Mathf.MoveToward(velocity.X,0,600*(float)delta);
+        Damage.Tick(delta);
         velocity.Y=Math.Min(velocity.Y+1350*(float)delta,800);
         Velocity=velocity;
         MoveAndSlide();
@@ -90,24 +70,20 @@ public partial class TrainingDummy : CharacterBody2D
 
     public void ResetPosition()
     {
-        GlobalPosition=HomePosition;Velocity=Vector2.Zero;_returnPending=false;
+        GlobalPosition=HomePosition;Velocity=Vector2.Zero;_returnPending=false;Damage.ClearStun();
     }
 
     public void ResetDummy()
     {
-        ResetPosition();Health=MaxHealth;LastDamage=HitCount=0;_refillLeft=0;_sinceHit=0;
+        ResetPosition();Damage.Reset();_sinceHit=0;
         _lastHit.Text="WOODEN DUMMY";
         foreach(Node number in _numbers.GetChildren()) number.QueueFree();
-        UpdateHealth();
+        UpdatePercentage();
     }
 
-    private void UpdateHealth() { _healthText.Text=$"{Health} / {MaxHealth} HP";QueueRedraw(); }
-
-    public override void _Draw()
+    private void UpdatePercentage()
     {
-        DrawRect(new Rect2(-38,-127,76,10),new Color("211b20"));
-        DrawRect(new Rect2(-36,-125,72,6),new Color("49302a"));
-        DrawRect(new Rect2(-36,-125,72*Health/(float)Math.Max(1,MaxHealth),6),
-            new Color(Health>MaxHealth/3?"89cf91":"e17460"));
+        _percentText.Text=$"{Damage.Percentage:0}%";
+        _percentText.AddThemeColorOverride("font_color",DamageState.Tint(Damage.Percentage));
     }
 }

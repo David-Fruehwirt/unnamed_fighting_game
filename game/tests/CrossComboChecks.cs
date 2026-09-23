@@ -92,7 +92,7 @@ public partial class MovementSmoke
         await Frames(7);
         Check(_player.IsOnFloor()&&_player.AttackNumber==2&&_player.Visual.AtlasFrame>29,"Landing preserves cross frame progress");
         Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");
-        _player.Position=new Vector2(480,710);await Frames(1);
+        _player.Position=new Vector2(480,860);await Frames(1);
         Check(!_player.IsAttacking&&!_player.AttackQueued&&!_player.Visual.AttackEffect.Visible,"Respawn clears cross and effects");
         Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");
         Check(_player.AttackNumber==1,"Respawn restarts the combo from punch one");
