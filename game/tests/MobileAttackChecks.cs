@@ -32,12 +32,12 @@ public partial class MovementSmoke
         {
             bool active=_player.IsAttacking;
             await Frames(1);
-            if(_player.IsAttacking&&_player.Visual.AtlasFrame==24&&previous!=24)
+            if(_player.IsAttacking&&_player.Visual.AtlasFrame==29&&previous!=29)
             {restarts++;seamless=active;newFacing=_player.Facing==-1;}
             previous=_player.Visual.AtlasFrame;
         }
         Check(restarts==1&&!_player.AttackQueued&&!_player.IsAttacking,"Multiple presses coalesce into exactly one complete follow-up");
-        Check(seamless&&newFacing,"Queued jab starts without an idle gap and chooses the current direction");
+        Check(seamless&&newFacing,"Queued cross starts without an idle gap and chooses the current direction");
 
         await CleanAttackStart();
         Input.ActionPress("jump");Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");

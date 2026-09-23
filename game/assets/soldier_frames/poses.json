@@ -4250,6 +4250,1150 @@
           "End": null
         }
       }
+    },
+    {
+      "id": "cross_0",
+      "clip": "cross",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 62,
+            "Y": 32
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 64,
+            "Y": 61
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 64,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 52,
+            "Y": 44
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 73,
+            "Y": 33
+          },
+          "End": {
+            "X": 82,
+            "Y": 47
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 82,
+            "Y": 47
+          },
+          "End": {
+            "X": 73,
+            "Y": 33
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 73,
+            "Y": 33
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 49,
+            "Y": 33
+          },
+          "End": {
+            "X": 35,
+            "Y": 43
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 35,
+            "Y": 43
+          },
+          "End": {
+            "X": 50,
+            "Y": 39
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 50,
+            "Y": 39
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 70,
+            "Y": 67
+          },
+          "End": {
+            "X": 80,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 80,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 58,
+            "Y": 67
+          },
+          "End": {
+            "X": 49,
+            "Y": 90
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 49,
+            "Y": 90
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "cross_1",
+      "clip": "cross",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 61,
+            "Y": 32
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 63,
+            "Y": 61
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 63,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 51,
+            "Y": 44
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 72,
+            "Y": 33
+          },
+          "End": {
+            "X": 81,
+            "Y": 47
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 81,
+            "Y": 47
+          },
+          "End": {
+            "X": 72,
+            "Y": 33
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 72,
+            "Y": 33
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 48,
+            "Y": 33
+          },
+          "End": {
+            "X": 34,
+            "Y": 43
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 34,
+            "Y": 43
+          },
+          "End": {
+            "X": 49,
+            "Y": 38
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 49,
+            "Y": 38
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 69,
+            "Y": 67
+          },
+          "End": {
+            "X": 80,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 80,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 57,
+            "Y": 67
+          },
+          "End": {
+            "X": 55,
+            "Y": 92
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 55,
+            "Y": 92
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "cross_2",
+      "clip": "cross",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 76,
+            "Y": 34
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 69,
+            "Y": 62
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 68,
+            "Y": 66
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 63,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 70,
+            "Y": 38
+          },
+          "End": {
+            "X": 58,
+            "Y": 50
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 58,
+            "Y": 50
+          },
+          "End": {
+            "X": 71,
+            "Y": 60
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 71,
+            "Y": 60
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 79,
+            "Y": 31
+          },
+          "End": {
+            "X": 96,
+            "Y": 32
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 96,
+            "Y": 32
+          },
+          "End": {
+            "X": 112,
+            "Y": 31
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 112,
+            "Y": 31
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 74,
+            "Y": 68
+          },
+          "End": {
+            "X": 84,
+            "Y": 92
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 84,
+            "Y": 92
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 62,
+            "Y": 68
+          },
+          "End": {
+            "X": 52,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 52,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "cross_3",
+      "clip": "cross",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 78,
+            "Y": 35
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 70,
+            "Y": 63
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 69,
+            "Y": 67
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 65,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 72,
+            "Y": 40
+          },
+          "End": {
+            "X": 60,
+            "Y": 52
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 60,
+            "Y": 52
+          },
+          "End": {
+            "X": 73,
+            "Y": 62
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 73,
+            "Y": 62
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 81,
+            "Y": 32
+          },
+          "End": {
+            "X": 98,
+            "Y": 33
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 98,
+            "Y": 33
+          },
+          "End": {
+            "X": 114,
+            "Y": 32
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 114,
+            "Y": 32
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 75,
+            "Y": 69
+          },
+          "End": {
+            "X": 86,
+            "Y": 93
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 86,
+            "Y": 93
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 63,
+            "Y": 69
+          },
+          "End": {
+            "X": 50,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 50,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "cross_4",
+      "clip": "cross",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 78,
+            "Y": 35
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 70,
+            "Y": 63
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 69,
+            "Y": 67
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 65,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 72,
+            "Y": 40
+          },
+          "End": {
+            "X": 60,
+            "Y": 52
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 60,
+            "Y": 52
+          },
+          "End": {
+            "X": 73,
+            "Y": 62
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 73,
+            "Y": 62
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 81,
+            "Y": 32
+          },
+          "End": {
+            "X": 98,
+            "Y": 33
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 98,
+            "Y": 33
+          },
+          "End": {
+            "X": 114,
+            "Y": 32
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 114,
+            "Y": 32
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 75,
+            "Y": 69
+          },
+          "End": {
+            "X": 86,
+            "Y": 93
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 86,
+            "Y": 93
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 63,
+            "Y": 69
+          },
+          "End": {
+            "X": 50,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 50,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "cross_5",
+      "clip": "cross",
+      "ticks": 30,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 81,
+            "Y": 36
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 71,
+            "Y": 63
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 70,
+            "Y": 67
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 67,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 74,
+            "Y": 41
+          },
+          "End": {
+            "X": 62,
+            "Y": 53
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 62,
+            "Y": 53
+          },
+          "End": {
+            "X": 77,
+            "Y": 60
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 77,
+            "Y": 60
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 86,
+            "Y": 32
+          },
+          "End": {
+            "X": 103,
+            "Y": 33
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 103,
+            "Y": 33
+          },
+          "End": {
+            "X": 119,
+            "Y": 33
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 119,
+            "Y": 33
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 76,
+            "Y": 69
+          },
+          "End": {
+            "X": 86,
+            "Y": 93
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 86,
+            "Y": 93
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 64,
+            "Y": 69
+          },
+          "End": {
+            "X": 52,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 52,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "cross_6",
+      "clip": "cross",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 73,
+            "Y": 33
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 68,
+            "Y": 62
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 67,
+            "Y": 66
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 60,
+            "Y": 43
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 76,
+            "Y": 37
+          },
+          "End": {
+            "X": 81,
+            "Y": 53
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 81,
+            "Y": 53
+          },
+          "End": {
+            "X": 96,
+            "Y": 46
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 96,
+            "Y": 46
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 67,
+            "Y": 32
+          },
+          "End": {
+            "X": 78,
+            "Y": 45
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 78,
+            "Y": 45
+          },
+          "End": {
+            "X": 92,
+            "Y": 38
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 92,
+            "Y": 38
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 73,
+            "Y": 68
+          },
+          "End": {
+            "X": 83,
+            "Y": 92
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 83,
+            "Y": 92
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 61,
+            "Y": 68
+          },
+          "End": {
+            "X": 50,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 50,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
+    },
+    {
+      "id": "cross_7",
+      "clip": "cross",
+      "ticks": 15,
+      "parts": {
+        "head": {
+          "Start": {
+            "X": 64,
+            "Y": 32
+          },
+          "End": null
+        },
+        "torso": {
+          "Start": {
+            "X": 65,
+            "Y": 61
+          },
+          "End": null
+        },
+        "pelvis": {
+          "Start": {
+            "X": 65,
+            "Y": 65
+          },
+          "End": null
+        },
+        "backpack": {
+          "Start": {
+            "X": 54,
+            "Y": 44
+          },
+          "End": null
+        },
+        "far_upper_arm": {
+          "Start": {
+            "X": 75,
+            "Y": 33
+          },
+          "End": {
+            "X": 79,
+            "Y": 49
+          }
+        },
+        "far_forearm": {
+          "Start": {
+            "X": 79,
+            "Y": 49
+          },
+          "End": {
+            "X": 88,
+            "Y": 35
+          }
+        },
+        "far_hand": {
+          "Start": {
+            "X": 88,
+            "Y": 35
+          },
+          "End": null
+        },
+        "near_upper_arm": {
+          "Start": {
+            "X": 51,
+            "Y": 33
+          },
+          "End": {
+            "X": 45,
+            "Y": 49
+          }
+        },
+        "near_forearm": {
+          "Start": {
+            "X": 45,
+            "Y": 49
+          },
+          "End": {
+            "X": 59,
+            "Y": 42
+          }
+        },
+        "near_hand": {
+          "Start": {
+            "X": 59,
+            "Y": 42
+          },
+          "End": null
+        },
+        "far_thigh": {
+          "Start": {
+            "X": 71,
+            "Y": 67
+          },
+          "End": {
+            "X": 81,
+            "Y": 91
+          }
+        },
+        "far_shin": {
+          "Start": {
+            "X": 81,
+            "Y": 91
+          },
+          "End": {
+            "X": 74,
+            "Y": 116
+          }
+        },
+        "far_foot": {
+          "Start": {
+            "X": 74,
+            "Y": 116
+          },
+          "End": null
+        },
+        "near_thigh": {
+          "Start": {
+            "X": 59,
+            "Y": 67
+          },
+          "End": {
+            "X": 51,
+            "Y": 91
+          }
+        },
+        "near_shin": {
+          "Start": {
+            "X": 51,
+            "Y": 91
+          },
+          "End": {
+            "X": 44,
+            "Y": 118
+          }
+        },
+        "near_foot": {
+          "Start": {
+            "X": 44,
+            "Y": 118
+          },
+          "End": null
+        }
+      }
     }
   ],
   "ticksPerSecond": 300

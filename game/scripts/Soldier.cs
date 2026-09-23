@@ -24,10 +24,10 @@ public partial class Soldier : CharacterBody2D
     public string MotionState { get; private set; } = "idle";
     private float _jumpBuffer;
     private float _prepareLeft, _landingLeft;
-    private float _attackLeft;
-    private bool _attackQueued;
-    public bool IsAttacking => _attackLeft > 0;
-    public bool AttackQueued => _attackQueued;
+    private readonly FistCombo _combo = new();
+    public bool IsAttacking => _combo.IsAttacking;
+    public bool AttackQueued => _combo.Queued;
+    public int AttackNumber => _combo.AttackNumber;
     private bool _releasedDuringPreparation;
 
     public override void _Ready()
@@ -60,19 +60,8 @@ public partial class Soldier : CharacterBody2D
         float axis = Input.GetAxis("move_left", "move_right");
         Vector2 velocity = Velocity;
         bool wasOnFloor = IsOnFloor();
-        bool attackStarted = false;
-        _attackLeft = Math.Max(0, _attackLeft - dt);
-        if (_attackLeft < .00001f) _attackLeft = 0;
-        bool attackPressed = Input.IsActionJustPressed("attack");
-        if (attackPressed && IsAttacking) _attackQueued = true;
-        // One pending press; a press on the completion tick starts only one new jab.
-        if (!IsAttacking && (attackPressed || _attackQueued))
-        {
-            _attackQueued = false;
-            _attackLeft = (float)SoldierVisual.AttackSeconds;
-            attackStarted = true;
-            if (axis != 0) Facing = Math.Sign(axis);
-        }
+        bool attackStarted = _combo.Advance(dt, Input.IsActionJustPressed("attack"));
+        if (attackStarted && axis != 0) Facing = Math.Sign(axis);
         _landingLeft = Math.Max(0, _landingLeft - dt);
         bool takeoff = false;
         if (_prepareLeft > 0)
@@ -122,11 +111,11 @@ public partial class Soldier : CharacterBody2D
             : !IsOnFloor() ? (Velocity.Y < -20 ? "jump" : "fall")
             : _landingLeft > 0 ? "land"
             : Math.Abs(Velocity.X) > 15 ? "run" : "idle";
-        MotionState = IsAttacking ? "attack" : movementState;
+        MotionState = IsAttacking ? (AttackNumber == 2 ? "cross" : "attack") : movementState;
         Visual.Scale = new Vector2(Facing, 1);
         // Snap only the display: collision movement retains its full precision.
         Visual.Position = GlobalPosition.Round() - GlobalPosition;
-        if (MotionState == "attack" && attackStarted) Visual.SetPose("attack", 0);
+        if (attackStarted) Visual.SetPose(MotionState, 0);
         else Visual.Advance(MotionState, dt,
             MotionState == "run" ? Mathf.Clamp(Math.Abs(Velocity.X) / MoveSpeed, 0.5f, 1.15f) : 1);
     }
@@ -144,8 +133,7 @@ public partial class Soldier : CharacterBody2D
         CoyoteLeft = 0;
         _jumpBuffer = 0;
         _prepareLeft = _landingLeft = 0;
-        _attackLeft = 0;
-        _attackQueued = false;
+        _combo.Reset();
         _releasedDuringPreparation = false;
         Facing = 1;
         MotionState = "idle";

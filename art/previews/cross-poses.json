@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "projectId": "cross_preview",
+  "characterId": "cross_preview",
+  "animationId": "cross",
+  "ticksPerSecond": 300,
+  "sheet": {
+    "width": 1280,
+    "height": 128
+  },
+  "origin": {
+    "x": 80,
+    "y": 124
+  },
+  "pivot": {
+    "x": 80,
+    "y": 124
+  },
+  "anchors": {
+    "feet": {
+      "x": 80,
+      "y": 124
+    }
+  },
+  "frames": [
+    {
+      "frameId": "cross_0",
+      "x": 0,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "3de70b6b"
+    },
+    {
+      "frameId": "cross_1",
+      "x": 160,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "97af98d6"
+    },
+    {
+      "frameId": "cross_2",
+      "x": 320,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "e10287b8"
+    },
+    {
+      "frameId": "cross_3",
+      "x": 480,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "78d7e2cc"
+    },
+    {
+      "frameId": "cross_4",
+      "x": 640,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "aa1a2734"
+    },
+    {
+      "frameId": "cross_5",
+      "x": 800,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "492933f3"
+    },
+    {
+      "frameId": "cross_6",
+      "x": 960,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "b40b2f5a"
+    },
+    {
+      "frameId": "cross_7",
+      "x": 1120,
+      "y": 0,
+      "width": 160,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "df16c27b"
+    }
+  ]
+}

@@ -8,5 +8,5 @@ A Godot 2D fighting prototype with a white-and-cobalt Soldier on a pixel-art scr
 
 - **A / D** or **Left / Right**: move.
 - **Space / W / Up**: jump; release early for a shorter jump.
-- **J**: punch on the ground or in the air; press again to queue one follow-up.
+- **J**: punch on the ground or in the air; press again for a two-punch combo. Pausing restarts with punch one.
 - **R**: reset.

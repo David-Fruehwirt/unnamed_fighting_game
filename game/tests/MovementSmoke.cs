@@ -43,6 +43,7 @@ public partial class MovementSmoke : Node
             VerifyArt();
             await VerifyAttack();
             await VerifyMobileAttacks();
+            await VerifyCrossCombo();
             await VerifyJumpSequence();
             float startX=_player.Position.X;
             Input.ActionPress("move_right"); await Frames(25);
@@ -199,8 +200,8 @@ public partial class MovementSmoke : Node
 
         Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");await Frames(17);
         Input.ActionPress("attack");await Frames(1);
-        Check(_player.MotionState=="attack"&&_player.Visual.AtlasFrame==24,
-            "J pressed exactly at recovery completion restarts from smear");
+        Check(_player.MotionState=="cross"&&_player.Visual.AtlasFrame==29,
+            "J pressed exactly at jab completion starts the cross");
         Input.ActionRelease("attack");_player.Reset();await Frames(3);
 
         int[] ticks={3,6,3,3,3};
@@ -253,7 +254,7 @@ public partial class MovementSmoke : Node
             string hash=Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant();
             Check(hash==entries[sprite.Name.ToString()].GetProperty("processedRgbaSha256").GetString(),
                 $"{sprite.Name}: Godot pixels match Pixelloid output");
-            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==29,
+            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==37,
                 $"{sprite.Name}: exact pixels, no raster rotation or scaling");
         }
         foreach(var (clip,info) in SoldierVisual.Clips)

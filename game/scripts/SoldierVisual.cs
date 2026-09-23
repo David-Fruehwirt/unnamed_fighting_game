@@ -17,11 +17,15 @@ public partial class SoldierVisual : Node2D
         ["fall"] = (21, 2, 6, false),
         ["land"] = (23, 1, 8, false),
         ["jump_sequence"] = (16, 8, 4, false),
-        ["attack"] = (24, 5, 3, false)
+        ["attack"] = (24, 5, 3, false),
+        ["cross"] = (29, 8, 3, false)
     };
     // Reference frames 0–3: 100 ms; 4–7: 50 ms. One loop is 600 ms.
     private static readonly int[] IdleTicks = { 6, 6, 6, 6, 3, 3, 3, 3 };
     private static readonly int[] AttackTicks = { 3, 6, 3, 3, 3 };
+    private static readonly int[] CrossTicks = { 3, 3, 3, 3, 3, 6, 3, 3 };
+    public const double CrossSeconds = 27.0 / 60;
+    private Texture2D _jabTexture = null!, _crossTexture = null!;
     public const double AttackSeconds = 18.0 / 60;
     public Sprite2D AttackEffect { get; private set; } = null!;
     public int AtlasFrame { get; private set; }
@@ -40,6 +44,8 @@ public partial class SoldierVisual : Node2D
         _nearSocket = GetNode<Marker2D>("NearWeaponSocket");
         _farSocket = GetNode<Marker2D>("FarWeaponSocket");
         AttackEffect = GetNode<Sprite2D>("AttackEffects/Impact");
+        _jabTexture = AttackEffect.Texture;
+        _crossTexture = GD.Load<Texture2D>("res://assets/soldier_effects/cross.png");
         using var poses = JsonDocument.Parse(FileAccess.GetFileAsString("res://assets/soldier_frames/poses.json"));
         foreach (var frame in poses.RootElement.GetProperty("frames").EnumerateArray())
         {
@@ -70,12 +76,13 @@ public partial class SoldierVisual : Node2D
             while (local < IdleTicks.Length - 1 && phase >= IdleTicks[local])
                 phase -= IdleTicks[local++];
         }
-        if (clip == "attack")
+        if (clip is "attack" or "cross")
         {
             double phase = _ticks;
             local = 0;
-            while (local < AttackTicks.Length - 1 && phase + .000001 >= AttackTicks[local])
-                phase -= AttackTicks[local++];
+            var durations = clip == "cross" ? CrossTicks : AttackTicks;
+            while (local < durations.Length - 1 && phase + .000001 >= durations[local])
+                phase -= durations[local++];
         }
         ApplyFrame(animation.Start + local);
     }
@@ -86,10 +93,10 @@ public partial class SoldierVisual : Node2D
         Clip = clip;
         localFrame = Math.Clamp(localFrame, 0, animation.Count - 1);
         _ticks = localFrame * animation.Ticks;
-        if (clip == "idle" || clip == "attack")
+        if (clip is "idle" or "attack" or "cross")
         {
             _ticks = 0;
-            var durations = clip == "idle" ? IdleTicks : AttackTicks;
+            var durations = clip == "idle" ? IdleTicks : clip == "cross" ? CrossTicks : AttackTicks;
             for (int i = 0; i < localFrame; i++) _ticks += durations[i];
         }
         ApplyFrame(animation.Start + localFrame);
@@ -99,8 +106,18 @@ public partial class SoldierVisual : Node2D
     {
         AtlasFrame = index;
         foreach (var sprite in _parts) sprite.Frame = index;
-        AttackEffect.Visible = Clip == "attack";
-        if (AttackEffect.Visible) AttackEffect.Frame = index - Clips["attack"].Start;
+        AttackEffect.Visible = Clip is "attack" or "cross";
+        if (AttackEffect.Visible)
+        {
+            var texture = Clip == "cross" ? _crossTexture : _jabTexture;
+            if (AttackEffect.Texture != texture)
+            {
+                AttackEffect.Frame = 0;
+                AttackEffect.Texture = texture;
+                AttackEffect.Hframes = Clips[Clip].Count;
+            }
+            AttackEffect.Frame = index - Clips[Clip].Start;
+        }
         _nearSocket.Position = _handPositions[index].Near;
         _farSocket.Position = _handPositions[index].Far;
     }

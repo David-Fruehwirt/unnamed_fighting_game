@@ -138,7 +138,7 @@ public static partial class Program
         Save("art/work/cross.operations.json",ops);
         Console.WriteLine(RunPix("apply",file,"--operations","art/work/cross.operations.json","--expected-hash",ProjectHash(file)));
         Console.WriteLine(RunPix("validate",file,"--json"));
-        RunPix("render",file,"--frame","cross_1","--scale","4","--out","art/previews/cross-hit.png");
+        RunPix("render",file,"--frame","cross_3","--scale","4","--out","art/previews/cross-hit.png");
         RunPix("sheet",file,"--animation","cross","--layout","horizontal","--out","art/exports/animations/cross.png","--manifest","art/exports/animations/cross.json");
         RunPix("gif",file,"--animation","cross","--scale","4","--out","art/previews/cross-body.gif");
 
@@ -162,7 +162,7 @@ public static partial class Program
         Save("art/work/cross-effects.operations.json",fxOps);
         Console.WriteLine(RunPix("apply",fxFile,"--operations","art/work/cross-effects.operations.json","--expected-hash",ProjectHash(fxFile)));
         Console.WriteLine(RunPix("validate",fxFile,"--json"));
-        RunPix("render",fxFile,"--frame","cross_1","--scale","4","--out","art/previews/cross-effect.png");
+        RunPix("render",fxFile,"--frame","cross_3","--scale","4","--out","art/previews/cross-effect.png");
         RunPix("sheet",fxFile,"--animation","cross","--layout","horizontal","--out","art/exports/effects/cross.png","--manifest","art/exports/effects/cross.json");
 
         var metadata=JsonNode.Parse(File.ReadAllText("art/poses.json"))!;
