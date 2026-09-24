@@ -45,6 +45,7 @@ public partial class MovementSmoke : Node
             await VerifyMobileAttacks();
             await VerifyCrossCombo();
             await VerifyJumpSequence();
+            await VerifyDoubleJump();
             float startX=_player.Position.X;
             Input.ActionPress("move_right"); await Frames(25);
             Check(_player.Position.X>startX+60,"Right movement");
@@ -254,7 +255,7 @@ public partial class MovementSmoke : Node
             string hash=Convert.ToHexString(SHA256.HashData(image.GetData())).ToLowerInvariant();
             Check(hash==entries[sprite.Name.ToString()].GetProperty("processedRgbaSha256").GetString(),
                 $"{sprite.Name}: Godot pixels match Pixelloid output");
-            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==37,
+            Check(sprite.Rotation==0&&sprite.Scale==Vector2.One&&sprite.Hframes==45,
                 $"{sprite.Name}: exact pixels, no raster rotation or scaling");
         }
         foreach(var (clip,info) in SoldierVisual.Clips)

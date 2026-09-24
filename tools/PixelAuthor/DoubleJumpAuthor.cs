@@ -66,7 +66,7 @@ public static partial class Program
                 far=new{thigh=farThigh[i],shin=farShin[i],upperArm=farArm[i],forearm=farForearm[i]},parts=p});
         }
         Save("art/double-jump-reference.json",new{reference="reference_pics/soldier_class/soldier_jump_2.png",
-            method="Eight traced articulations with unchanged idle part dimensions and fixed bone lengths. Integer endpoints; physics supplies the jump arc. Timing authored because reference is a still image.",frames=reference});
+            method="Eight powered variations of the existing jump, with unchanged idle dimensions and fixed bone lengths. Raised guard, tighter tuck and integer endpoints; physics supplies the arc.",frames=reference});
         return poses;
     }
     static Canvas DrawDoublePart(string id,PartDefinition d,Placement p,int phase)
@@ -89,7 +89,13 @@ public static partial class Program
         const string file="art/soldier.pixel.json";
         var defs=LayerOrder.ToDictionary(id=>id,id=>JsonSerializer.Deserialize<PartDefinition>(File.ReadAllText($"art/draw/{id}.json"))!);
         var poses=DoublePoses(defs);
+        Console.WriteLine(RunPix("inspect",file,"--json"));
+        var source=JsonNode.Parse(File.ReadAllText(file))!["characters"]![0]!;
         var ops=new List<object>();
+        foreach(var a in source["animations"]!.AsArray().Where(a=>a!["id"]!.GetValue<string>().StartsWith("double_")))
+            ops.Add(new{type="removeAnimation",characterId="soldier",animationId=a!["id"]!.GetValue<string>()});
+        foreach(var f in source["views"]![0]!["frames"]!.AsArray().Where(f=>f!["id"]!.GetValue<string>().StartsWith("double_pose_")))
+            ops.Add(new{type="removeFrame",characterId="soldier",viewId="right",frameId=f!["id"]!.GetValue<string>()});
         foreach(var (p,i) in poses.Select((p,i)=>(p,i)))
             ops.Add(new{type="addFrame",characterId="soldier",viewId="right",frame=new{id=p.Id,name=i==0?"Air recoil":JumpLabels[i],durationTicks=p.Ticks,
                 cels=LayerOrder.ToDictionary(id=>id,id=>new{grid=new{width=128,height=128,cells=DrawDoublePart(id,defs[id],p.Parts[id],i).Cells},offset=new{x=0,y=0}})}});
@@ -102,7 +108,8 @@ public static partial class Program
         RunPix("sheet",file,"--animation","double_jump_sequence","--layout","horizontal","--out","art/exports/animations/double_jump_sequence.png");
         RunPix("gif",file,"--animation","double_jump_sequence","--scale","4","--out","art/previews/double-jump.gif");
         var metadata=JsonNode.Parse(File.ReadAllText("art/poses.json"))!;
-        var frames=metadata["frames"]!.AsArray();
+        var frames=new JsonArray(metadata["frames"]!.AsArray().Where(f=>!f!["id"]!.GetValue<string>().StartsWith("double_pose_")).Select(f=>f!.DeepClone()).ToArray());
+        metadata["frames"]=frames;
         foreach(var p in poses)frames.Add(JsonSerializer.SerializeToNode(new{id=p.Id,clip=p.Clip,ticks=p.Ticks,parts=p.Parts}));
         Save("art/poses.json",metadata);
         var authored=JsonNode.Parse(File.ReadAllText(file))!;var body=authored["characters"]![0]!;

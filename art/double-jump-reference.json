@@ -1,6 +1,6 @@
 {
   "reference": "reference_pics/soldier_class/soldier_jump_2.png",
-  "method": "Eight traced articulations with unchanged idle part dimensions and fixed bone lengths. Integer endpoints; physics supplies the jump arc. Timing authored because reference is a still image.",
+  "method": "Eight powered variations of the existing jump, with unchanged idle dimensions and fixed bone lengths. Raised guard, tighter tuck and integer endpoints; physics supplies the arc.",
   "frames": [
     {
       "number": 1,

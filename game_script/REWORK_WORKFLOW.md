@@ -41,3 +41,7 @@ All sixteen parts, Pixelloid processing and C# integration are complete. Each bo
 ### Current cross extension
 
 The [cross pass](CROSS_COMBO_REWORK.md) appends eight cross poses: **37 body atlas frames**, with separate five-frame jab and eight-frame cross effect sheets. It preserves existing artwork and adds a finite two-punch J combo. Use PixelAuthor `cross` and `verify-cross` for this extension; previous pass reports describe their original historical atlas sizes.
+
+### Powered second jump
+
+The [double-jump pass](DOUBLE_JUMP.md) appends eight poses for **45 body atlas frames**, plus independent four-frame boot and backpack exhaust sheets. All 37 earlier poses and the sixteen body-part definitions are preserved. `PixelAuthor double-jump`, `thrusters`, and `pixelloid` reproduce the new exports; `node tools/verify-double-jump.cjs` checks preservation and pixel identity.
