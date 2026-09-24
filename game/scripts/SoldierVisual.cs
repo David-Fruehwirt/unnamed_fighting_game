@@ -18,7 +18,11 @@ public partial class SoldierVisual : Node2D
         ["land"] = (23, 1, 8, false),
         ["jump_sequence"] = (16, 8, 4, false),
         ["attack"] = (24, 5, 2, false),
-        ["cross"] = (29, 8, 2, false)
+        ["cross"] = (29, 8, 2, false),
+        ["double_rise"] = (37, 5, 4, false),
+        ["double_fall"] = (42, 2, 6, false),
+        ["double_land"] = (44, 1, 8, false),
+        ["double_jump_sequence"] = (37, 8, 4, false)
     };
     // Reference frames 0–3: 100 ms; 4–7: 50 ms. One loop is 600 ms.
     private static readonly int[] IdleTicks = { 6, 6, 6, 6, 3, 3, 3, 3 };
@@ -36,7 +40,22 @@ public partial class SoldierVisual : Node2D
     private readonly List<(Vector2 Near, Vector2 Far)> _handPositions = new();
     private Marker2D _nearSocket = null!;
     private Marker2D _farSocket = null!;
-    private double _ticks;
+    private double _ticks, _thrustTicks;
+    public bool ThrustersVisible => _thrusters.Count > 0 && _thrusters[0].Visible;
+    public int ThrusterFrame => _thrusters[0].Frame;
+    private readonly List<Sprite2D> _thrusters = new();
+    private readonly List<Vector2[]> _thrustSockets = new();
+    public void SetThrusters(bool active, double delta)
+    {
+        if (!active) _thrustTicks = 0;
+        else _thrustTicks += delta * 60;
+        for (int i=0;i<_thrusters.Count;i++)
+        {
+            _thrusters[i].Visible = active;
+            _thrusters[i].Frame = (int)(_thrustTicks / 3) % 4;
+            _thrusters[i].Position = _thrustSockets[AtlasFrame][i];
+        }
+    }
 
     public override void _Ready()
     {
@@ -52,6 +71,23 @@ public partial class SoldierVisual : Node2D
         {
             var parts = frame.GetProperty("parts");
             _handPositions.Add((ReadPoint(parts,"near_hand"),ReadPoint(parts,"far_hand")));
+        }
+        var effects = new Node2D { Name = "Thrusters", ZIndex = -1 };
+        AddChild(effects);
+        for (int i=0;i<4;i++)
+        {
+            var sprite = new Sprite2D { Name = "Outlet"+i, Texture = GD.Load<Texture2D>(
+                "res://assets/soldier_effects/"+(i<2?"boot":"pack")+"-thrusters.png"),
+                Hframes = 4, Centered = false, Offset = new Vector2(-8,0), Visible = false };
+            effects.AddChild(sprite); _thrusters.Add(sprite);
+        }
+        using var sockets = JsonDocument.Parse(FileAccess.GetFileAsString("res://assets/soldier_frames/thruster-sockets.json"));
+        foreach (var frame in sockets.RootElement.EnumerateArray())
+        {
+            var points = new List<Vector2>();
+            foreach (var point in frame.GetProperty("points").EnumerateArray())
+                points.Add(new Vector2(point.GetProperty("X").GetInt32()-64, point.GetProperty("Y").GetInt32()-121));
+            _thrustSockets.Add(points.ToArray());
         }
         SetPose("idle", 0);
     }
@@ -106,6 +142,7 @@ public partial class SoldierVisual : Node2D
     private void ApplyFrame(int index)
     {
         AtlasFrame = index;
+        for (int i=0;i<_thrusters.Count;i++) _thrusters[i].Position = _thrustSockets[index][i];
         foreach (var sprite in _parts) sprite.Frame = index;
         AttackEffect.Visible = Clip is "attack" or "cross";
         if (AttackEffect.Visible)

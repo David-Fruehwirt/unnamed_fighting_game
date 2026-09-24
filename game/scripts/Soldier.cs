@@ -33,6 +33,17 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
     public int AttackNumber => _combo.AttackNumber;
     public ulong AttackSerial { get; private set; }
     private bool _releasedDuringPreparation;
+    public bool AirJumpAvailable { get; private set; } = true;
+    public bool PoweredAscent { get; private set; }
+    private bool _doubleFlight, _doubleLanding;
+    private double _doubleTicks, _fallTicks;
+    private bool _doubleFalling;
+    private void GroundedJumpReset()
+    {
+        AirJumpAvailable = true;
+        PoweredAscent = false;
+        _doubleFlight = false;
+    }
 
     public override void _Ready()
     {
@@ -66,8 +77,11 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
         if(Damage.Stunned)
         {
             Damage.Tick(dt);
+            if (IsOnFloor()) GroundedJumpReset();
             Velocity=new Vector2(Velocity.X,Math.Min(Velocity.Y+Gravity*dt,800));
             MoveAndSlide();
+            if (IsOnFloor()) GroundedJumpReset();
+            Visual.SetThrusters(false, dt);
             MotionState="hitstun";
             Visual.Position=GlobalPosition.Round()-GlobalPosition;
             Visual.Advance("idle",dt,1);
@@ -76,6 +90,7 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
         float axis = Input.GetAxis("move_left", "move_right");
         Vector2 velocity = Velocity;
         bool wasOnFloor = IsOnFloor();
+        if (wasOnFloor) GroundedJumpReset();
         bool attackStarted = _combo.Advance(dt, Input.IsActionJustPressed("attack"));
         if (attackStarted) AttackSerial++;
         if (attackStarted && axis != 0) Facing = Math.Sign(axis);
@@ -100,6 +115,7 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
         {
             _jumpBuffer = 0;
             _landingLeft = 0;
+            _doubleLanding = false;
             _releasedDuringPreparation = !Input.IsActionPressed("jump");
             // One grounded anticipation pose. Coyote jumps remain immediate.
             if (wasOnFloor) _prepareLeft = 4f / 60;
@@ -110,12 +126,24 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
             velocity.Y = _releasedDuringPreparation ? -170 : -JumpSpeed;
             CoyoteLeft = 0;
         }
-        if (Input.IsActionJustReleased("jump") && velocity.Y < -170) velocity.Y = -170;
+        bool secondTakeoff = Input.IsActionJustPressed("jump") && !wasOnFloor && !takeoff
+            && _prepareLeft == 0 && CoyoteLeft <= 0 && AirJumpAvailable;
+        if (secondTakeoff)
+        {
+            AirJumpAvailable = false;
+            _doubleFlight = PoweredAscent = true;
+            _doubleFalling = _doubleLanding = false;
+            _doubleTicks = _fallTicks = 0;
+            _jumpBuffer = _landingLeft = 0;
+            velocity.Y = -499;
+        }
+        float releaseSpeed = _doubleFlight ? 182 : 170;
+        if (Input.IsActionJustReleased("jump") && velocity.Y < -releaseSpeed) velocity.Y = -releaseSpeed;
         // Attack playback is independent of locomotion: keep momentum and vertical physics.
         bool groundedAttack = wasOnFloor && !takeoff;
         if(attackStarted&&!groundedAttack)
             velocity.X=Mathf.Clamp(velocity.X+Facing*(AttackNumber==2?100:70),-360,360);
-        float targetSpeed = MoveSpeed * (IsAttacking ?
+        float targetSpeed = (_doubleFlight ? 253 : MoveSpeed) * (IsAttacking ?
             (groundedAttack ? GroundAttackSpeedFactor : AirAttackSpeedFactor) : 1);
         if(IsAttacking&&!groundedAttack&&axis*velocity.X>0)
             targetSpeed=Math.Max(targetSpeed,Math.Abs(velocity.X));
@@ -126,24 +154,41 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
         if (!IsAttacking && axis != 0) Facing = Math.Sign(axis);
         Velocity = velocity;
         MoveAndSlide();
-        if (!wasOnFloor && IsOnFloor() && velocity.Y > 50) _landingLeft = 8f / 60;
+        if (!wasOnFloor && IsOnFloor() && velocity.Y > 50)
+        {
+            _landingLeft = 8f / 60;
+            _doubleLanding = _doubleFlight;
+        }
+        if (IsOnFloor()) GroundedJumpReset();
+        if (Velocity.Y >= 0 || IsOnCeiling()) PoweredAscent = false;
+        if (_doubleFlight)
+        {
+            if (Velocity.Y >= 0 && !_doubleFalling) { _doubleFalling = true; _fallTicks = 0; }
+            else if (_doubleFalling) _fallTicks += delta * 60;
+            if (!secondTakeoff) _doubleTicks += delta * 60;
+        }
         string movementState = _prepareLeft > 0 ? "prepare"
-            : !IsOnFloor() ? (Velocity.Y < -20 ? "jump" : "fall")
-            : _landingLeft > 0 ? "land"
+            : !IsOnFloor() ? (_doubleFlight ? (_doubleFalling ? "double_fall" : "double_rise") : (Velocity.Y < -20 ? "jump" : "fall"))
+            : _landingLeft > 0 ? (_doubleLanding ? "double_land" : "land")
             : Math.Abs(Velocity.X) > 15 ? "run" : "idle";
         MotionState = IsAttacking ? (AttackNumber == 2 ? "cross" : "attack") : movementState;
         Visual.Scale = new Vector2(Facing, 1);
         // Snap only the display: collision movement retains its full precision.
         Visual.Position = GlobalPosition.Round() - GlobalPosition;
         if (attackStarted) Visual.SetPose(MotionState, 0);
+        else if (!IsAttacking && _doubleFlight) Visual.SetPose(MotionState,
+            _doubleFalling ? Math.Min(1, (int)(_fallTicks / 6)) : Math.Min(4, (int)(_doubleTicks / 4)));
         else Visual.Advance(MotionState, dt,
             MotionState == "run" ? Mathf.Clamp(Math.Abs(Velocity.X) / MoveSpeed, 0.5f, 1.15f) : 1);
+        Visual.SetThrusters(PoweredAscent && Velocity.Y < 0 && !IsOnFloor(), delta);
     }
 
     public int ReceiveHit(AttackHit hit,float facing)
     {
         if(hit.Percentage<=0)return 0;
         Velocity=Damage.Apply(hit,facing);
+        PoweredAscent = _doubleFlight = false;
+        Visual.SetThrusters(false, 0);
         _combo.Reset();AttackSerial++;
         _prepareLeft=_landingLeft=_jumpBuffer=CoyoteLeft=0;
         MotionState="hitstun";
@@ -161,6 +206,10 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
     public void Reset()
     {
         Damage.Reset();
+        GroundedJumpReset();
+        _doubleLanding = _doubleFalling = false;
+        _doubleTicks = _fallTicks = 0;
+        Visual.SetThrusters(false, 0);
         foreach(Node number in _numbers.GetChildren())number.QueueFree();
         GlobalPosition = SpawnPosition;
         Velocity = Vector2.Zero;
