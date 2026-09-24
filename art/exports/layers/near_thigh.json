@@ -5,7 +5,7 @@
   "animationId": "all",
   "ticksPerSecond": 300,
   "sheet": {
-    "width": 4736,
+    "width": 5760,
     "height": 128
   },
   "origin": {
@@ -355,6 +355,78 @@
       "height": 128,
       "durationTicks": 15,
       "hash": "7a053c19"
+    },
+    {
+      "frameId": "double_pose_00",
+      "x": 4736,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "5d17722d"
+    },
+    {
+      "frameId": "double_pose_01",
+      "x": 4864,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "5b0ae82b"
+    },
+    {
+      "frameId": "double_pose_02",
+      "x": 4992,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "70b20e2f"
+    },
+    {
+      "frameId": "double_pose_03",
+      "x": 5120,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "eba8a9aa"
+    },
+    {
+      "frameId": "double_pose_04",
+      "x": 5248,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 20,
+      "hash": "d26e6b2a"
+    },
+    {
+      "frameId": "double_pose_05",
+      "x": 5376,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "eba8a9aa"
+    },
+    {
+      "frameId": "double_pose_06",
+      "x": 5504,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 30,
+      "hash": "1067a1aa"
+    },
+    {
+      "frameId": "double_pose_07",
+      "x": 5632,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 40,
+      "hash": "7e883331"
     }
   ]
 }
