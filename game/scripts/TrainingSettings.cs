@@ -10,14 +10,15 @@ public partial class TrainingSettings : Control
     private PanelContainer _panel = null!;
     private CheckButton _knockback = null!, _autoReturn = null!;
     private bool _previousPause;
+    private Button _open = null!;
 
     public override void _Ready()
     {
         ProcessMode=ProcessModeEnum.Always;
         MouseFilter=MouseFilterEnum.Ignore;
         Dummy=GetNode<TrainingDummy>("../../Dummy");
-        var open=new Button { Text="Settings  [Esc]",Position=new(786,78),Size=new(134,28),FocusMode=FocusModeEnum.None };
-        AddChild(open);open.Pressed+=()=>SetOpen(!IsOpen);
+        _open=new Button { Text="Settings  [Esc]",Position=new(786,78),Size=new(134,28),FocusMode=FocusModeEnum.None };
+        AddChild(_open);_open.Pressed+=()=>SetOpen(!IsOpen);
         _panel=new PanelContainer { Position=new(660,116),Size=new(260,220),Visible=false };
         AddChild(_panel);
         var margin=new MarginContainer();_panel.AddChild(margin);
@@ -34,6 +35,15 @@ public partial class TrainingSettings : Control
         Apply(config.GetValue("dummy","knockback",false).AsBool(),config.GetValue("dummy","auto_reset_position",true).AsBool());
         _knockback.Toggled+=value=>SetKnockback(value);
         _autoReturn.Toggled+=value=>SetAutoResetPosition(value);
+    }
+
+    public void Relayout(Vector2 viewportSize)
+    {
+        Size = viewportSize;
+        _open.Position = new Vector2(viewportSize.X - 40 - _open.Size.X, 78).Round();
+        _panel.Size = new Vector2(260,220);
+        _panel.Position = new Vector2(viewportSize.X - 40 - _panel.Size.X,
+            Mathf.Min(116, viewportSize.Y - 40 - _panel.Size.Y)).Round();
     }
 
     private void Apply(bool knockback,bool autoReturn)

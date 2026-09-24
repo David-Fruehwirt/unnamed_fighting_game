@@ -30,7 +30,10 @@ public partial class DummyIndicator : Node2D
         Visible=!GetViewportRect().Intersects(bounds);
         if(!Visible)return;
         Vector2 target=transform*new Vector2(0,-62);
-        Vector2 safeCenter=new(480,300),half=new(410,170),direction=target-safeCenter;
+        Vector2 viewportSize=GetViewportRect().Size;
+        Vector2 safeCenter=new(viewportSize.X/2,viewportSize.Y/2+30);
+        Vector2 half=new(Mathf.Max(1,viewportSize.X/2-70),Mathf.Max(1,viewportSize.Y/2-100));
+        Vector2 direction=target-safeCenter;
         float t=Mathf.Min(half.X/Mathf.Max(Mathf.Abs(direction.X),.001f),half.Y/Mathf.Max(Mathf.Abs(direction.Y),.001f));
         Position=(safeCenter+direction*t).Round();
         ArrowDirection=(target-Position).Normalized();

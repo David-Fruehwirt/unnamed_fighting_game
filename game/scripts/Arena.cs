@@ -25,6 +25,7 @@ public partial class Arena : Node2D
             MouseFilter=Control.MouseFilterEnum.Ignore };
         _damageLabel.AddThemeFontSizeOverride("font_size",22);hud.AddChild(_damageLabel);
         hud.AddChild(new DummyIndicator { Name="DummyIndicator",Target=dummy });
+        AddChild(new ResponsiveLayout { Name="ResponsiveLayout" });
         string[] args = OS.GetCmdlineUserArgs();
         if (args.Contains("--capture")) Capture(args);
     }
