@@ -45,6 +45,7 @@ public partial class TrainingSmoke : Node
     }
     public override async void _Ready()
     {
+        GetWindow().Size = new Vector2I(960,540); // Explicit baseline; headless defaults to 64x64.
         try
         {
             if(FileAccess.FileExists(TestSettings))DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(TestSettings));

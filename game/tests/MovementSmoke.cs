@@ -27,6 +27,7 @@ public partial class MovementSmoke : Node
     }
     public override async void _Ready()
     {
+        GetWindow().Size = new Vector2I(960,540); // Explicit baseline; headless defaults to 64x64.
         try
         {
             var arena=GD.Load<PackedScene>("res://scenes/arena.tscn").Instantiate();
