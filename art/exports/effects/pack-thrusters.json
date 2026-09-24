@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "projectId": "pack_thrusters",
+  "characterId": "pack_thrusters",
+  "animationId": "thrust",
+  "ticksPerSecond": 60,
+  "sheet": {
+    "width": 64,
+    "height": 16
+  },
+  "origin": {
+    "x": 8,
+    "y": 0
+  },
+  "pivot": {
+    "x": 8,
+    "y": 12
+  },
+  "anchors": {
+    "feet": {
+      "x": 8,
+      "y": 12
+    }
+  },
+  "frames": [
+    {
+      "frameId": "flame_0",
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 16,
+      "durationTicks": 3,
+      "hash": "e301c176"
+    },
+    {
+      "frameId": "flame_1",
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 16,
+      "durationTicks": 3,
+      "hash": "85c59dc5"
+    },
+    {
+      "frameId": "flame_2",
+      "x": 32,
+      "y": 0,
+      "width": 16,
+      "height": 16,
+      "durationTicks": 3,
+      "hash": "2013d879"
+    },
+    {
+      "frameId": "flame_3",
+      "x": 48,
+      "y": 0,
+      "width": 16,
+      "height": 16,
+      "durationTicks": 3,
+      "hash": "f2638809"
+    }
+  ]
+}
