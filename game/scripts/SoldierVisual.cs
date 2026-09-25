@@ -36,6 +36,7 @@ public partial class SoldierVisual : Node2D
     private Texture2D _jabTexture = null!, _crossTexture = null!, _kickTexture = null!;
     public const double AttackSeconds = 12.0 / 60;
     public Sprite2D AttackEffect { get; private set; } = null!;
+    public event Action<int>? FrameApplied;
     public int AtlasFrame { get; private set; }
     public int PartCount => _parts.Count;
     public string Clip { get; private set; } = "idle";
@@ -167,5 +168,6 @@ public partial class SoldierVisual : Node2D
         }
         _nearSocket.Position = _handPositions[index].Near;
         _farSocket.Position = _handPositions[index].Far;
+        FrameApplied?.Invoke(index);
     }
 }

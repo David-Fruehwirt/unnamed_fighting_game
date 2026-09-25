@@ -1,3 +1,4 @@
+using ByteBrawl.Combat;
 using Godot;
 using System;
 
@@ -21,6 +22,7 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
     public event Action? Respawned;
     private Node2D _numbers = null!;
     public SoldierVisual Visual { get; private set; } = null!;
+    public SoldierHurtboxRig Hurtboxes { get; private set; } = null!;
     public Vector2 SpawnPosition { get; private set; }
     public float CoyoteLeft { get; set; }
     public float Facing { get; private set; } = 1;
@@ -48,6 +50,8 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
     public override void _Ready()
     {
         Visual = GetNode<SoldierVisual>("Visual");
+        Hurtboxes = new SoldierHurtboxRig { Name="HurtboxRig", Fighter=this };
+        Visual.AddChild(Hurtboxes);
         _numbers = new Node2D { Name="DamageNumbers" };
         AddChild(_numbers);
         SpawnPosition = GlobalPosition;
@@ -78,7 +82,7 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
         {
             Damage.Tick(dt);
             if (IsOnFloor()) GroundedJumpReset();
-            Velocity=new Vector2(Velocity.X,Math.Min(Velocity.Y+Gravity*dt,800));
+            Velocity=new Vector2(Velocity.X,FighterPhysics.GravityStep(Velocity.Y,Gravity,dt,800));
             MoveAndSlide();
             if (IsOnFloor()) GroundedJumpReset();
             Visual.SetThrusters(false, dt);
@@ -107,7 +111,7 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
         else
         {
             CoyoteLeft = Math.Max(0, CoyoteLeft - dt);
-            velocity.Y = Math.Min(velocity.Y + Gravity * dt, 800);
+            velocity.Y = FighterPhysics.GravityStep(velocity.Y,Gravity,dt,800);
         }
         _jumpBuffer = Math.Max(0, _jumpBuffer - dt);
         if (Input.IsActionJustPressed("jump")) _jumpBuffer = JumpBufferTime;
@@ -149,7 +153,8 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
             targetSpeed=Math.Max(targetSpeed,Math.Abs(velocity.X));
         float steering = IsAttacking ? AttackAcceleration : Acceleration;
         float braking = IsAttacking ? (groundedAttack ? GroundAttackBraking : AirAttackBraking) : Braking;
-        velocity.X = Mathf.MoveToward(velocity.X, axis * targetSpeed,
+        velocity.X = !IsAttacking ? FighterPhysics.Locomotion(velocity.X, axis, targetSpeed, wasOnFloor)
+            : Mathf.MoveToward(velocity.X, axis * targetSpeed,
             (axis != 0 ? steering : braking) * dt);
         if (!IsAttacking && axis != 0) Facing = Math.Sign(axis);
         Velocity = velocity;
