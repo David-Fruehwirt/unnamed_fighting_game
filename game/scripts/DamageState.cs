@@ -11,9 +11,9 @@ public interface IDamageReceiver
 
 public readonly record struct AttackHit(int Percentage, string Name, float BaseSpeed, float Scaling, float Angle, double StunSeconds)
 {
-    public static readonly AttackHit Jab = new(5,"Jab",150,3,25,.15);
-    public static readonly AttackHit Cross = new(7,"Cross",230,4.5f,35,.20);
-    public static readonly AttackHit Kick = Cross with { Name="Kick" };
+    public static readonly AttackHit Jab = new(2,"Jab",150,3,25,.15);
+    public static readonly AttackHit Cross = new(3,"Cross",230,4.5f,35,.20);
+    public static readonly AttackHit Kick = Cross with { Name="Kick", Percentage=4 };
     public Vector2 Launch(float postHitPercentage, float facing)
     {
         float speed=BaseSpeed+Scaling*postHitPercentage;

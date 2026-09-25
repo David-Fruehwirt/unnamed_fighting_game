@@ -21,8 +21,8 @@ public partial class MovementSmoke
     private async Task VerifyKick()
     {
         Check(SoldierVisual.KickSeconds==SoldierVisual.CrossSeconds,"Kick matches cross duration");
-        Check(AttackHit.Kick.Percentage==7 && AttackHit.Kick.Launch(100,1)==AttackHit.Cross.Launch(100,1)
-            && AttackHit.Kick.StunSeconds==AttackHit.Cross.StunSeconds,"Kick has cross damage, knockback and hitstun");
+        Check(AttackHit.Jab.Percentage==2 && AttackHit.Cross.Percentage==3 && AttackHit.Kick.Percentage==4 && AttackHit.Kick.Launch(100,1)==AttackHit.Cross.Launch(100,1)
+            && AttackHit.Kick.StunSeconds==AttackHit.Cross.StunSeconds,"Damage is 2/3/4; kick retains cross knockback and hitstun");
         var combo=new FistCombo();
         void Second(){combo.Reset();combo.Advance(0,true);combo.Advance(.05,true);combo.Advance(.15,false);}
         Second();combo.Advance(.3,false);combo.Advance(.199999,true);

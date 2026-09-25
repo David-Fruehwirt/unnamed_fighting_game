@@ -6,9 +6,9 @@ namespace UnnamedFightingGame;
 /// <summary>Damage follows the active fist or foot only during impact poses, once per target per attack.</summary>
 public partial class SoldierCombat : Node2D
 {
-    [Export] public int JabDamage { get; set; } = 5;
-    [Export] public int CrossDamage { get; set; } = 7;
-    [Export] public int KickDamage { get; set; } = 7;
+    [Export] public int JabDamage { get; set; } = 2;
+    [Export] public int CrossDamage { get; set; } = 3;
+    [Export] public int KickDamage { get; set; } = 4;
     private Soldier _soldier = null!;
     private readonly CircleShape2D _fist = new() { Radius=9 };
     private readonly HashSet<ulong> _hitTargets = new();

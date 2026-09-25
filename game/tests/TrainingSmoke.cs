@@ -69,30 +69,30 @@ public partial class TrainingSmoke : Node
             await Setup();await Press();
             Check(_dummy.Damage.Percentage==0,"Jab startup does not damage the dummy");
             await Frames(2);
-            Check(_dummy.Damage.Percentage==5&&_dummy.Damage.LastDamage==5&&_dummy.Damage.HitCount==1,"Jab impact deals exactly 5% damage");
+            Check(_dummy.Damage.Percentage==2&&_dummy.Damage.LastDamage==2&&_dummy.Damage.HitCount==1,"Jab impact deals exactly 2% damage");
             Check(_dummy.GetNode("DamageNumbers").GetChildCount()==1,"A damage number appears on the hit");
             await Capture("training-hit");
             await Frames(10);
-            Check(_dummy.Damage.Percentage==5&&_dummy.Damage.HitCount==1,"Several overlapping impact ticks deal damage only once");
+            Check(_dummy.Damage.Percentage==2&&_dummy.Damage.HitCount==1,"Several overlapping impact ticks deal damage only once");
             Check(_dummy.Position.DistanceTo(home)<.1,"Knockback off keeps the dummy stationary when hit");
 
             await Setup();await Press();await Frames(2);await Press();await Frames(32);
-            Check(_dummy.Damage.Percentage==12&&_dummy.Damage.HitCount==2&&_dummy.Damage.LastDamage==7,"Jab-cross combo deals 5% plus 7%, once per punch");
+            Check(_dummy.Damage.Percentage==5&&_dummy.Damage.HitCount==2&&_dummy.Damage.LastDamage==3,"Jab-cross combo deals 2% plus 3%, once per punch");
             await Setup(480);await Press();await Frames(16);
             Check(_dummy.Damage.Percentage==0,"A distant punch misses");
             await Setup(670);await Press();await Frames(16);
             Check(_dummy.Damage.Percentage==0,"Punching away from the dummy misses");
             Input.ActionPress("move_left");await Press();Input.ActionRelease("move_left");await Frames(18);
-            Check(_dummy.Damage.Percentage==7,"Left-facing cross uses its mirrored fist hit position");
+            Check(_dummy.Damage.Percentage==3,"Left-facing cross uses its mirrored fist hit position");
             await Setup(480);await Press();await Frames(7);_player.Position=new(570,334);await Frames(5);
             Check(_dummy.Damage.Percentage==0,"Entering range during recovery cannot hit");
             await Setup();_player.Position=new(570,310);_player.Velocity=new(0,200);await Frames(1);
             await Press();await Frames(10);
-            Check(_dummy.Damage.Percentage==5,"Falling punch can hit and land normally");
+            Check(_dummy.Damage.Percentage==2,"Falling punch can hit and land normally");
             await Setup();_player.Position=new(570,150);await Frames(1);await Press();await Frames(12);
             Check(_dummy.Damage.Percentage==0,"An aerial punch above the target misses");
             await Setup();Input.ActionPress("attack");await Frames(60);Input.ActionRelease("attack");
-            Check(_dummy.Damage.Percentage==5&&_dummy.Damage.HitCount==1,"Holding J cannot repeatedly damage the target");
+            Check(_dummy.Damage.Percentage==2&&_dummy.Damage.HitCount==1,"Holding J cannot repeatedly damage the target");
             await Setup();await Press();_player.Reset();await Frames(15);
             Check(_dummy.Damage.Percentage==0,"Reset before impact cancels damage");
 
@@ -100,9 +100,9 @@ public partial class TrainingSmoke : Node
             await Press();await Frames(6);
             Check(_dummy.Position.X>home.X+2&&_dummy.Position.Y<home.Y,"Enabled knockback pushes and lifts the dummy away");
             await Frames(120);
-            Check(_dummy.Position.DistanceTo(home)<.1&&_dummy.Damage.Percentage==5,"Automatic return restores position after inactivity without clearing damage");
+            Check(_dummy.Position.DistanceTo(home)<.1&&_dummy.Damage.Percentage==2,"Automatic return restores position after inactivity without clearing damage");
             _dummy.AutoResetPosition=false;_dummy.ReceiveHit(AttackHit.Jab,-1);await Frames(135);
-            Check(_dummy.Position.X<home.X-3&&_dummy.Damage.Percentage==10,"Automatic return off leaves the displaced dummy in place");
+            Check(_dummy.Position.X<home.X-3&&_dummy.Damage.Percentage==4,"Automatic return off leaves the displaced dummy in place");
             _dummy.AutoResetPosition=true;await Frames(2);
             Check(_dummy.Position.DistanceTo(home)<.1,"Enabling return restores an overdue displaced dummy");
             _dummy.ReceiveHit(AttackHit.Jab,1);await Frames(70);
@@ -111,8 +111,8 @@ public partial class TrainingSmoke : Node
             _dummy.AutoResetPosition=false;_dummy.Position=new(800,860);await Frames(2);
             Check(_dummy.Position.DistanceTo(home)<.1&&_dummy.Damage.Percentage==0,"Off-stage rescue works even with automatic return disabled");
             _dummy.KnockbackEnabled=false;
-            _dummy.ReceiveHit(AttackHit.Jab with { Percentage=95 },1);
-            Check(_dummy.ReceiveHit(AttackHit.Cross,1)==7&&_dummy.Damage.Percentage==102&&_dummy.Damage.LastDamage==7,"Damage accumulates past 100% without truncating the hit");
+            _dummy.ReceiveHit(AttackHit.Jab with { Percentage=99 },1);
+            Check(_dummy.ReceiveHit(AttackHit.Cross,1)==3&&_dummy.Damage.Percentage==102&&_dummy.Damage.LastDamage==3,"Damage accumulates past 100% without truncating the hit");
             await Frames(62);
             Check(_dummy.Damage.Percentage==102,"Percentage does not automatically heal or cause death at 100%");
 

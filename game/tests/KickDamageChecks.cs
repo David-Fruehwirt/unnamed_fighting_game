@@ -17,8 +17,8 @@ public partial class TrainingSmoke
             float percent=_dummy.Damage.Percentage;int count=_dummy.Damage.HitCount;
             Check(_player.AttackNumber==3,"Damage test reaches third attack");
             await Frames(18);
-            Check(_dummy.Damage.Percentage==percent+7&&_dummy.Damage.HitCount==count+1,"Kick adds exactly seven percent once across three active frames in either facing");
-            Check(_dummy.Damage.LastDamage==7,"Kick damage display receives seven percent");
+            Check(_dummy.Damage.Percentage==percent+4&&_dummy.Damage.HitCount==count+1,"Kick adds exactly four percent once across three active frames in either facing");
+            Check(_dummy.Damage.LastDamage==4,"Kick damage display receives four percent");
         }
         await Setup(380);await Press();await Frames(1);await Press();
         for(int i=0;i<20&&_player.AttackNumber==1;i++)await Frames(1);

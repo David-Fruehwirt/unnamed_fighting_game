@@ -36,13 +36,13 @@ public partial class TrainingSmoke
         _player.GetParent().AddChild(opponent);
         opponent.SetPhysicsProcess(false);opponent.Position=new Vector2(620,334);
         await Frames(2);await Press();await Frames(8);
-        Check(opponent.Damage.Percentage==5&&opponent.Damage.HitCount==1,"Shared hit query damages another Soldier once");
+        Check(opponent.Damage.Percentage==2&&opponent.Damage.HitCount==1,"Shared hit query damages another Soldier once");
         opponent.QueueFree();await Frames(1);
 
         await Setup();await Press();
         _player.ReceiveHit(AttackHit.Cross,-1);
         Vector2 launch=_player.Velocity;
-        Check(_player.Damage.Percentage==7&&_player.Damage.Stunned&&!_player.IsAttacking&&
+        Check(_player.Damage.Percentage==3&&_player.Damage.Stunned&&!_player.IsAttacking&&
             !_player.Visual.AttackEffect.Visible,"Received hit cancels the Soldier combo and starts hitstun");
         Input.ActionPress("move_right");Input.ActionPress("jump");Input.ActionPress("attack");
         await Frames(6);
