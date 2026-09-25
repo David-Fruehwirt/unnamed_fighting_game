@@ -5,7 +5,7 @@
   "animationId": "all",
   "ticksPerSecond": 300,
   "sheet": {
-    "width": 5760,
+    "width": 7296,
     "height": 128
   },
   "origin": {
@@ -427,6 +427,114 @@
       "height": 128,
       "durationTicks": 40,
       "hash": "8c786e9d"
+    },
+    {
+      "frameId": "kick_0",
+      "x": 5760,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "def826a2"
+    },
+    {
+      "frameId": "kick_1",
+      "x": 5888,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 10,
+      "hash": "ea4a2a58"
+    },
+    {
+      "frameId": "kick_2",
+      "x": 6016,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "bbdbd207"
+    },
+    {
+      "frameId": "kick_3",
+      "x": 6144,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 10,
+      "hash": "bbdbd207"
+    },
+    {
+      "frameId": "kick_4",
+      "x": 6272,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 15,
+      "hash": "bbdbd207"
+    },
+    {
+      "frameId": "kick_5",
+      "x": 6400,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 10,
+      "hash": "17e27688"
+    },
+    {
+      "frameId": "kick_6",
+      "x": 6528,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "33c21988"
+    },
+    {
+      "frameId": "kick_7",
+      "x": 6656,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "e29a043c"
+    },
+    {
+      "frameId": "kick_8",
+      "x": 6784,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "fe56a837"
+    },
+    {
+      "frameId": "kick_9",
+      "x": 6912,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "e2375002"
+    },
+    {
+      "frameId": "kick_10",
+      "x": 7040,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 5,
+      "hash": "3c3f2c8b"
+    },
+    {
+      "frameId": "kick_11",
+      "x": 7168,
+      "y": 0,
+      "width": 128,
+      "height": 128,
+      "durationTicks": 10,
+      "hash": "def826a2"
     }
   ]
 }

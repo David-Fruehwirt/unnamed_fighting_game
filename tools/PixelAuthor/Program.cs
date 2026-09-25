@@ -26,6 +26,8 @@ public static partial class Program
             else if (args.Length == 1 && args[0] == "fight") BuildFight();
             else if (args.Length == 1 && args[0] == "double-jump") BuildDoubleJump();
             else if (args.Length == 1 && args[0] == "thrusters") BuildThrusters();
+            else if (args.Length == 1 && args[0] == "thruster-sockets") BuildThrusterSockets();
+            else if (args.Length == 1 && args[0] == "kick") BuildKick();
             else if (args.Length == 1 && args[0] == "cross") BuildCross();
             else if (args.Length == 1 && args[0] == "stage") BuildPixelStage();
             else if (args.Length == 1 && args[0] == "verify-stage") VerifyPixelStage();

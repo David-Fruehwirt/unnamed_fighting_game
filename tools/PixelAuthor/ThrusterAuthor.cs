@@ -34,6 +34,11 @@ public static partial class Program
             RunPix("sheet",file,"--animation","thrust","--layout","horizontal","--out",$"art/exports/effects/{kind}-thrusters.png");
             RunPix("gif",file,"--animation","thrust","--scale","8","--out",$"art/previews/{kind}-thrusters.gif");
         }
+        BuildThrusterSockets();
+    }
+
+    static void BuildThrusterSockets()
+    {
         var source=JsonNode.Parse(File.ReadAllText("art/soldier.pixel.json"))!["characters"]![0]!["views"]![0]!["frames"]!.AsArray();
         var poses=JsonNode.Parse(File.ReadAllText("art/poses.json"))!["frames"]!.AsArray();
         var sockets=new List<object>();
