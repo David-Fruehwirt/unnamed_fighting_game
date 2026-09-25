@@ -152,4 +152,3 @@ hframes = 5
 
 [node name="Combat" type="Node2D" parent="."]
 script = ExtResource("20")
-

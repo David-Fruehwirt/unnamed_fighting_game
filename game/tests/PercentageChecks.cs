@@ -12,10 +12,10 @@ public partial class TrainingSmoke
         {
             var damage=new DamageState();
             damage.Apply(new AttackHit(initial,"Setup",0,0,0,0),1,false);
-            Vector2 right=damage.Apply(hit,1),left=hit.Launch(damage.Percentage,-1);
+            Vector2 right=damage.Apply(hit,1),left=hit.Launch(initial,-1);
             Check(damage.Percentage==initial+hit.Percentage,$"{hit.Name} adds its full percentage at {initial}%");
-            Check(Math.Abs(right.Length()-(hit.BaseSpeed+hit.Scaling*(initial+hit.Percentage)))<.001,
-                $"{hit.Name} launch uses post-hit percentage at {initial}%");
+            Check(Math.Abs(right.Length()-(hit.BaseSpeed+hit.Scaling*initial))<.001,
+                $"{hit.Name} launch uses ByteBrawl pre-hit percentage at {initial}%");
             Check(right.X>0&&right.Y<0&&left.X==-right.X&&left.Y==right.Y,$"{hit.Name} launch mirrors at {initial}%");
             damage.Tick(hit.StunSeconds-.001);bool stunHeld=damage.Stunned;
             damage.Tick(.001);
@@ -25,7 +25,7 @@ public partial class TrainingSmoke
             DamageState.Tint(100)!=DamageState.Tint(150),"Percentage display progresses through white, yellow, orange and red");
 
         await Setup(480);
-        var ownShape=_player.GetNode<CollisionShape2D>("Hurtbox/CollisionShape2D");
+        var ownShape=_player.GetNode<CollisionShape2D>("Visual/HurtboxRig/head/Shape");
         var original=ownShape.Shape;ownShape.Shape=new RectangleShape2D { Size=new Vector2(220,110) };
         await Frames(2);await Press();await Frames(13);
         Check(_player.Damage.Percentage==0,"A fist overlapping its own hurtbox cannot self-hit");
@@ -71,6 +71,7 @@ public partial class TrainingSmoke
         Check(_dummy.GetNode<Sprite2D>("Artwork").Position==Vector2.Zero,"Dummy reset clears any fractional display offset");
 
         await Setup(450);_player.Position=new Vector2(450,160);_player.Velocity=new Vector2(300,0);await Frames(1);
+        _player.Velocity=new Vector2(260,_player.Velocity.Y);
         Vector2 before=_player.Velocity;await Press();
         Check(Math.Abs(_player.Velocity.X-(before.X+68))<.1,"Airborne jab adds 70 horizontal speed before neutral braking");
         Check(Math.Abs(_player.Velocity.Y-(before.Y+_player.Gravity/60))<.1,"Jab recovery adds no upward lift");
