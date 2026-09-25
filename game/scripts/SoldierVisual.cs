@@ -19,6 +19,7 @@ public partial class SoldierVisual : Node2D
         ["jump_sequence"] = (16, 8, 4, false),
         ["attack"] = (24, 5, 2, false),
         ["cross"] = (29, 8, 2, false),
+        ["kick"] = (45, 12, 1, false),
         ["double_rise"] = (37, 5, 4, false),
         ["double_fall"] = (42, 2, 6, false),
         ["double_land"] = (44, 1, 8, false),
@@ -29,8 +30,10 @@ public partial class SoldierVisual : Node2D
     // Runtime punches play at 1.5x reference speed; source artwork/timing stays intact.
     private static readonly int[] AttackTicks = { 2, 4, 2, 2, 2 };
     private static readonly int[] CrossTicks = { 2, 2, 2, 2, 2, 4, 2, 2 };
+    private static readonly int[] KickTicks = { 1,2,1,2,3,2,1,1,1,1,1,2 };
+    public const double KickSeconds = 18.0 / 60;
     public const double CrossSeconds = 18.0 / 60;
-    private Texture2D _jabTexture = null!, _crossTexture = null!;
+    private Texture2D _jabTexture = null!, _crossTexture = null!, _kickTexture = null!;
     public const double AttackSeconds = 12.0 / 60;
     public Sprite2D AttackEffect { get; private set; } = null!;
     public int AtlasFrame { get; private set; }
@@ -38,6 +41,8 @@ public partial class SoldierVisual : Node2D
     public string Clip { get; private set; } = "idle";
     private readonly List<Sprite2D> _parts = new();
     private readonly List<(Vector2 Near, Vector2 Far)> _handPositions = new();
+    public Marker2D KickSocket { get; private set; } = null!;
+    private readonly List<Vector2> _kickPositions = new();
     private Marker2D _nearSocket = null!;
     private Marker2D _farSocket = null!;
     private double _ticks, _thrustTicks;
@@ -65,12 +70,15 @@ public partial class SoldierVisual : Node2D
         _farSocket = GetNode<Marker2D>("FarWeaponSocket");
         AttackEffect = GetNode<Sprite2D>("AttackEffects/Impact");
         _jabTexture = AttackEffect.Texture;
+        KickSocket = new Marker2D { Name="KickSocket" }; AddChild(KickSocket);
+        _kickTexture = GD.Load<Texture2D>("res://assets/soldier_effects/kick.png");
         _crossTexture = GD.Load<Texture2D>("res://assets/soldier_effects/cross.png");
         using var poses = JsonDocument.Parse(FileAccess.GetFileAsString("res://assets/soldier_frames/poses.json"));
         foreach (var frame in poses.RootElement.GetProperty("frames").EnumerateArray())
         {
             var parts = frame.GetProperty("parts");
             _handPositions.Add((ReadPoint(parts,"near_hand"),ReadPoint(parts,"far_hand")));
+            _kickPositions.Add(ReadPoint(parts,"far_foot"));
         }
         var effects = new Node2D { Name = "Thrusters", ZIndex = -1 };
         AddChild(effects);
@@ -113,11 +121,11 @@ public partial class SoldierVisual : Node2D
             while (local < IdleTicks.Length - 1 && phase >= IdleTicks[local])
                 phase -= IdleTicks[local++];
         }
-        if (clip is "attack" or "cross")
+        if (clip is "attack" or "cross" or "kick")
         {
             double phase = _ticks;
             local = 0;
-            var durations = clip == "cross" ? CrossTicks : AttackTicks;
+            var durations = clip == "kick" ? KickTicks : clip == "cross" ? CrossTicks : AttackTicks;
             while (local < durations.Length - 1 && phase + .000001 >= durations[local])
                 phase -= durations[local++];
         }
@@ -130,10 +138,10 @@ public partial class SoldierVisual : Node2D
         Clip = clip;
         localFrame = Math.Clamp(localFrame, 0, animation.Count - 1);
         _ticks = localFrame * animation.Ticks;
-        if (clip is "idle" or "attack" or "cross")
+        if (clip is "idle" or "attack" or "cross" or "kick")
         {
             _ticks = 0;
-            var durations = clip == "idle" ? IdleTicks : clip == "cross" ? CrossTicks : AttackTicks;
+            var durations = clip == "idle" ? IdleTicks : clip == "kick" ? KickTicks : clip == "cross" ? CrossTicks : AttackTicks;
             for (int i = 0; i < localFrame; i++) _ticks += durations[i];
         }
         ApplyFrame(animation.Start + localFrame);
@@ -142,12 +150,13 @@ public partial class SoldierVisual : Node2D
     private void ApplyFrame(int index)
     {
         AtlasFrame = index;
+        KickSocket.Position = _kickPositions[index];
         for (int i=0;i<_thrusters.Count;i++) _thrusters[i].Position = _thrustSockets[index][i];
         foreach (var sprite in _parts) sprite.Frame = index;
-        AttackEffect.Visible = Clip is "attack" or "cross";
+        AttackEffect.Visible = Clip is "attack" or "cross" or "kick";
         if (AttackEffect.Visible)
         {
-            var texture = Clip == "cross" ? _crossTexture : _jabTexture;
+            var texture = Clip == "kick" ? _kickTexture : Clip == "cross" ? _crossTexture : _jabTexture;
             if (AttackEffect.Texture != texture)
             {
                 AttackEffect.Frame = 0;

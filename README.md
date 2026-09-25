@@ -2,7 +2,7 @@
 
 A Godot 2D fighting prototype with a white-and-cobalt Soldier on a pixel-art scrapyard stage.
 
-Damage builds from 0%: jab +5%, cross +7%. Higher damage means stronger knockback.
+Damage builds from 0%: jab +5%, cross +7%, kick +7%. Higher damage means stronger knockback.
 
 ![Soldier](art/previews/idle.gif)
 
@@ -10,6 +10,6 @@ Damage builds from 0%: jab +5%, cross +7%. Higher damage means stronger knockbac
 
 - **A / D** or **Left / Right**: move.
 - **Space / W / Up**: jump; press again in midair for a powered second jump. Release early for a shorter jump.
-- **J**: punch on the ground or in the air; press again for a two-punch combo. Pausing restarts with punch one.
+- **J**: attack on the ground or in the air; press three times for jab, cross, then kick. Pausing restarts with the jab.
 - **R**: reset.
 - **Esc / Settings**: toggle dummy knockback or automatic position reset; reset the dummy.

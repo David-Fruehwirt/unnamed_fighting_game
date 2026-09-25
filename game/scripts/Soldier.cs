@@ -142,7 +142,7 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
         // Attack playback is independent of locomotion: keep momentum and vertical physics.
         bool groundedAttack = wasOnFloor && !takeoff;
         if(attackStarted&&!groundedAttack)
-            velocity.X=Mathf.Clamp(velocity.X+Facing*(AttackNumber==2?100:70),-360,360);
+            velocity.X=Mathf.Clamp(velocity.X+Facing*(AttackNumber>=2?100:70),-360,360);
         float targetSpeed = (_doubleFlight ? 253 : MoveSpeed) * (IsAttacking ?
             (groundedAttack ? GroundAttackSpeedFactor : AirAttackSpeedFactor) : 1);
         if(IsAttacking&&!groundedAttack&&axis*velocity.X>0)
@@ -171,7 +171,7 @@ public partial class Soldier : CharacterBody2D, IDamageReceiver
             : !IsOnFloor() ? (_doubleFlight ? (_doubleFalling ? "double_fall" : "double_rise") : (Velocity.Y < -20 ? "jump" : "fall"))
             : _landingLeft > 0 ? (_doubleLanding ? "double_land" : "land")
             : Math.Abs(Velocity.X) > 15 ? "run" : "idle";
-        MotionState = IsAttacking ? (AttackNumber == 2 ? "cross" : "attack") : movementState;
+        MotionState = IsAttacking ? (AttackNumber == 3 ? "kick" : AttackNumber == 2 ? "cross" : "attack") : movementState;
         Visual.Scale = new Vector2(Facing, 1);
         // Snap only the display: collision movement retains its full precision.
         Visual.Position = GlobalPosition.Round() - GlobalPosition;

@@ -13,6 +13,7 @@ public readonly record struct AttackHit(int Percentage, string Name, float BaseS
 {
     public static readonly AttackHit Jab = new(5,"Jab",150,3,25,.15);
     public static readonly AttackHit Cross = new(7,"Cross",230,4.5f,35,.20);
+    public static readonly AttackHit Kick = Cross with { Name="Kick" };
     public Vector2 Launch(float postHitPercentage, float facing)
     {
         float speed=BaseSpeed+Scaling*postHitPercentage;
