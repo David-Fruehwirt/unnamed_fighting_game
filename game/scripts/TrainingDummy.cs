@@ -1,3 +1,4 @@
+using ByteBrawl.Combat;
 using Godot;
 using System;
 
@@ -62,7 +63,7 @@ public partial class TrainingDummy : CharacterBody2D, IDamageReceiver
         if(!KnockbackEnabled)velocity.X=0;
         else if(!Damage.Stunned)velocity.X=Mathf.MoveToward(velocity.X,0,600*(float)delta);
         Damage.Tick(delta);
-        velocity.Y=Math.Min(velocity.Y+1350*(float)delta,800);
+        velocity.Y=FighterPhysics.GravityStep(velocity.Y,1350,delta,800);
         Velocity=velocity;
         MoveAndSlide();
         _art.Position=GlobalPosition.Round()-GlobalPosition;

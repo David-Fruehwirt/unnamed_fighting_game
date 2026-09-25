@@ -1,3 +1,4 @@
+using ByteBrawl.Combat;
 using Godot;
 using System;
 
@@ -14,11 +15,11 @@ public readonly record struct AttackHit(int Percentage, string Name, float BaseS
     public static readonly AttackHit Jab = new(2,"Jab",150,3,25,.15);
     public static readonly AttackHit Cross = new(3,"Cross",230,4.5f,35,.20);
     public static readonly AttackHit Kick = Cross with { Name="Kick", Percentage=4 };
-    public Vector2 Launch(float postHitPercentage, float facing)
+    public Vector2 Launch(float damageBeforeHit, float facing)
     {
-        float speed=BaseSpeed+Scaling*postHitPercentage;
         float angle=Mathf.DegToRad(Angle);
-        return new Vector2((facing<0?-1:1)*Mathf.Cos(angle),-Mathf.Sin(angle))*speed;
+        return FighterPhysics.Knockback(BaseSpeed,Scaling,damageBeforeHit,
+            new Vector2(Mathf.Cos(angle),-Mathf.Sin(angle)),facing);
     }
 }
 
@@ -32,9 +33,10 @@ public sealed class DamageState
     public Vector2 Apply(AttackHit hit,float facing,bool knockback=true)
     {
         if(hit.Percentage<=0)return Vector2.Zero;
+        float before=Percentage;
         Percentage+=hit.Percentage;LastDamage=hit.Percentage;HitCount++;
         StunLeft=knockback?hit.StunSeconds:0;
-        return knockback?hit.Launch(Percentage,facing):Vector2.Zero;
+        return knockback?hit.Launch(before,facing):Vector2.Zero;
     }
     public void Tick(double delta) { StunLeft=Math.Max(0,StunLeft-delta);if(StunLeft<.000001)StunLeft=0; }
     public void ClearStun() => StunLeft=0;
