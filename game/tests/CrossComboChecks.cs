@@ -17,9 +17,11 @@ public partial class MovementSmoke
         Check(combo.Queued&&combo.AttackNumber==1,"Several first-punch presses buffer only one cross");
         Check(combo.Advance(.1,false)&&combo.AttackNumber==2&&!combo.Queued,"Buffered cross starts at the first-punch boundary");
         combo.Advance(.2,true);combo.Advance(.099999,true);
-        Check(combo.AttackNumber==2&&!combo.Queued,"Cross discards extra presses and holds its full 300 ms");
+        Check(combo.AttackNumber==2&&combo.Queued,"Cross buffers one kick and holds its full 300 ms");
         combo.Advance(.000001,true);
-        Check(!combo.IsAttacking&&!combo.Queued,"Press at cross completion is discarded during cooldown");
+        Check(combo.AttackNumber==3&&!combo.Queued,"Buffered kick starts at cross completion");
+        combo.Advance(.3,true);
+        Check(!combo.IsAttacking&&!combo.Queued,"Kick completion enters hard cooldown");
         combo.Advance(.149999,true);
         Check(!combo.IsAttacking,"Press just before cooldown expiry is discarded");
         Check(combo.Advance(.000001,true)&&combo.AttackNumber==1,"Fresh press at 150 ms cooldown boundary restarts punch one");
@@ -33,7 +35,7 @@ public partial class MovementSmoke
         Check(combo.AttackNumber==1,"Late press starts punch one even after a long update");
         combo.Reset();combo.Advance(0,true);combo.Advance(.1,true);combo.Advance(.1,false);
         combo.Advance(.3,false);combo.Advance(.15,false);
-        Check(!combo.IsAttacking&&!combo.Queued,"No third attack without a fresh press after cooldown");
+        Check(!combo.IsAttacking&&!combo.Queued,"No third attack without a fresh press during cross or grace");
         combo.Reset();combo.Advance(0,true);combo.Advance(.2,false);combo.Reset();combo.Advance(0,true);
         Check(combo.AttackNumber==1,"Reset clears the grace window");
         combo.Advance(.1,true);combo.Advance(.1,false);combo.Reset();combo.Advance(0,true);
@@ -54,10 +56,10 @@ public partial class MovementSmoke
         float x=_player.Position.X;
         var seen=new System.Collections.Generic.HashSet<int>();
         bool synchronized=true,queued=false;
-        // Spam throughout punch two and cooldown: none may become a third queued punch.
+        // Without a third press, cross ends in a follow-up grace window.
         for(int i=0;i<26;i++)
         {
-            if(i%2==0)Input.ActionPress("attack");else Input.ActionRelease("attack");
+
             if(_player.AttackNumber==2)
             {
                 int frame=_player.Visual.AtlasFrame;
@@ -70,9 +72,9 @@ public partial class MovementSmoke
         }
         Input.ActionRelease("attack");Input.ActionRelease("move_right");
         Check(Enumerable.Range(29,8).All(seen.Contains)&&synchronized,"All eight cross frames synchronize their effects");
-        Check(!queued&&!_player.IsAttacking,"Spam during cross and cooldown cannot queue a third punch");
+        Check(!queued&&!_player.IsAttacking,"Cross does not automatically start a kick");
         Check(_player.Position.X>x+45,"Cross keeps walking momentum");
-        await Frames(3);
+        await Frames(8);
         Input.ActionPress("attack");await Frames(1);Input.ActionRelease("attack");
         Check(_player.AttackNumber==1&&_player.Visual.AttackEffect.Hframes==5,"New combo restores jab and five-frame effect sheet");
 

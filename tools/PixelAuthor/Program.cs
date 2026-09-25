@@ -37,7 +37,7 @@ public static partial class Program
             else if (args.Length == 1 && args[0] == "verify-walk") VerifyWalk();
             else if (args.Length == 1 && args[0] == "verify-idle") VerifyIdle();
             else if (args.Length == 1 && args[0] == "pixelloid") ProcessPixelloid();
-            else throw new Exception("Usage: PixelAuthor dummy <stand|body|head> | part <name> | animate | idle | walk | jump | fight | cross | stage | verify-idle | verify-walk | verify-jump | verify-fight | verify-cross | verify-stage | pixelloid");
+            else throw new Exception("Usage: PixelAuthor dummy <stand|body|head> | part <name> | animate | idle | walk | jump | fight | cross | kick | double-jump | thrusters | thruster-sockets | stage | verify-idle | verify-walk | verify-jump | verify-fight | verify-cross | verify-stage | pixelloid");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine(ex.Message); return 1; }

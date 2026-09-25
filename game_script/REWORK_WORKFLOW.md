@@ -45,3 +45,7 @@ The [cross pass](CROSS_COMBO_REWORK.md) appends eight cross poses: **37 body atl
 ### Powered second jump
 
 The [double-jump pass](DOUBLE_JUMP.md) appends eight poses for **45 body atlas frames**, plus independent four-frame boot and backpack exhaust sheets. All 37 earlier poses and the sixteen body-part definitions are preserved. `PixelAuthor double-jump`, `thrusters`, and `pixelloid` reproduce the new exports; `node tools/verify-double-jump.cjs` checks preservation and pixel identity.
+
+### Third attack: side kick
+
+The [kick pass](KICK_REWORK.md) appends twelve reference poses for **57 body atlas frames**, with a separate twelve-frame effect sheet. J chains jab, cross, then kick. Existing 45 poses, sixteen part definitions, and old effects remain preserved. Reproduce with PixelAuthor `kick`, then `pixelloid`; verify with `node tools/verify-kick.cjs`.
