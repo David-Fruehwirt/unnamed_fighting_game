@@ -13,4 +13,5 @@ Damage builds from 0%: jab +2%, cross +3%, kick +4%. Higher damage means stronge
 - **J**: attack on the ground or in the air; press three times for jab, cross, then kick. Pausing restarts with the jab.
 - **R**: reset.
 - **F3**: show limb hurtboxes and active attack circles.
+- **F4**: show all active collision shapes (stage, movement bodies, hurtboxes and attacks).
 - **Esc / Settings**: toggle dummy knockback or automatic position reset; reset the dummy.
